@@ -43,6 +43,12 @@
         "imagen":"./ofertas/OREO.png",
          "Und_Kg":"1 UND"
       },
+      {
+        "descripcion": "Pepsi 1 L",
+        "precio": "1.08 Ref",
+        "imagen":"./ofertas/PEPSI1L.png",
+         "Und_Kg":"1 UND"
+      },
     {
       "descripcion": "Cafe Vencafe 100g",
       "precio": "0.78 Ref",
@@ -53,6 +59,42 @@
       "descripcion": "Maizoritos Azucarados 500 G ",
       "precio": "4.28 Ref",
       "imagen":"./ofertas/MAIZORITOSAZUCARADOS.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Maizoritos Fruty Aros 240 G ",
+      "precio": "2.26 Ref",
+      "imagen":"./ofertas/FRUTY.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Maizoritos Cronch Flakes 300 G ",
+      "precio": "2.12 Ref",
+      "imagen":"./ofertas/CRONCHFLAKES.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Pringles Surtidos 149/158 G ",
+      "precio": "2.99 Ref",
+      "imagen":"./ofertas/PRINGLES.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Crema de Maiz c/Leche Lumalac 150 G",
+      "precio": "0.99 Ref",
+      "imagen":"./ofertas/CREMAMAIZ150G.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Crema de Maiz c/Leche Lumalac 400 G",
+      "precio": "2.02 Ref",
+      "imagen":"./ofertas/CREMAMAIZ400G.png",
+       "Und_Kg":"1 UND"
+    },
+    {
+      "descripcion": "Aceite Coposa 850 Ml ",
+      "precio": "1.90 Ref",
+      "imagen":"./ofertas/ACEITE_COMPOSA.png",
        "Und_Kg":"1 UND"
     },
     {
