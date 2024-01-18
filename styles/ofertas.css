@@ -16,7 +16,7 @@ box-sizing: border-box;
 }
 .firstImage{
     flex-basis: 60%;
-    background-image: url("/fotos/MARCO_OFERTAS.png");
+    background-image: url("/fotos/PARTE1.png");
     background-color: black;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -25,7 +25,7 @@ box-sizing: border-box;
 }
 .secondImage{
     flex-basis: 40%;
-    background-image: url("/fotos/MARCO_OFERTAS2.png");
+    background-image: url("/fotos/PARTE2.png");
     background-color: black;
     background-size: 100% 100%;
     background-repeat: no-repeat;
