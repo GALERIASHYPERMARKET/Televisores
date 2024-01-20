@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+box-sizing: border-box;
+}
+
+.listas2{
+    width: 100%;
+    height: 100vh;
+}
+.containerJugos{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+}
+.firstImage{
+    flex-basis: 60%;
+    background-image: url("/fotos/MARCO_OFERTAS.png");
+    background-color: black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+.secondImage{
+    flex-basis: 40%;
+    background-image: url("/fotos/MARCO_OFERTAS2.png");
+    background-color: black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    align-items: center;
+}
+.Container{
+    width: 90%;
+    height: 90%;
+} 
+.gridContainer{
+display: grid;
+
+width: 100%;
+height: 100%;
+grid-template-columns: auto auto auto auto;
+
+
+grid-gap:10px;
+padding: 10px;
+
+
+} 
+.productGrid{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    opacity: 0;
+  }
+.imageGrid{
+    flex-basis: 50%;
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+
+}  
+.imageGrid img{
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    border: 5px solid white;
+}  
+.infoGrid{
+    flex-basis: 50%;
+    display: block;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+.infoGrid div{
+    margin-bottom: 10px;
+}  
+.price{
+    font-size: 35px;
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.und_kg{
+    font-size: 20px;
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.description{
+    font-size: 25px;
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
