@@ -3,7 +3,7 @@
     "quesos": [
    {
      "descripcion": "QUESO DURO",
-     "precio": "5.25 Ref"
+     "precio": "4.99 Ref"
    },
    {
     "descripcion": "QUESO GUAYANES",
@@ -32,7 +32,7 @@
   },
   {
     "descripcion": "QUESO CREMA PAISA 200GR",
-    "precio": "4.05 Ref"
+    "precio": "4.50 Ref"
   },
   {
     "descripcion": "QUESO BLANCO DE BUFALA PACOMELA",
@@ -60,11 +60,11 @@
   },
   {
     "descripcion": "QUESO T/PAISA EMMANUEL X KG",
-    "precio": "9.86 Ref"
+    "precio": "10.28 Ref"
   },
   {
     "descripcion":"QUESO BLANCO ESPECIAL PAISA KG",
-    "precio": "16.46 Ref"
+    "precio": "16.52 Ref"
   },
   {
     "descripcion": "QUESO MOZARRELLA GUAMITO KG",
@@ -76,7 +76,7 @@
   },
   {
     "descripcion": "QUESO PECORINO EMMANUEL S/P KG",
-    "precio": "31.78 Ref"
+    "precio": "32.28 Ref"
   }
 
 
