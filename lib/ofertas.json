@@ -3,7 +3,7 @@
       "Ofertas": [
      {
        "descripcion": "Cafe Fama de america 100g",
-       "precio": "0.81 Ref",
+       "precio": "0.75 Ref",
        "imagen":"./ofertas/FAMAAMERICA100G.png",
        "Und_Kg":"1 UND"
      },
@@ -15,19 +15,19 @@
     },
     {
         "descripcion": "Cafe Fama de america 500g",
-        "precio": "3.74 Ref",
+        "precio": "4.06 Ref",
         "imagen":"./ofertas/FAMAAMERICA500G.png",
         "Und_Kg":"1 UND"
     },
     {
       "descripcion": "Cafe el Peñon 500g",
-      "precio": "3.90 Ref",
+      "precio": "3.74 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
     {
       "descripcion": "Cafe Madrid 100g",
-      "precio": "0.81 Ref",
+      "precio": "0.75 Ref",
       "imagen":"./ofertas/MADRID100G.png",
        "Und_Kg":"1 UND"
     },
