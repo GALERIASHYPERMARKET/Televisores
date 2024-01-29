@@ -39,13 +39,13 @@
     },
     {
         "descripcion": "Galleta Oreo Chocolate 108g",
-        "precio": "0.95 Ref",
+        "precio": "1.04 Ref",
         "imagen":"./ofertas/OREO.png",
          "Und_Kg":"1 UND"
       },
       {
         "descripcion": "Pepsi 1 L",
-        "precio": "1.08 Ref",
+        "precio": "1.00 Ref",
         "imagen":"./ofertas/PEPSI1L.png",
          "Und_Kg":"1 UND"
       },
@@ -57,7 +57,7 @@
     },
     {
       "descripcion": "Maizoritos Azucarados 500 G ",
-      "precio": "4.28 Ref",
+      "precio": "3.85 Ref",
       "imagen":"./ofertas/MAIZORITOSAZUCARADOS.png",
        "Und_Kg":"1 UND"
     },
@@ -99,7 +99,7 @@
     },
     {
       "descripcion": "Cafe el Peñon 250g",
-      "precio": "1.95 Ref",
+      "precio": "1.87 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
