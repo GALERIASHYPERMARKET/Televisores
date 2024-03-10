@@ -3,13 +3,13 @@
       "Ofertas": [
      {
        "descripcion": "Cafe Fama de america 100g",
-       "precio": "0.75 Ref",
+       "precio": "0.73 Ref",
        "imagen":"./ofertas/FAMAAMERICA100G.png",
        "Und_Kg":"1 UND"
      },
      {
         "descripcion": "Cafe Fama de America 250g",
-        "precio": "1.95 Ref",
+        "precio": "1.82 Ref",
         "imagen":"./ofertas/FAMAAMERICA250G.png",
         "Und_Kg":"1 UND"
     },
@@ -21,13 +21,13 @@
     },
     {
       "descripcion": "Cafe el Peñon 500g",
-      "precio": "3.74 Ref",
+      "precio": "3.58 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
     {
       "descripcion": "Cafe Madrid 100g",
-      "precio": "0.75 Ref",
+      "precio": "0.70 Ref",
       "imagen":"./ofertas/MADRID100G.png",
        "Und_Kg":"1 UND"
     },
@@ -37,15 +37,10 @@
       "imagen":"./ofertas/OHOI.png",
        "Und_Kg":"1 UND"
     },
-    {
-        "descripcion": "Galleta Oreo Chocolate 108g",
-        "precio": "1.04 Ref",
-        "imagen":"./ofertas/OREO.png",
-         "Und_Kg":"1 UND"
-      },
+  
       {
         "descripcion": "Pepsi 1 L",
-        "precio": "1.00 Ref",
+        "precio": "1.04 Ref",
         "imagen":"./ofertas/PEPSI1L.png",
          "Und_Kg":"1 UND"
       },
@@ -99,7 +94,7 @@
     },
     {
       "descripcion": "Cafe el Peñon 250g",
-      "precio": "1.87 Ref",
+      "precio": "1.79 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
