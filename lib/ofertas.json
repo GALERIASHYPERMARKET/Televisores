@@ -62,12 +62,7 @@
       "imagen":"./ofertas/FRUTY.png",
        "Und_Kg":"1 UND"
     },
-    {
-      "descripcion": "Maizoritos Cronch Flakes 300 G ",
-      "precio": "2.12 Ref",
-      "imagen":"./ofertas/CRONCHFLAKES.png",
-       "Und_Kg":"1 UND"
-    },
+   
     {
       "descripcion": "Pringles Surtidos 149/158 G ",
       "precio": "2.45 Ref",
@@ -84,12 +79,6 @@
       "descripcion": "Crema Maiz c/Leche Lumalac 400 G",
       "precio": "2.02 Ref",
       "imagen":"./ofertas/CREMAMAIZ400G.png",
-       "Und_Kg":"1 UND"
-    },
-    {
-      "descripcion": "Aceite Coposa 850 Ml ",
-      "precio": "1.90 Ref",
-      "imagen":"./ofertas/ACEITE_COMPOSA.png",
        "Und_Kg":"1 UND"
     },
     {
@@ -160,7 +149,7 @@
       },
       {
         "descripcion": "Pasta Primor Vermicelli ex esp 1 kg",
-        "precio": "1.52 Ref",
+        "precio": "1.47 Ref",
         "imagen":"./ofertas/PRIMORVERMICELLI.png",
          "Und_Kg":"1 UND"
       },
@@ -172,22 +161,17 @@
       },
       {
         "descripcion": "Pasta Ronco Vermicelli 1 kg",
-        "precio": "1.60 Ref",
+        "precio": "1.29 Ref",
         "imagen":"./ofertas/RONCO1KG.png",
          "Und_Kg":"1 UND"
       },
       {
         "descripcion": "Pasta Sindoni Vermicelli Prem 1 KG",
-        "precio": "1.30 Ref",
+        "precio": "1.25 Ref",
         "imagen":"./ofertas/SINDONI1KG.png",
          "Und_Kg":"1 UND"
       },
-      {
-        "descripcion": "Pasta Sindoni Vermicelli 500 g",
-        "precio": "0.83 Ref",
-        "imagen":"./ofertas/SINDONI500G.png",
-         "Und_Kg":"1 UND"
-      },
+      
       {
         "descripcion": "Vinagre Tiquire las Flores 1 l",
         "precio": "1.68 Ref",
@@ -196,7 +180,7 @@
       },
       {
         "descripcion": "Don Toallin Multiusos 50 H",
-        "precio": "0.79 Ref",
+        "precio": "0.77 Ref",
         "imagen":"./ofertas/TOALLIN.png",
          "Und_Kg":"1 UND"
       },
