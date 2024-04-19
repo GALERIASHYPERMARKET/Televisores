@@ -23,7 +23,7 @@
   },
   {
     "descripcion": "BOMBA/CHUCHO RELLENA UND",
-    "precio": "1.45 Ref"
+    "precio": "1.63 Ref"
   },
   {
     "descripcion": "DONAS DE CHOCOLATE 1 UND",
@@ -37,6 +37,14 @@
   {
     "descripcion": "PAN DE GUAYABA",
     "precio": "0.90 Ref"
+  },
+  {
+    "descripcion": "ALFAJOR GALERIA UND",
+    "precio": "1.70 Ref"
+  },
+  {
+    "descripcion": "GALLETON UND",
+    "precio": "2.00 Ref"
   }
   
  ]
