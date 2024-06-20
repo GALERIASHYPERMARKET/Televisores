@@ -3,19 +3,19 @@
     "embutidos": [
    {
      "descripcion": "JAMON ESPALDA FIESTA",
-     "precio": "9.17 Ref"
+     "precio": "10.79 Ref"
    },
    {
     "descripcion": "JAMON DE PIERNA EL VALLE",
-    "precio": "8.07 Ref"
+    "precio": "7.70 Ref"
   },
   {
     "descripcion": "PECHUGA DE PAVO HERMO STD KG",
-    "precio": "8.47 Ref"
+    "precio": "11.34 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO EL VALLE KG",
-    "precio":"8.17 Ref"
+    "precio":"7.49 Ref"
   },
   {
     "descripcion": "SALAMI EL VALLE KG",
@@ -23,7 +23,7 @@
   },
   {
     "descripcion": "PEPPERONI EL VALLE KG",
-    "precio": "9.00 Ref"
+    "precio": "12.26 Ref"
   },
   {
     "descripcion": "JAMON AHUMADO FIESTA KG",
@@ -44,7 +44,7 @@
   },
   {
     "descripcion": "JAMON ESPALDA HERMO KG",
-    "precio": "9.69 Ref"
+    "precio": "9.06 Ref"
   },
   {
     "descripcion": "TOCINETA REBANADA OSCAR MAYER KG",
@@ -56,35 +56,35 @@
   },
   {
     "descripcion":"JAMON ESPALDA ALIBAL KG",
-    "precio":"7.04 Ref"
+    "precio":"6.52 Ref"
   },
   {
     "descripcion":"JAMON EST PIERNA ALIBAL KG",
-    "precio":"9.37 Ref"
+    "precio":"8.23 Ref"
   },
   {
     "descripcion":"JAMON MILLENNIUM ESTANDAR KG",
-    "precio":"9.25 Ref"
+    "precio":"10.17 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO MILLENNIUM KG",
-    "precio":"9.04 Ref"
+    "precio":"9.90 Ref"
   },
   {
     "descripcion":"JAMON AHUMADO SHOULDER JD KG",
-    "precio":"7.60 Ref"
+    "precio":"6.89 Ref"
   },
   {
     "descripcion":"JAMON AREPERO JD KG",
-    "precio":"7.33 Ref"
+    "precio":"7.23 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO MAGROS KG",
-    "precio":"9.58 Ref"
+    "precio":"10.17 Ref"
   },
   {
     "descripcion":"JAMON DE PIERNA SUPERIOR MAGROS KG",
-    "precio":"13.08 Ref"
+    "precio":"8.55 Ref"
   },
   {
     "descripcion":"JAMON DE PIERNA MALLORCA KG",
@@ -96,7 +96,7 @@
   },
   {
     "descripcion":"JAMON ESPALDA MALLORCA KG",
-    "precio":"9.17 Ref"
+    "precio":"9.54 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO MALLORCA LIGHT KG",
@@ -104,12 +104,12 @@
   },
   {
     "descripcion":"PECHUGA DE PAVO MALLORCA KG",
-    "precio":"10.00 Ref"
+    "precio":"9.23 Ref"
   },
   
   {
     "descripcion":"TOCINETA AHUMADA KG",
-    "precio":"12,67 Ref"
+    "precio":"14.70 Ref"
   }
 
   
