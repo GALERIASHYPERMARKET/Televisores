@@ -3,11 +3,11 @@
     "quesos": [
    {
      "descripcion": "QUESO DURO",
-     "precio": "6.63 Ref"
+     "precio": "4.50 Ref"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "5.85 Ref"
+    "precio": "5.07 Ref"
   },
   {
     "descripcion": "QUESO MOZARELLA MASTER CHEESE 750G",
@@ -15,7 +15,7 @@
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO KG",
-    "precio": "12.60 Ref"
+    "precio": "16.31 Ref"
   },
   {
     "descripcion": "QUESO MUNSTER LUCERO UND",
@@ -32,7 +32,7 @@
   },
   {
     "descripcion": "QUESO CREMA PAISA 200GR",
-    "precio": "4.50 Ref"
+    "precio": "5.19 Ref"
   },
   {
     "descripcion": "QUESO BLANCO DE BUFALA PACOMELA",
@@ -40,7 +40,7 @@
   },
    {
     "descripcion":"QUESO EMMENTAL EMMANUEL KG",
-    "precio": "13.22 Ref"
+    "precio": "13.29 Ref"
    },
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL KG",
@@ -52,19 +52,19 @@
   },
   {
     "descripcion":"QUESO AMARILLO ZEDEÑO KG",
-    "precio":"14.16 Ref"
+    "precio":"16.27 Ref"
   },
   {
     "descripcion": "QUESO T/PAISA EL GUAMITO X KG",
-    "precio": "7.88 Ref"
+    "precio": "13.70 Ref"
   },
   {
     "descripcion": "QUESO T/PAISA EMMANUEL X KG",
-    "precio": "10.75 Ref"
+    "precio": "12.24 Ref"
   },
   {
     "descripcion":"QUESO BLANCO ESPECIAL PAISA KG",
-    "precio": "16.52 Ref"
+    "precio": "17.91 Ref"
   },
   {
     "descripcion": "QUESO MOZARRELLA GUAMITO KG",
@@ -76,7 +76,7 @@
   },
   {
     "descripcion": "QUESO PECORINO EMMANUEL S/P KG",
-    "precio": "32.28 Ref"
+    "precio": "31.15 Ref"
   }
 
 
