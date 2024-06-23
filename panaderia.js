@@ -1,4 +1,16 @@
 var contador=4;
+const timeline = gsap.timeline({
+  duration: 1,
+  paused: false
+});
+function loadAnimation() {
+timeline.to(".listaProductos .producto", {
+  duration: 3,
+  opacity: 1,
+  stagger: 0.3
+});
+timeline.play();
+}
 function reducirTamano(){
   for (const a of document.querySelectorAll(".linea")) {
     
@@ -26,7 +38,7 @@ function cargarData(){
           text+=text2;
         }
         document.querySelector(".listaProductos").innerHTML=text;
-        
+        loadAnimation()
       });
     } else {
       console.log('Respuesta de red OK pero respuesta HTTP no OK');
@@ -51,6 +63,7 @@ setInterval(function(){
           text+=text2;
         }
         document.querySelector(".listaProductos").innerHTML=text;
+        loadAnimation()
         if(contador>=response.data.Panes.length-5){
           contador=0;
           }else{

@@ -30,13 +30,25 @@
       
     </main>
   </body>
-
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script>
     var contador=4;
     var contadorPublicidad=1;
     var cpublicidad=1;
     var contadorVideo=1;
     var contadorHojaldre=1;
+    const timeline = gsap.timeline({
+    duration: 1,
+    paused: false
+});
+function loadAnimation() {
+  timeline.to(".listaProductos .producto", {
+    duration: 3,
+    opacity: 1,
+    stagger: 0.3
+  });
+  timeline.play();
+}
 /*
     var interval=15000;
    var run=setInterval(runPublicityAndVideos, interval);
@@ -162,7 +174,7 @@ function runPublicityAndVideos(){
          text+=text2;
        }
        document.querySelector(".listaProductos").innerHTML=text;
-       
+       loadAnimation()
      });
    } else {
      console.log('Respuesta de red OK pero respuesta HTTP no OK');
@@ -204,6 +216,7 @@ function runPublicityAndVideos(){
            text+=text2;
          }
          document.querySelector(".listaProductos").innerHTML=text;
+         loadAnimation()
          if(contador>=response.data.pasteles.length-5){
            contador=0;
            }else{
