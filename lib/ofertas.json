@@ -3,25 +3,25 @@
       "Ofertas": [
      {
        "descripcion": "Cafe Fama de america 100g",
-       "precio": "0.73 Ref",
+       "precio": "0.68 Ref",
        "imagen":"./ofertas/FAMAAMERICA100G.png",
        "Und_Kg":"1 UND"
      },
      {
         "descripcion": "Cafe Fama de America 250g",
-        "precio": "1.82 Ref",
+        "precio": "1.96 Ref",
         "imagen":"./ofertas/FAMAAMERICA250G.png",
         "Und_Kg":"1 UND"
     },
     {
         "descripcion": "Cafe Fama de america 500g",
-        "precio": "4.06 Ref",
+        "precio": "4.25 Ref",
         "imagen":"./ofertas/FAMAAMERICA500G.png",
         "Und_Kg":"1 UND"
     },
     {
       "descripcion": "Cafe el Peñon 500g",
-      "precio": "3.58 Ref",
+      "precio": "3.91 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
@@ -65,7 +65,7 @@
    
     {
       "descripcion": "Pringles Surtidos 149/158 G ",
-      "precio": "2.45 Ref",
+      "precio": "3.02 Ref",
       "imagen":"./ofertas/PRINGLES.png",
        "Und_Kg":"1 UND"
     },
@@ -83,7 +83,7 @@
     },
     {
       "descripcion": "Cafe el Peñon 250g",
-      "precio": "1.79 Ref",
+      "precio": "2.13 Ref",
       "imagen":"./ofertas/PENON500G.png",
        "Und_Kg":"1 UND"
     },
