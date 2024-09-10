@@ -3,11 +3,11 @@
     "quesos": [
    {
      "descripcion": "QUESO DURO",
-     "precio": "4.00 Ref"
+     "precio": "4.70 Ref"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "3.78 Ref"
+    "precio": "4.10 Ref"
   },
   {
     "descripcion": "QUESO MOZARELLA MASTER CHEESE 750G",
@@ -44,7 +44,7 @@
    },
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL KG",
-    "precio": "6.69 Ref"
+    "precio": "6.87 Ref"
   },
   {
     "descripcion":"QUESO AMARILLO GUAMITO KG",
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "QUESO T/PAISA EMMANUEL X KG",
-    "precio": "12.00 Ref"
+    "precio": "10.62 Ref"
   },
   {
     "descripcion":"QUESO BLANCO ESPECIAL PAISA KG",
@@ -76,7 +76,7 @@
   },
   {
     "descripcion": "QUESO PECORINO EMMANUEL S/P KG",
-    "precio": "31.15 Ref"
+    "precio": "34.68 Ref"
   }
 
 
