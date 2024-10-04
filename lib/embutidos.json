@@ -60,16 +60,16 @@
     "precio":"11.40 Ref"
   },
   {
-    "descripcion":"JAMON MILLENNIUM ESTANDAR KG",
-    "precio":"10.17 Ref"
+    "descripcion":"JAMON PREMIUM MILLENNIUM  KG",
+    "precio":"11.36 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO MILLENNIUM KG",
     "precio":"9.90 Ref"
   },
   {
-    "descripcion":"JAMON AHUMADO SHOULDER JD KG",
-    "precio":"6.89 Ref"
+    "descripcion":"JAMON SHOULDER DON SIMON KG",
+    "precio":"8.15 Ref"
   },
   {
     "descripcion":"JAMON AREPERO JD KG",
@@ -77,36 +77,31 @@
   },
   {
     "descripcion":"PECHUGA DE PAVO MAGROS KG",
-    "precio":"10.17 Ref"
+    "precio":"13.05 Ref"
   },
   {
     "descripcion":"JAMON DE PIERNA SUPERIOR MAGROS KG",
-    "precio":"8.55 Ref"
+    "precio":"11.70 Ref"
   },
   {
     "descripcion":"JAMON DE PIERNA MALLORCA KG",
-    "precio":"10.31 Ref"
-  },
-  {
-    "descripcion":"JAMON DE PIERNA MALLORCA LIGHT KG",
-    "precio":"7.93 Ref"
-  },
-  {
-    "descripcion":"JAMON ESPALDA MALLORCA KG",
     "precio":"9.54 Ref"
   },
   {
+    "descripcion":"JAMON DE PIERNA MALLORCA LIGHT KG",
+    "precio":"11.92 Ref"
+  },
+  {
+    "descripcion":"JAMON ESPALDA MALLORCA KG",
+    "precio":"9.40 Ref"
+  },
+  {
     "descripcion":"PECHUGA DE PAVO MALLORCA LIGHT KG",
-    "precio":"8.18 Ref"
+    "precio":"11.74 Ref"
   },
   {
     "descripcion":"PECHUGA DE PAVO MALLORCA KG",
-    "precio":"9.23 Ref"
-  },
-  
-  {
-    "descripcion":"TOCINETA AHUMADA KG",
-    "precio":"14.70 Ref"
+    "precio":"9.52 Ref"
   }
 
   
