@@ -3,82 +3,51 @@
     "quesos": [
    {
      "descripcion": "QUESO DURO",
-     "precio": "4.82 Ref"
+     "precio": "5.30 Ref"
    },
    {
     "descripcion": "QUESO GUAYANES",
     "precio": "4.13 Ref"
   },
   {
-    "descripcion": "QUESO MOZARELLA MASTER CHEESE 750G",
-    "precio": "13.06 Ref"
+    "descripcion": "QUESO TELITA XKG",
+    "precio": "5.96 Ref"
+  },
+  {
+    "descripcion": "QUESO CREMA GABY 250 G",
+    "precio": "4.32 Ref"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO KG",
-    "precio": "15.73 Ref"
-  },
-  {
-    "descripcion": "QUESO MUNSTER LUCERO KG",
     "precio": "14.86 Ref"
   },
   {
-    "descripcion": "QUESO PECORINO PACOMELA KG",
-    "precio": "27.95 Ref"
+    "descripcion": "QUESO PALMITO KG",
+    "precio": "8.63 Ref"
   },
   
   {
-    "descripcion": "QUESO AMARILLO EDAM DEL CASTILLO",
-    "precio": "18.62 Ref"
+    "descripcion": "QUESO MOZARELLA SELLO ROJO KG",
+    "precio": "9.45 Ref"
   },
   {
-    "descripcion": "QUESO CREMA PAISA 200GR",
-    "precio": "5.19 Ref"
+    "descripcion": "QUESO MOZARELLA MASTER CHEESE KG",
+    "precio": "13.87 Ref"
   },
   {
-    "descripcion": "QUESO BLANCO DE BUFALA PACOMELA",
-    "precio": "13.51 Ref"
+    "descripcion": "QUESO AMARILLO GUAMITO KG",
+    "precio": "14.88 Ref"
   },
-   {
-    "descripcion":"QUESO EMMENTAL EMMANUEL KG",
-    "precio": "13.30 Ref"
-   },
+  
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL KG",
     "precio": "7.12 Ref"
   },
+  
   {
-    "descripcion":"QUESO AMARILLO GUAMITO KG",
-    "precio":"14.88 Ref"
-  },
-  {
-    "descripcion":"QUESO AMARILLO ZEDEÑO KG",
-    "precio":"20.61 Ref"
-  },
-  {
-    "descripcion": "QUESO T/PAISA EL GUAMITO X KG",
-    "precio": "9.87 Ref"
-  },
-  {
-    "descripcion": "QUESO T/PAISA EMMANUEL X KG",
-    "precio": "12.63 Ref"
-  },
-  {
-    "descripcion":"QUESO BLANCO ESPECIAL PAISA KG",
-    "precio": "13.97 Ref"
-  },
-  {
-    "descripcion": "QUESO MOZARRELLA GUAMITO KG",
-    "precio": "8.52 Ref"
-  },
-  {
-    "descripcion": "QUESO PARMESANO ARTESANAL KG",
-    "precio": "26.03 Ref"
-  },
-  {
-    "descripcion": "QUESO PECORINO EMMANUEL S/P KG",
-    "precio": "31.74 Ref"
+    "descripcion":"QUESO AMARILLO ESP SELLO ROJO KG",
+    "precio":"12.87 Ref"
   }
-
 
   
  ]
