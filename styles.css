@@ -78,7 +78,7 @@ main#panaderia{
 }
 
 main#carniceria{
-  background-image: url("./fotos/carniceria.png");
+  background-image: url("./halloween/carnehalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -115,7 +115,7 @@ main#pasteles{
   background-size: 100% 100%;
 }
 main#pollo{
-  background-image: url("./fotos/pollo.png");
+  background-image: url("./halloween/pollohalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -128,7 +128,7 @@ main#embutidos{
 }
 
 main#cerdo{
-  background-image: url("./fotos/cerdo.png");
+  background-image: url("./halloween/cerdohalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
