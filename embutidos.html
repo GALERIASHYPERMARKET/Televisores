@@ -118,7 +118,7 @@ function loadAnimation() {
     }else{
    fetch('./lib/embutidos.json').then(function(response) {
      if(response.ok) {
-      document.getElementById("embutidos").style.backgroundImage  = "url('./fotos/embutidos.png')";
+      document.getElementById("embutidos").style.backgroundImage  = "url('./halloween/jamonhalloween.png')";
        response.json().then(function(response) {
         document.querySelector(".listaProductos").innerHTML="";
          let data=response.data.embutidos.slice(contador,contador+5);
