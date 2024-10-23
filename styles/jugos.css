@@ -16,6 +16,10 @@ box-sizing: border-box;
     font-family: 'Brussels';
     src: url("/fonts/BrusselsCityPersonalUsed-L3Lon.otf");
   }
+  @font-face {
+    font-family: 'halloween';
+    src: url("/fonts/shlop rg.otf");
+  }
 .listas2{
     width: 100%;
     height: 100vh;
@@ -30,7 +34,7 @@ box-sizing: border-box;
 
 .firstImage{
     flex-basis: 60%;
-    background-image: url("/images/jugosfondo.png");
+    background-image: url("/halloween/jugoshalloween.png");
     background-color: black;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -42,7 +46,7 @@ box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #AA336A;
+    background-color: #d44f07;
 }
 .descripcionContainer{
     position: absolute;
@@ -91,7 +95,7 @@ justify-content: center;
 }
 .preciosGrid1, .preciosGrid2, .preciosGrid3 { 
 
-    font-family: 'rustic';
+    font-family: 'halloween';
     font-size: 20px;
     color: white;
     margin-left: 20px;
@@ -125,7 +129,7 @@ justify-content: center;
 }
 
 .bebidasTitle{
-    font-family: 'rustic';
+    font-family: 'halloween';
     font-size: 50px;
     letter-spacing: 40px;
     color: white;

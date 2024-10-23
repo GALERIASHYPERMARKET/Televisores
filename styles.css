@@ -84,7 +84,7 @@ main#carniceria{
   background-size: 100% 100%;
 }
 main#charcuteria{
-  background-image: url("./fotos/quesos.png");
+  background-image: url("./halloween/quesohalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -121,7 +121,7 @@ main#pollo{
   background-size: 100% 100%;
 }
 main#embutidos{
-  background-image: url("./fotos/embutidos.png");
+  background-image: url("./halloween/jamonhalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
