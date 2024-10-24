@@ -70,7 +70,7 @@ main{
 }
 
 main#panaderia{
-  background-image: url("./fotos/panaderia.png");
+  background-image: url("./halloween/panhalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -97,19 +97,19 @@ main#pollera{
   background-size: 100% 100%;
 }
 main#dulceria{
-  background-image: url("./fotos/dulceria.png");
+  background-image: url("./halloween/dulcehalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#gourmet{
-  background-image: url("./fotos/gourmet.png");
+  background-image: url("./halloween/menuhalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#pasteles{
-  background-image: url("./fotos/pasteles.png");
+  background-image: url("./halloween/pastelhalloween.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
