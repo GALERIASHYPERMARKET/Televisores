@@ -70,7 +70,7 @@ main{
 }
 
 main#panaderia{
-  background-image: url("./halloween/panhalloween.png");
+  background-image: url("./otono/PANADERIA.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -78,13 +78,13 @@ main#panaderia{
 }
 
 main#carniceria{
-  background-image: url("./halloween/carnehalloween.png");
+  background-image: url("./otono/CARNE.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#charcuteria{
-  background-image: url("./halloween/quesohalloween.png");
+  background-image: url("./otono/QUESO.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -97,38 +97,38 @@ main#pollera{
   background-size: 100% 100%;
 }
 main#dulceria{
-  background-image: url("./halloween/dulcehalloween.png");
+  background-image: url("./otono/DULCES.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#gourmet{
-  background-image: url("./halloween/menuhalloween.png");
+  background-image: url("./otono/MENU.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#pasteles{
-  background-image: url("./halloween/pastelhalloween.png");
+  background-image: url("./otono/PASTELES.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#pollo{
-  background-image: url("./halloween/pollohalloween.png");
+  background-image: url("./otono/POLLO.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 main#embutidos{
-  background-image: url("./halloween/jamonhalloween.png");
+  background-image: url("./otono/JAMON.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
 }
 
 main#cerdo{
-  background-image: url("./halloween/cerdohalloween.png");
+  background-image: url("./otono/CERDO.png");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;

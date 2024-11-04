@@ -162,7 +162,7 @@ function runPublicityAndVideos(){
  
  fetch('./lib/pasteles.json').then(function(response) {
    let text="";
-   document.getElementById("pasteles").style.backgroundImage  = "url('./halloween/pastelhalloween.png')";
+   document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.png')";
    if(response.ok) {
     
      response.json().then(function(response) {
@@ -206,7 +206,7 @@ function runPublicityAndVideos(){
     }else{
       fetch('./lib/pasteles.json').then(function(response) {
      if(response.ok) {
-      document.getElementById("pasteles").style.backgroundImage  = "url('./halloween/pastelhalloween.png')";
+      document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.png')";
        response.json().then(function(response) {
         document.querySelector(".listaProductos").innerHTML="";
          let data=response.data.pasteles.slice(contador,contador+5);

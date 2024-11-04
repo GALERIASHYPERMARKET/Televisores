@@ -34,7 +34,7 @@ box-sizing: border-box;
 
 .firstImage{
     flex-basis: 60%;
-    background-image: url("/halloween/jugoshalloween.png");
+    background-image: url("/publicidad/jugosgaleria (1).png");
     background-color: black;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@ box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #d44f07;
+    background-color: #c4198b;
 }
 .descripcionContainer{
     position: absolute;
@@ -95,7 +95,7 @@ justify-content: center;
 }
 .preciosGrid1, .preciosGrid2, .preciosGrid3 { 
 
-    font-family: 'halloween';
+    font-family: 'Brussels';
     font-size: 20px;
     color: white;
     margin-left: 20px;
