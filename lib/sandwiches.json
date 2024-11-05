@@ -3,12 +3,12 @@
     "sandwiches": [
    {
      "descripcion": "SANDWICH JAMON Y QUESO",
-     "precio": "3.99 Ref",
+     "precio": "5.05 Ref",
      "imagen":"./fotos/sjamonqueso.png"
    },
    {
     "descripcion": "SANDWICH ITALIANO",
-    "precio": "2.99 Ref",
+    "precio": "3.48 Ref",
     "imagen":"./fotos/sitaliano.png"
   },
   {
@@ -23,7 +23,7 @@
   },
   {
     "descripcion": "SANDWICH DE POLLO",
-    "precio": "2.99 Ref",
+    "precio": "3.69 Ref",
     "imagen":"./fotos/spollo.png"
   }
  ]
