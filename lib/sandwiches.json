@@ -11,11 +11,11 @@
     "precio": "3.48 Ref",
     "imagen":"./fotos/sitaliano.png"
   },
-  //{
+  {
     "descripcion": "SANDWICH PERNIL",
     "precio": "3.99 Ref",
     "imagen":"./fotos/spernil.png"
-  },//
+  },
   {
     "descripcion": "CLUB HOUSE",
     "precio": "6.24 Ref",
@@ -27,4 +27,6 @@
     "imagen":"./fotos/spollo.png"
   }
  ]
- }}
+ 
+  }
+}

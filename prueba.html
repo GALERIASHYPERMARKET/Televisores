@@ -222,7 +222,10 @@ function cargarPublicidad() {
     cpublicidad++;
   }else if(cpublicidad==5){
     document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CACHAPAS.png')";
-    cpublicidad=cpublicidad-4;
+    cpublicidad++;
+  }else if(cpublicidad==6){
+    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.png')";
+    cpublicidad=cpublicidad-5;
   }
  
      contadorPublicidad++;

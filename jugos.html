@@ -92,14 +92,18 @@ function cargarPublicidad(){
     document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/ensaladas.png')";
     cpublicidad++;
   }else if (cpublicidad===3) {
-    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/arepas.png')";
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/AREPAS1.png')";
     cpublicidad++;
   }else if(cpublicidad===4){
-    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/SOPAS.png')";
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/AREPAS2.png')";
     cpublicidad++;
   }else if(cpublicidad===5){
     document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/papas.png')";
-    cpublicidad=cpublicidad-4;
+    cpublicidad++;
+  }
+  else if(cpublicidad===6){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/arroz.png')";
+    cpublicidad=cpublicidad-5;
   }
   contadorPublicidad++;
 }
