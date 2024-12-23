@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body  >
+  <body  onload="cargarData()" >
    
     <main id="pollera"> 
     <!--  <img id="smokegif" src="/fotos/smoke.gif" alt="">  -->
@@ -58,16 +58,35 @@
   </body>
 
   <script>
-    function trim(element){
- var text=element.textContent;
-alert("hola");
-var length = 18;
-var trimmedString = text.length > length ? 
-                    text.substring(0, length - 3) + "..." : 
-                    text;
-element.textContent = trimmedString;
+     var contador=4;
+    var contadorPublicidad=1;
+    var cpublicidad=1;
+    var contadorVideo=1;
+    var contadorHojaldre=1;
+    function cargarPublicidad() {
+   if(cpublicidad==1){
+    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/pollera.png')";
+    cpublicidad++;
+  }else if(cpublicidad==2){
+    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/POLLOBROASTER.png')";
+    cpublicidad=cpublicidad-1;
+  }
+ 
+     contadorPublicidad++;
 }
 
+function cargarData(){
+   let text="";
+   document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/pollera.png')";
+   
+}
+setInterval( function(){
+   let text="";
+   cargarPublicidad();
+  
+  
+ }
+   , 60000);
 
     </script>
 </html>
