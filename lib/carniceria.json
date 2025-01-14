@@ -3,12 +3,12 @@
     "carniceria": [
 
    {
-    "descripcion": "CARNE MOLIDA DE PRIMERA KG",
+    "descripcion": "CARNE MOLIDA KG",
     "precio": "7.59 Ref"
    },
    {
     "descripcion": "COSTILLA DE RES KG",
-    "precio": "4.30 Ref"
+    "precio": "3.98 Ref"
    },
    {
     "descripcion": "LAGARTO CON HUESO KG",
@@ -28,15 +28,15 @@
   },
   {
     "descripcion": "BISTECK DE RES KG",
-    "precio": "7.59 Ref"
+    "precio": "8.29 Ref"
   },
   {
     "descripcion": "CARNE PARA GUISAR KG",
-    "precio": "7.59 Ref"
+    "precio": "8.29 Ref"
   },
   {
     "descripcion": "CARNE PARA MECHAR KG",
-    "precio": "7.59 Ref"
+    "precio": "8.29 Ref"
   },
   {
     "descripcion": "HIGADO DE RES KG",
@@ -44,7 +44,7 @@
   },
   {
     "descripcion": "STROGONOFF DE RES UND",
-    "precio": "7.59 Ref"
+    "precio": "8.29 Ref"
   },  {
     "descripcion": "CHULETA DE RES",
     "precio": "7.89 Ref"
