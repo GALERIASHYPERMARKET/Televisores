@@ -3,7 +3,7 @@
     "quesos": [
    {
      "descripcion": "QUESO DURO",
-     "precio": "5.30 Ref"
+     "precio": "5.52 Ref"
    },
    {
     "descripcion": "QUESO GUAYANES",
@@ -15,15 +15,15 @@
   },
   {
     "descripcion": "QUESO CREMA GABY 250 G",
-    "precio": "4.32 Ref"
+    "precio": "5.16 Ref"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO KG",
-    "precio": "15.73 Ref"
+    "precio": "15.10 Ref"
   },
   {
     "descripcion": "QUESO PALMITO KG",
-    "precio": "8.63 Ref"
+    "precio": "8.22 Ref"
   },
   
   {
@@ -31,12 +31,12 @@
     "precio": "10.00 Ref"
   },
   {
-    "descripcion": "QUESO MOZARELLA MASTER CHEESE KG",
-    "precio": "14.54 Ref"
+    "descripcion": "QUESO EMMENTAL EMMANUEL KG",
+    "precio": "15.42 Ref"
   },
   {
     "descripcion": "QUESO AMARILLO GUAMITO KG",
-    "precio": "14.54 Ref"
+    "precio": "14.14 Ref"
   },
   
   {
@@ -46,7 +46,7 @@
   
   {
     "descripcion":"QUESO AMARILLO ESP SELLO ROJO KG",
-    "precio":"13.11 Ref"
+    "precio":"13.13 Ref"
   }
 
   
