@@ -66,7 +66,10 @@ function cargarPublicidad() {
     cpublicidad++;
   }else if (cpublicidad==3) {
      document.getElementById("dulceria").style.backgroundImage= "url('./publicidad/POSTRE.png')";
-     cpublicidad= cpublicidad-2;
+     cpublicidad++;
+  }else if (cpublicidad==4) {
+     document.getElementById("dulceria").style.backgroundImage= "url('./publicidad/POSTRE.png')";
+     cpublicidad= cpublicidad-3;
   }
   contadorPublicidad++;
 }
