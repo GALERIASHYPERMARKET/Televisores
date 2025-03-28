@@ -4,39 +4,39 @@
 
    {
     "descripcion": "CARNE MOLIDA ESPECIAL KG",
-    "precio": "8.78 Ref"
+    "precio": "10.50 Ref"
    },
    {
     "descripcion": "COSTILLA DE RES KG",
-    "precio": "4.65 Ref"
+    "precio": "5.66 Ref"
    },
    {
     "descripcion": "LAGARTO CON HUESO KG",
-    "precio": "4.85 Ref"
+    "precio": "5.66 Ref"
   },
   {
     "descripcion": "LOMITO DE RES KG",
-    "precio": "10.55 Ref"
+    "precio": "11.57 Ref"
   },
   {
     "descripcion": "PUNTA TRASERA KG",
-    "precio": "10.13 Ref"
+    "precio": "11.56 Ref"
   },
   {
     "descripcion": "SOLOMO CUERITO KG",
-    "precio": "10.15 Ref"
+    "precio": "12.32 Ref"
   },
   {
     "descripcion": "BISTECK DE RES KG",
-    "precio": "8.78 Ref"
+    "precio": "10.05 Ref"
   },
   {
     "descripcion": "CARNE PARA GUISAR KG",
-    "precio": "8.78 Ref"
+    "precio": "10.05 Ref"
   },
   {
     "descripcion": "CARNE PARA MECHAR KG",
-    "precio": "8.78 Ref"
+    "precio": "10.05 Ref"
   },
   {
     "descripcion": "HIGADO DE RES KG",
@@ -44,10 +44,10 @@
   },
   {
     "descripcion": "STROGONOFF DE RES UND",
-    "precio": "8.78 Ref"
+    "precio": "12.69 Ref"
   },  {
     "descripcion": "CHULETA DE RES",
-    "precio": "8.40 Ref"
+    "precio": "8.49 Ref"
   }
  ]
  }}
