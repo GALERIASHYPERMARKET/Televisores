@@ -11,19 +11,19 @@
   },
    {
     "descripcion": "PECHUGA DE POLLO KG",
-    "precio": "3.97 Ref"
+    "precio": "4.57 Ref"
    },
    {
     "descripcion": "MUSLO DE POLLO KG",
-    "precio": "3.40 Ref"
+    "precio": "4.03 Ref"
    },
    {
     "descripcion": "PATAS DE POLLO KG",
-    "precio": "2.47 Ref"
+    "precio": "2.66 Ref"
   },
   {
     "descripcion": "HIGADO DE POLLO KG",
-    "precio": "2.38 Ref"
+    "precio": "2.84 Ref"
   },
   {
     "descripcion": "FILET DE POLLO KG",
@@ -31,15 +31,16 @@
   },
   {
     "descripcion": "CARAPACHO DE POLLO KG",
-    "precio": "0.99 Ref"
+    "precio": "1.67 Ref"
   },
   {
     "descripcion": "ALAS DE POLLO KG",
-    "precio": "3.20 Ref"
+    "precio": "4.03 Ref"
   },
   {
-    "descripcion": "CHUPETAS DE POLLO KG",
-    "precio": "4.99 Ref"
+    "descripcion": "POLLO PICADO KG",
+    "precio": "3.45 Ref"
   }
+  
  ]
  }}
