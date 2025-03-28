@@ -2,77 +2,89 @@
   "data": {
     "quesos": [
       {
-        "descripcion": "QUESO AMARILLO ZEDEÑO X KG",
-        "precio": "3.99 Ref",
+        "descripcion": "QUESO AMARILLO ZEDEÑO",
+        "precio": "14.88 Ref",
+        "peso": "POR KG",
         "oferta": "si",
         "imagen":"./fotoQuesos/ZEDENO.png"
       },
    {
      "descripcion": "QUESO DURO",
      "precio": "5.62 Ref",
+     "peso": "POR KG",
      "oferta": "no",
      "imagen":"./fotoQuesos/queso-duro.jpg"
    },
    {
     "descripcion": "QUESO GUAYANES",
     "precio": "5.00 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.jpg"
   },
   {
-    "descripcion": "QUESO TELITA XKG",
+    "descripcion": "QUESO TELITA",
     "precio": "5.96 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.png"
   },
   {
-    "descripcion": "QUESO CREMA GABY 250 G",
+    "descripcion": "QUESO CREMA GABY",
     "precio": "5.16 Ref",
+    "peso": "250 GR",
     "oferta": "no",
-    "imagen":"./fotoQuesos/GABU.png"
+    "imagen":"./fotoQuesos/GABY.png"
   },
   {
-    "descripcion": "QUESO AMARILLO LUCERO KG",
+    "descripcion": "QUESO AMARILLO LUCERO",
     "precio": "15.10 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/lucero.png"
   },
   {
-    "descripcion": "QUESO PALMITO KG",
+    "descripcion": "QUESO PALMITO",
     "precio": "8.22 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/quesoPalmito.png"
   },
   
   {
-    "descripcion": "QUESO MOZARELLA SELLO ROJO KG",
+    "descripcion": "QUESO MOZARELLA SELLO ROJO",
     "precio": "10.00 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/SELLOROJO.png"
   },
   {
-    "descripcion": "QUESO EMMENTAL EMMANUEL KG",
+    "descripcion": "QUESO EMMENTAL EMMANUEL",
     "precio": "15.42 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.png"
   },
   {
-    "descripcion": "QUESO AMARILLO GUAMITO KG",
+    "descripcion": "QUESO AMARILLO GUAMITO",
     "precio": "14.14 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/GUAMITOGOUDA.png"
   },
   
   {
-    "descripcion":"QUESO MOZARELLA ARTESANAL KG",
+    "descripcion":"QUESO MOZARELLA ARTESANAL",
     "precio": "7.12 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.png"
   },
   
   {
-    "descripcion":"QUESO AMARILLO ESP SELLO ROJO KG",
+    "descripcion":"QUESO AMARILLO ESP SELLO ROJO",
     "precio":"13.13 Ref",
+    "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/espSelloRojo.png"
   }

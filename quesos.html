@@ -4,24 +4,23 @@
     <title>Other page</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="charcuteria.css">
+    
+
     <script type="module" src="script.js"></script>
   </head>
   <body onload="cargarData()">
     
-  <main id="charcuteria"> 
-    <div class="header" >
-      <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
-      <div class="titulos"  style="color:white">Charcuteria</div>
-    </div>
-   <section class="listas" >
-    <div class="listaProductos">
+  <main>     
+    <nav class="menu">
+   </nav>
+    <div class="container">
       
 
     </div>
 
 
-   </section>
+   
     
    
     
@@ -36,7 +35,7 @@
     paused: false
 });
 function loadAnimation() {
-  timeline.to(".listaProductos .producto", {
+  timeline.to(".container .producto", {
     duration: 3,
     opacity: 1,
     stagger: 0.3
@@ -56,6 +55,15 @@ function reducirTamano(){
  }
 }
 
+function oferta(oferta) {
+  if (oferta==="si") {
+    return `<div class="containerOferta">
+                <img class="oferta" src="./etiquetaOferta.png" alt="">
+            </div>`;
+          }
+          return "";
+}
+
 function cargarData(){
 
  fetch('./lib/quesos.json').then(function(response) {
@@ -63,15 +71,32 @@ function cargarData(){
    if(response.ok) {
      response.json().then(function(response) {
        
-       let data=response.data.quesos.slice(0,5);
+       let data=response.data.quesos.slice(0,6);
         
        for (const productos of data) {
+          let text3=` <div class="product">
+            ${oferta(productos.oferta)}
+           <div class="descriptions">
+              <p class="name">${productos.descripcion}</p>
+               <section class="subdescription">
+                <div class="cuantity_background" style="margin-bottom: 10px;">
+                    <p class="CUANTITY">${productos.peso}</p>
+                </div>
+                <p class="price">${productos.precio}</p>
+               </section>
+             
+            </div>
+            <div class="image">
+                <img src=${productos.imagen} alt="">
+            </div>
+        </div>`;
+       //  let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
+       //  text+=text2;
 
-         let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-         text+=text2;
+       text+=text3;
        }
-       document.querySelector(".listaProductos").innerHTML=text;
-       loadAnimation()
+       document.querySelector(".container").innerHTML=text;
+      // loadAnimation()
      });
    } else {
      console.log('Respuesta de red OK pero respuesta HTTP no OK');
@@ -88,16 +113,34 @@ setInterval(function(){
  fetch('./lib/quesos.json').then(function(response) {
    if(response.ok) {
      response.json().then(function(response) {
-      document.querySelector(".listaProductos").innerHTML="";
-       let data=response.data.quesos.slice(contador,contador+5);
+      document.querySelector(".container").innerHTML="";
+       let data=response.data.quesos.slice(contador,contador+6);
         
        for (const productos of data) {
-         let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-         text+=text2;
+        let text3=` <div class="product">
+            ${oferta(productos.oferta)}
+           <div class="descriptions">
+              <p class="name">${productos.descripcion}</p>
+               <section class="subdescription">
+                <div class="cuantity_background" style="margin-bottom: 10px;">
+                    <p class="CUANTITY">${productos.peso}</p>
+                </div>
+                <p class="price">${productos.precio}</p>
+               </section>
+             
+            </div>
+            <div class="image">
+                <img src=${productos.imagen} alt="">
+            </div>
+        </div>`;
+        // let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
+        // text+=text2;
+        text+=text3;
+
        }
-       document.querySelector(".listaProductos").innerHTML=text;
+       document.querySelector(".container").innerHTML=text;
        loadAnimation()
-       if(contador>=response.data.quesos.length-5){
+       if(contador>=response.data.quesos.length-6){
          contador=0;
          }else{
          contador=contador+4;
