@@ -95,7 +95,7 @@ function loadAnimation() {
          let data=response.data.embutidos.slice(0,5);
           
          for (const productos of data) {
-           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
+           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+' Oferta'+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
            text+=text2;
          }
          document.querySelector(".listaProductos").innerHTML=text;

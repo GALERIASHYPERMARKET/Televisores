@@ -66,6 +66,7 @@ function cargarData(){
        let data=response.data.quesos.slice(0,5);
         
        for (const productos of data) {
+
          let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
          text+=text2;
        }

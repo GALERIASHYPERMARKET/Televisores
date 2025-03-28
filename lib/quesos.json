@@ -1,52 +1,80 @@
 {
   "data": {
     "quesos": [
+      {
+        "descripcion": "QUESO AMARILLO ZEDEÑO X KG",
+        "precio": "3.99 Ref",
+        "oferta": "si",
+        "imagen":"./fotoQuesos/ZEDENO.png"
+      },
    {
      "descripcion": "QUESO DURO",
-     "precio": "5.52 Ref"
+     "precio": "5.62 Ref",
+     "oferta": "no",
+     "imagen":"./fotoQuesos/queso-duro.jpg"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "5.00 Ref"
+    "precio": "5.00 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/QUESOGUAYANES.jpg"
   },
   {
     "descripcion": "QUESO TELITA XKG",
-    "precio": "5.96 Ref"
+    "precio": "5.96 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/QUESOTELITA.png"
   },
   {
     "descripcion": "QUESO CREMA GABY 250 G",
-    "precio": "5.16 Ref"
+    "precio": "5.16 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/GABU.png"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO KG",
-    "precio": "15.10 Ref"
+    "precio": "15.10 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/lucero.png"
   },
   {
     "descripcion": "QUESO PALMITO KG",
-    "precio": "8.22 Ref"
+    "precio": "8.22 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/quesoPalmito.png"
   },
   
   {
     "descripcion": "QUESO MOZARELLA SELLO ROJO KG",
-    "precio": "10.00 Ref"
+    "precio": "10.00 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/SELLOROJO.png"
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL KG",
-    "precio": "15.42 Ref"
+    "precio": "15.42 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/emmanuel.png"
   },
   {
     "descripcion": "QUESO AMARILLO GUAMITO KG",
-    "precio": "14.14 Ref"
+    "precio": "14.14 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/GUAMITOGOUDA.png"
   },
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL KG",
-    "precio": "7.12 Ref"
+    "precio": "7.12 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/queso_mozzarella.png"
   },
   
   {
     "descripcion":"QUESO AMARILLO ESP SELLO ROJO KG",
-    "precio":"13.13 Ref"
+    "precio":"13.13 Ref",
+    "oferta": "no",
+    "imagen":"./fotoQuesos/espSelloRojo.png"
   }
 
   
