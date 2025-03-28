@@ -3,51 +3,87 @@
     "carniceria": [
 
    {
-    "descripcion": "CARNE MOLIDA ESPECIAL KG",
-    "precio": "10.46 Ref"
+    "descripcion": "CARNE MOLIDA ESPECIAL",
+    "precio": "10.46 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/molida.png"
    },
    {
-    "descripcion": "COSTILLA DE RES KG",
-    "precio": "5.39 Ref"
+    "descripcion": "COSTILLA DE RES",
+    "precio": "5.39 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/costilla.png"
    },
    {
-    "descripcion": "LAGARTO CON HUESO KG",
-    "precio": "5.39 Ref"
+    "descripcion": "LAGARTO CON HUESO",
+    "precio": "5.39 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/lagarto.png"
   },
   {
-    "descripcion": "LOMITO DE RES KG",
-    "precio": "11.74 Ref"
+    "descripcion": "LOMITO DE RES",
+    "precio": "11.74 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/lomito.png"
   },
   {
-    "descripcion": "PUNTA TRASERA KG",
-    "precio": "11.01 Ref"
+    "descripcion": "PUNTA TRASERA",
+    "precio": "11.01 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/puntaTrasera.png"
   },
   {
-    "descripcion": "SOLOMO CUERITO KG",
-    "precio": "11.02 Ref"
+    "descripcion": "SOLOMO CUERITO",
+    "precio": "11.02 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/solomoCuerito.png"
   },
   {
-    "descripcion": "BISTECK DE RES KG",
-    "precio": "9.91 Ref"
+    "descripcion": "BISTECK DE RES",
+    "precio": "9.91 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/bisteck.png"
   },
   {
-    "descripcion": "CARNE PARA GUISAR KG",
-    "precio": "9.91 Ref"
+    "descripcion": "CARNE PARA GUISAR",
+    "precio": "9.91 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/carneGuisar.png"
   },
   {
-    "descripcion": "CARNE PARA MECHAR KG",
-    "precio": "9.91 Ref"
+    "descripcion": "CARNE PARA MECHAR",
+    "precio": "9.91 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/carneMechar.png"
   },
   {
-    "descripcion": "HIGADO DE RES KG",
-    "precio": "6.97 Ref"
+    "descripcion": "HIGADO DE RES",
+    "precio": "6.97 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/higado.png"
   },
   {
-    "descripcion": "STROGONOFF DE RES UND",
-    "precio": "9.91 Ref"
+    "descripcion": "STROGONOFF DE RES",
+    "precio": "9.91 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/strogonoff.png"
   },  {
     "descripcion": "CHULETA DE RES",
-    "precio": "8.49 Ref"
+    "precio": "8.49 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/chuleta.png"
   }
  ]
  }}
