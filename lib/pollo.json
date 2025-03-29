@@ -2,44 +2,74 @@
   "data": {
     "pollo": [
    {
-     "descripcion": "POLLO ENTERO CONGELADO KG",
-     "precio": "3.28 Ref"
+     "descripcion": "POLLO ENTERO CONGELADO",
+     "precio": "3.28 Ref",
+     "peso": "POR KG",
+     "oferta": "no",
+     "imagen":"./pollo/polloentero.png"
    },
    {
-    "descripcion": "POLLO ENT CONGEL CHICHI KG",
-    "precio": "3.42 Ref"
+    "descripcion": "POLLO ENT CONGEL CHICHI",
+    "precio": "3.42 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/pollochichi.png"
   },
    {
-    "descripcion": "PECHUGA DE POLLO KG",
-    "precio": "4.57 Ref"
+    "descripcion": "PECHUGA DE POLLO",
+    "precio": "4.57 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/pechuga.png"
    },
    {
-    "descripcion": "MUSLO DE POLLO KG",
-    "precio": "4.03 Ref"
+    "descripcion": "MUSLO DE POLLO",
+    "precio": "4.03 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/muslo.png"
    },
    {
-    "descripcion": "PATAS DE POLLO KG",
-    "precio": "2.66 Ref"
+    "descripcion": "PATAS DE POLLO",
+    "precio": "2.66 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/PATASPOLLO.jfif"
   },
   {
-    "descripcion": "HIGADO DE POLLO KG",
-    "precio": "2.84 Ref"
+    "descripcion": "HIGADO DE POLLO",
+    "precio": "2.84 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/higado.png"
   },
   {
-    "descripcion": "FILET DE POLLO KG",
-    "precio": "7.42 Ref"
+    "descripcion": "FILET DE POLLO",
+    "precio": "7.42 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/filet.png"
   },
   {
-    "descripcion": "CARAPACHO DE POLLO KG",
-    "precio": "1.67 Ref"
+    "descripcion": "CARAPACHO DE POLLO",
+    "precio": "1.67 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/carapacho.png"
   },
   {
-    "descripcion": "ALAS DE POLLO KG",
-    "precio": "4.03 Ref"
+    "descripcion": "ALAS DE POLLO",
+    "precio": "4.03 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/alaspollo.png"
   },
   {
-    "descripcion": "POLLO PICADO KG",
-    "precio": "3.45 Ref"
+    "descripcion": "POLLO PICADO",
+    "precio": "3.45 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./pollo/pollopicado.png"
   }
   
  ]
