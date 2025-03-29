@@ -2,48 +2,81 @@
   "data": {
     "cerdo": [
    {
-     "descripcion": "CHULETA DE CERDO FRESCA KG",
-     "precio": "7.98 Ref"
+     "descripcion": "CHULETA DE CERDO FRESCA",
+     "precio": "7.98 Ref",
+     "peso": "POR KG",
+     "oferta": "no",
+     "imagen":"./cerdo/chuletafresca.png"
    },
    {
-    "descripcion": "CHULETA AHUMADA KG",
-    "precio": "9.65 Ref"
+    "descripcion": "CHULETA AHUMADA",
+    "precio": "9.65 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/chuletaahumada.png"
    },
    {
-    "descripcion": "PALETA DE CERDO KG",
-    "precio": "5.99 Ref"
+    "descripcion": "PALETA DE CERDO",
+    "precio": "5.99 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/paletacerdo.png"
    },
    {
-    "descripcion": "PERNIL CON HUESO KG",
-    "precio": "6.94 Ref"
+    "descripcion": "PERNIL CON HUESO",
+    "precio": "6.94 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/pernil.png"
   },
   {
-    "descripcion": "COSTILLA DE CERDO KG",
-    "precio": "6.99 Ref"
+    "descripcion": "COSTILLA DE CERDO",
+    "precio": "6.99 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/costilla.png"
   },
   {
-    "descripcion": "PATICAS DE CERDO KG",
-    "precio": "3.74 Ref"
+    "descripcion": "PATICAS DE CERDO",
+    "precio": "3.74 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/paticas.png"
   },
   {
-    "descripcion": "HUESO AHUMADO KG",
-    "precio": "6.00 Ref"
+    "descripcion": "HUESO AHUMADO",
+    "precio": "6.00 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/huesoahumado.png"
   },
   {
-    "descripcion": "HUESO DE CERDO KG",
-    "precio": "5.40 Ref"
+    "descripcion": "HUESO DE CERDO",
+    "precio": "5.40 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/huesocerdo.png"
   },
   {
-    "descripcion": "RABO DE CERDO KG",
-    "precio": "2.89 Ref"
+    "descripcion": "RABO DE CERDO",
+    "precio": "2.89 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/rabocerdo.png"
   },
   {
-    "descripcion": "AZADURA KG",
-    "precio": "1.82 Ref"
+    "descripcion": "AZADURA",
+    "precio": "1.82 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/asadura.png"
   },
   {
-    "descripcion": "COSTILLA CHINA KG",
-    "precio": "8.70 Ref"
+    "descripcion": "COSTILLA CHINA",
+    "precio": "8.70 Ref",
+    "peso": "POR KG",
+    "oferta": "no",
+    "imagen":"./cerdo/costillachina.png"
   }
  ]
  }}
