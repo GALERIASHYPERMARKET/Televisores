@@ -56,24 +56,41 @@ function reducirTamano(){
 
 function oferta(oferta) {
   if (oferta==="si") {
+
     return `<div class="containerOferta">
-                <img class="oferta" src="./etiquetaOferta.png" alt="">
+                <img class="oferta"  src="./etiquetaOferta.png" alt="">
             </div>`;
           }
           return "";
+}
+
+/*************  ✨ Codeium Command ⭐  *************/
+function getwidth_height_of_element(id) {
+  var width = document.getElementById("product"+id).offsetWidth;
+  var height = document.getElementById("product"+id).offsetHeight;
+var element={
+  width:width,
+  height:height
+}
+  return element;
+}
+
+function addOferta(id) {
+  
 }
 
 function cargarData(){
 
  fetch('./lib/carniceria.json').then(function(response) {
    let text="";
+   let id=1;
    if(response.ok) {
      response.json().then(function(response) {
        
        let data=response.data.carniceria.slice(0,6);
         
        for (const productos of data) {
-        let text3=` <div class="product">
+        let text3=` <div id=product${id} class="product">
             ${oferta(productos.oferta)}
            <div class="descriptions">
               <p class="name">${productos.descripcion}</p>
@@ -92,6 +109,7 @@ function cargarData(){
 
         // let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
          text+=text3;
+         id++;
        }
        document.querySelector(".container").innerHTML=text;
        
