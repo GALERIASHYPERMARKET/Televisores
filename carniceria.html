@@ -90,7 +90,7 @@ function cargarData(){
        let data=response.data.carniceria.slice(0,6);
         
        for (const productos of data) {
-        let text3=` <div id=product${id} class="product">
+        let text3=` <div  class="product">
             ${oferta(productos.oferta)}
            <div class="descriptions">
               <p class="name">${productos.descripcion}</p>
