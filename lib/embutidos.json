@@ -2,49 +2,49 @@
   "data": {
     "embutidos": [
    {
-     "descripcion": "JAMON PIERNA COCIDA VILLA JULIA X KG",
+     "descripcion": "JAMON PIERNA COCIDA VILLA JULIA",
      "precio": "7.55 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./embutidos/donljulia.png"
    },
    {
-    "descripcion": "JAM SUP DON VITTORIO X KG X KG",
+    "descripcion": "JAM SUP DON VITTORIO",
     "precio": "15.29 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/vittorio.png"
   },
   {
-    "descripcion": "JAMON DE ESPALDA ALIBAL KG",
+    "descripcion": "JAMON DE ESPALDA ALIBAL",
     "precio": "8.36 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/alibal.png"
   },
   {
-    "descripcion":"PECHUGA DE PAVO EL VALLE KG",
+    "descripcion":"PECHUGA DE PAVO EL VALLE",
     "precio":"8.22 Ref",
     "peso":"POR KG",
     "oferta":"no",
     "imagen":"./embutidos/valle.png"
   },
   {
-    "descripcion": "PECHUGA PAVO SUPERIOR P.MONTE KG",
+    "descripcion": "PECHUGA PAVO SUPERIOR P.MONTE",
     "precio": "9.54 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/puntamonte.png"
   },
   {
-    "descripcion": "MORTADELA DON RAMON 600G",
+    "descripcion": "MORTADELA DON RAMON",
     "precio": "2.01 Ref",
-    "peso": "POR KG",
+    "peso": "600GR",
     "oferta": "no",
     "imagen":"./embutidos/mortadela.png"
   },
   {
-    "descripcion": "JAMON PIERNA SUPERIOS MAGROS KG",
+    "descripcion": "JAMON PIERNA SUPERIOS MAGROS",
     "precio": "12.79 Ref",
     "peso": "POR KG", 
     "oferta": "no",
@@ -52,14 +52,14 @@
   },
   
   {
-    "descripcion": "PECHUGA DE POLLO MILLENIUM KG",
+    "descripcion": "PECHUGA DE POLLO MILLENIUM",
     "precio": "9.96 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/millenium.png"
   },
   {
-    "descripcion": "JAMON ESTANDAR MILLENIUM KG",
+    "descripcion": "JAMON ESTANDAR MILLENIUM",
     "precio": "13.06 Ref",
     "peso": "POR KG",
     "oferta": "no",
@@ -67,7 +67,7 @@
   },
   
   {
-    "descripcion": "JAMON PIERNA PUROLOMO KG",
+    "descripcion": "JAMON PIERNA PUROLOMO",
     "precio": "12.79 Ref",
     "peso": "POR KG",
     "oferta": "no",
