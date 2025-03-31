@@ -41,7 +41,7 @@
     "descripcion": "SOLOMO CUERITO",
     "precio": "11.02 Ref",
         "peso": "POR KG",
-        "oferta": "si",
+        "oferta": "no",
         "imagen":"./carnes/solomoCuerito.png"
   },
   {
