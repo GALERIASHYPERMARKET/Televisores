@@ -53,14 +53,14 @@
   
   {
     "descripcion": "PECHUGA DE POLLO MILLENIUM",
-    "precio": "9.96 Ref",
+    "precio": "10.12 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/millenium.png"
   },
   {
     "descripcion": "JAMON ESTANDAR MILLENIUM",
-    "precio": "13.06 Ref",
+    "precio": "12.30 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/jamonmillenium.png"
