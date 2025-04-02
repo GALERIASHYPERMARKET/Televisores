@@ -42,7 +42,7 @@
     "precio": "11.02 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/solomoCuerito.png"
+        "imagen":"./carnes/solomoCuerito.webp"
   },
   {
     "descripcion": "BISTECK DE RES",
@@ -77,7 +77,7 @@
     "precio": "9.91 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/strogonoff.png"
+        "imagen":"./carnes/strogonoff.webp"
   },  {
     "descripcion": "CHULETA DE RES",
     "precio": "8.49 Ref",
