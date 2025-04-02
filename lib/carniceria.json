@@ -7,35 +7,35 @@
     "precio": "10.46 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/molida.png"
+        "imagen":"./carnes/molida.webp"
    },
    {
     "descripcion": "COSTILLA DE RES",
     "precio": "5.39 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/costilla.png"
+        "imagen":"./carnes/costilla.webp"
    },
    {
     "descripcion": "LAGARTO CON HUESO",
     "precio": "5.39 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/lagarto.png"
+        "imagen":"./carnes/lagarto.webp"
   },
   {
     "descripcion": "LOMITO DE RES",
     "precio": "11.74 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/lomito.png"
+        "imagen":"./carnes/lomito.webp"
   },
   {
     "descripcion": "PUNTA TRASERA",
     "precio": "11.01 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/puntaTrasera.png"
+        "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
@@ -49,28 +49,28 @@
     "precio": "9.91 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/bisteck.png"
+        "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
     "precio": "9.91 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/carneGuisar.png"
+        "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
     "precio": "9.91 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/carneMechar.png"
+        "imagen":"./carnes/carneMechar.webp"
   },
   {
     "descripcion": "HIGADO DE RES",
     "precio": "6.97 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/higado.png"
+        "imagen":"./carnes/higado.wepb"
   },
   {
     "descripcion": "STROGONOFF DE RES",
@@ -83,7 +83,7 @@
     "precio": "8.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./carnes/chuleta.png"
+        "imagen":"./carnes/chuleta.webp"
   }
  ]
  }}
