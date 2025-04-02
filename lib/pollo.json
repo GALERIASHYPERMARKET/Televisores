@@ -6,70 +6,70 @@
      "precio": "3.28 Ref",
      "peso": "POR KG",
      "oferta": "no",
-     "imagen":"./pollo/polloentero.png"
+     "imagen":"./pollo/polloentero.webp"
    },
    {
     "descripcion": "POLLO ENT CONGEL CHICHI",
     "precio": "3.42 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/pollochichi.png"
+    "imagen":"./pollo/pollochichi.webp"
   },
    {
     "descripcion": "PECHUGA DE POLLO",
     "precio": "4.57 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/pechuga.png"
+    "imagen":"./pollo/pechuga.webp"
    },
    {
     "descripcion": "MUSLO DE POLLO",
     "precio": "4.03 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/muslo.png"
+    "imagen":"./pollo/muslo.webp"
    },
    {
     "descripcion": "PATAS DE POLLO",
     "precio": "2.66 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/PATASPOLLO.png"
+    "imagen":"./pollo/PATASPOLLO.webp"
   },
   {
     "descripcion": "HIGADO DE POLLO",
     "precio": "2.84 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/higado.png"
+    "imagen":"./pollo/higado.webp"
   },
   {
     "descripcion": "FILET DE POLLO",
     "precio": "7.42 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/filet.png"
+    "imagen":"./pollo/filet.webp"
   },
   {
     "descripcion": "CARAPACHO DE POLLO",
     "precio": "1.67 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/carapacho.png"
+    "imagen":"./pollo/carapacho.webp"
   },
   {
     "descripcion": "ALAS DE POLLO",
     "precio": "4.03 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/alaspollo.png"
+    "imagen":"./pollo/alaspollo.webp"
   },
   {
     "descripcion": "POLLO PICADO",
     "precio": "3.45 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./pollo/pollopicado.png"
+    "imagen":"./pollo/pollopicado.webp"
   }
   
  ]
