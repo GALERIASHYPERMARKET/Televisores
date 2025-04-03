@@ -6,49 +6,49 @@
         "precio": "14.88 Ref",
         "peso": "POR KG",
         "oferta": "si",
-        "imagen":"./fotoQuesos/ZEDENO.png"
+        "imagen":"./fotoQuesos/ZEDENO.webp"
       },
    {
      "descripcion": "QUESO DURO",
      "precio": "6.88 Ref",
      "peso": "POR KG",
      "oferta": "no",
-     "imagen":"./fotoQuesos/queso-duro.jpg"
+     "imagen":"./fotoQuesos/queso-duro.webp"
    },
    {
     "descripcion": "QUESO GUAYANES",
     "precio": "5.00 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/QUESOGUAYANES.jpg"
+    "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
   },
   {
     "descripcion": "QUESO TELITA",
     "precio": "5.96 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/QUESOTELITA.png"
+    "imagen":"./fotoQuesos/QUESOTELITA.webp"
   },
   {
     "descripcion": "QUESO CREMA GABY",
     "precio": "5.16 Ref",
     "peso": "250 GR",
     "oferta": "no",
-    "imagen":"./fotoQuesos/GABY.png"
+    "imagen":"./fotoQuesos/GABY.webp"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO",
     "precio": "15.73 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/lucero.png"
+    "imagen":"./fotoQuesos/lucero.webp"
   },
   {
     "descripcion": "QUESO PALMITO",
     "precio": "8.22 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/quesoPalmito.png"
+    "imagen":"./fotoQuesos/quesoPalmito.webp"
   },
   
   {
@@ -56,21 +56,21 @@
     "precio": "10.33 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/SELLOROJO.png"
+    "imagen":"./fotoQuesos/SELLOROJO.webp"
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
     "precio": "15.05 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/emmanuel.png"
+    "imagen":"./fotoQuesos/emmanuel.webp"
   },
   {
     "descripcion": "QUESO AMARILLO GUAMITO",
     "precio": "14.91 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/GUAMITOGOUDA.png"
+    "imagen":"./fotoQuesos/GUAMITOGOUDA.webp"
   },
   
   {
@@ -78,7 +78,7 @@
     "precio": "7.54 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/queso_mozzarella.png"
+    "imagen":"./fotoQuesos/queso_mozzarella.webp"
   },
   
   {
@@ -86,7 +86,7 @@
     "precio":"13.85 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/espSelloRojo.png"
+    "imagen":"./fotoQuesos/espSelloRojo.webp"
   }
 
   
