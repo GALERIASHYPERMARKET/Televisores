@@ -3,7 +3,7 @@
     "Menu": [
    {
      "descripcion": "COMIDA POR KG",
-     "precio": "10.99 Ref"
+     "precio": "11.49 Ref"
    },
    {
     "descripcion": "SOPA DE RES",
@@ -19,7 +19,7 @@
   },
   {
     "descripcion": "EMPANADA DE MECHADA UND",
-    "precio": "2.06 Ref"
+    "precio": "2.15 Ref"
   },
   {
     "descripcion": "PAPA RELLENA",
@@ -27,7 +27,7 @@
   },
   {
     "descripcion": "CACHAPA UND",
-    "precio": "2.00 Ref"
+    "precio": "2.26 Ref"
   },
   {
     "descripcion": "CHORIPAN UND",
@@ -39,11 +39,11 @@
   },
   {
     "descripcion": "AREPA DE MECHADA",
-    "precio": "2.87 Ref"
+    "precio": "2.95 Ref"
   },
   {
     "descripcion": "AREPA ESPECIAL GALERIA",
-    "precio": "2.90 Ref"
+    "precio": "2.99 Ref"
   }
 ]
   
