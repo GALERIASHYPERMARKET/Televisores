@@ -30,11 +30,11 @@
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
   },
   {
-    "descripcion": "QUESO CREMA GABY",
-    "precio": "5.16 Ref",
-    "peso": "250 GR",
-    "oferta": "no",
-    "imagen":"./fotoQuesos/GABY.webp"
+    "descripcion": "QUESO GOUDA BRIGACH",
+    "precio": "18.00 Ref",
+    "peso": "POR KG",
+    "oferta": "si",
+    "imagen":"./fotoQuesos/BRIGACH.webp"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO",
