@@ -3,7 +3,7 @@
     "quesos": [
       {
         "descripcion": "QUESO AMARILLO ZEDEÑO",
-        "precio": "14.88 Ref",
+        "precio": "14.52 Ref",
         "peso": "POR KG",
         "oferta": "si",
         "imagen":"./fotoQuesos/ZEDENO.webp"
@@ -38,7 +38,7 @@
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO",
-    "precio": "15.73 Ref",
+    "precio": "16.53 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/lucero.webp"
@@ -53,14 +53,14 @@
   
   {
     "descripcion": "QUESO MOZARELLA SELLO ROJO",
-    "precio": "10.33 Ref",
+    "precio": "10.71 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/SELLOROJO.webp"
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "15.05 Ref",
+    "precio": "15.81 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
@@ -83,7 +83,7 @@
   
   {
     "descripcion":"QUESO AMARILLO ESP SELLO ROJO",
-    "precio":"13.85 Ref",
+    "precio":"13.70 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/espSelloRojo.webp"
