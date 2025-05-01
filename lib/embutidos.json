@@ -24,14 +24,14 @@
   },
   {
     "descripcion":"PECHUGA DE PAVO EL VALLE",
-    "precio":"9.96 Ref",
+    "precio":"9.25 Ref",
     "peso":"POR KG",
     "oferta":"no",
     "imagen":"./embutidos/valle.webp"
   },
   {
     "descripcion": "PECHUGA PAVO SUPERIOR P.MONTE",
-    "precio": "9.54 Ref",
+    "precio": "11.20 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/puntamonte.webp"
@@ -44,8 +44,8 @@
     "imagen":"./embutidos/mortadela.webp"
   },
   {
-    "descripcion": "JAMON PIERNA SUPERIOS MAGROS",
-    "precio": "12.79 Ref",
+    "descripcion": "JAMON PIERNA SUPERIOR MAGROS",
+    "precio": "13.52 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/magros.webp"
@@ -53,7 +53,7 @@
   
   {
     "descripcion": "PECHUGA DE POLLO MILLENIUM",
-    "precio": "10.12 Ref",
+    "precio": "10.71 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/millenium.webp"
