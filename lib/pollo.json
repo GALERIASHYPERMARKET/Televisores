@@ -10,7 +10,7 @@
    },
    {
     "descripcion": "POLLO ENT CONGEL CHICHI",
-    "precio": "3.42 Ref",
+    "precio": "3.68 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/CHICHIS.webp"
@@ -45,7 +45,7 @@
   },
   {
     "descripcion": "FILET DE POLLO",
-    "precio": "8.62 Ref",
+    "precio": "8.84 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/filet.webp"
@@ -66,7 +66,7 @@
   },
   {
     "descripcion": "POLLO PICADO",
-    "precio": "3.70 Ref",
+    "precio": "3.95 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/pollopicado.webp"
