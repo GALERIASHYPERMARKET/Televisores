@@ -30,11 +30,11 @@
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
   },
   {
-    "descripcion": "QUESO GOUDA BRIGACH",
-    "precio": "18.00 Ref",
+    "descripcion": "QUESO GOUDA MONTESANO",
+    "precio": "14.78 Ref",
     "peso": "POR KG",
-    "oferta": "si",
-    "imagen":"./fotoQuesos/BRIGACH.webp"
+    "oferta": "no",
+    "imagen":"./fotoQuesos/montesano.webp"
   },
   {
     "descripcion": "QUESO AMARILLO LUCERO",
