@@ -52,11 +52,11 @@
   },
   
   {
-    "descripcion": "QUESO MOZARELLA SELLO ROJO",
-    "precio": "10.71 Ref",
+    "descripcion": "QUESO MOZARELLA PAISA",
+    "precio": "21.58 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/SELLOROJO.webp"
+    "imagen":"./fotoQuesos/QUESOPAISA.webp"
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
@@ -67,7 +67,7 @@
   },
   {
     "descripcion": "QUESO AMARILLO GUAMITO",
-    "precio": "14.91 Ref",
+    "precio": "17.08 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/GUAMITOGOUDA.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "8.89 Ref",
+    "precio": "8.39 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"
