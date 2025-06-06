@@ -10,21 +10,21 @@
       },
    {
      "descripcion": "QUESO DURO",
-     "precio": "6.12 Ref",
+     "precio": "5.12 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./fotoQuesos/queso-duro.webp"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "5.10 Ref",
+    "precio": "4.06 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
   },
   {
     "descripcion": "QUESO TELITA",
-    "precio": "5.19 Ref",
+    "precio": "4.62 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
