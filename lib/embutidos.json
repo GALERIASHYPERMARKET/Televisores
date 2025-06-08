@@ -37,11 +37,11 @@
     "imagen":"./embutidos/puntamonte.webp"
   },
   {
-    "descripcion": "MORTADELA DON RAMON",
-    "precio": "2.01 Ref",
-    "peso": "600GR",
+    "descripcion": "MORTADELA ALIBAL",
+    "precio": "2.15 Ref",
+    "peso": "500GR",
     "oferta": "no",
-    "imagen":"./embutidos/mortadela.webp"
+    "imagen":"./embutidos/mortalibak.jpg"
   },
   {
     "descripcion": "JAMON PIERNA SUPERIOR MAGROS",
