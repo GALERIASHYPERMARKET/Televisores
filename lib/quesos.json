@@ -31,7 +31,7 @@
   },
   {
     "descripcion": "QUESO GOUDA MONTESANO",
-    "precio": "14.78 Ref",
+    "precio": "14.46 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/montesano.webp"
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "15.81 Ref",
+    "precio": "16.37 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "8.39 Ref",
+    "precio": "7.80 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"
@@ -83,7 +83,7 @@
   
   {
     "descripcion":"QUESO AMARILLO ESP SELLO ROJO",
-    "precio":"13.70 Ref",
+    "precio":"14.23 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/espSelloRojo.webp"
