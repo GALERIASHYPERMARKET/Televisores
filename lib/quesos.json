@@ -2,11 +2,11 @@
   "data": {
     "quesos": [
       {
-        "descripcion": "QUESO AMARILLO ZEDEÑO",
-        "precio": "14.52 Ref",
+        "descripcion": "QUESO AMARILLO TABLON",
+        "precio": "12.19 Ref",
         "peso": "POR KG",
-        "oferta": "si",
-        "imagen":"./fotoQuesos/ZEDENO.webp"
+        "oferta": "no",
+        "imagen":"./fotoQuesos/tablon.jpg"
       },
    {
      "descripcion": "QUESO DURO",
