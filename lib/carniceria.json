@@ -25,21 +25,21 @@
   },
   {
     "descripcion": "LOMITO DE RES",
-    "precio": "12.45 Ref",
+    "precio": "13.22 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lomito.webp"
   },
   {
     "descripcion": "PUNTA TRASERA",
-    "precio": "11.55 Ref",
+    "precio": "11.69 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
-    "precio": "11.67 Ref",
+    "precio": "11.69 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/solomoCuerito.webp"
@@ -80,7 +80,7 @@
         "imagen":"./carnes/strogonoff.webp"
   },  {
     "descripcion": "CHULETA DE RES",
-    "precio": "8.49 Ref",
+    "precio": "8.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/chuleta.webp"
