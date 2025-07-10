@@ -37,11 +37,11 @@
     "imagen":"./embutidos/puntamonte.webp"
   },
   {
-    "descripcion": "MORTADELA ALIBAL",
-    "precio": "1.88 Ref",
-    "peso": "500GR",
+    "descripcion":"CHORIZO RIOJA E/GRUESO LEONESA",
+    "precio": "25.30 Ref",
+    "peso": "POR KG",
     "oferta": "si",
-    "imagen":"./embutidos/mortalibal.jpg"
+    "imagen":"./embutidos/leonesa.jpg"
   },
   {
     "descripcion": "JAMON PIERNA SUPERIOR MAGROS",
@@ -72,7 +72,17 @@
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/purolomo.webp"
+  },
+  {
+    "descripcion": "MORTADELA TAPARA GIIO",
+    "precio": "12.10 Ref",
+    "peso": "POR KG",
+    "oferta": "si",
+    "imagen":"./embutidos/giio.jpg"
   }
+   
+   
+  
 
   
  ]
