@@ -3,21 +3,21 @@
     "embutidos": [
    {
      "descripcion": "JAMON PIERNA COCIDA VILLA JULIA",
-     "precio": "8.11 Ref",
+     "precio": "7.55 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./embutidos/donjulia.webp"
    },
    {
     "descripcion": "JAM SUP DON VITTORIO",
-    "precio": "18.04 Ref",
+    "precio": "14.10 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/vittorio.webp"
   },
   {
     "descripcion": "JAMON DE ESPALDA ALIBAL",
-    "precio": "9.52 Ref",
+    "precio": "8.58 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/alibal.webp"
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "JAMON ESTANDAR MILLENIUM",
-    "precio": "12.30 Ref",
+    "precio": "12.87 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/jamonmillenium.webp"

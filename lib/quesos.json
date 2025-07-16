@@ -3,7 +3,7 @@
     "quesos": [
       {
         "descripcion": "QUESO AMARILLO TABLON",
-        "precio": "12.19 Ref",
+        "precio": "11.65 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./fotoQuesos/tablon.jpg"
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "16.37 Ref",
+    "precio": "17.47 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
