@@ -2,11 +2,11 @@
   "data": {
     "quesos": [
       {
-        "descripcion": "QUESO AMARILLO TABLON",
-        "precio": "11.65 Ref",
+        "descripcion": "QUESO AMARILLO NAPOLITANO",
+        "precio": "14.86 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./fotoQuesos/tablon.jpg"
+        "imagen":"./fotoQuesos/napolitanoamarillo.jpg"
       },
    {
      "descripcion": "QUESO DURO",
