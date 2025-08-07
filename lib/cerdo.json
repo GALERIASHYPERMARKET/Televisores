@@ -77,6 +77,13 @@
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/costillachina.webp"
+  },
+  {
+    "descripcion": "OREJA DE CERDO AHUMADA",
+    "precio": "3.29 Ref",
+        "peso": "POR KG",
+        "oferta": "no",
+        "imagen":"./carnes/orejacerdo.webp"
   }
  ]
  }}
