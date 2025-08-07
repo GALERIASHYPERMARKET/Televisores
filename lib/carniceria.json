@@ -17,8 +17,8 @@
         "imagen":"./carnes/costilla.webp"
    },
    {
-    "descripcion": "LAGARTO CON HUESO",
-    "precio": "6.00 Ref",
+    "descripcion": "LAGARTO SIN HUESO",
+    "precio": "10.50 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lagarto.webp"
