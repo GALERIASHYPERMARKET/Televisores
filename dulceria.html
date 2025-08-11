@@ -103,7 +103,7 @@ setInterval(function(){
     }else{
       fetch('./lib/dulceria.json').then(function(response) {
     if(response.ok) {
-      document.getElementById("dulceria").style.backgroundImage  = "url('./otono/DULCEs.png')";
+      document.getElementById("dulceria").style.backgroundImage  = "url('./otono/DULCES.png')";
       response.json().then(function(response) {
         document.querySelector(".listaProductos").innerHTML="";
         let data=response.data.dulces.slice(contador,contador+5);
