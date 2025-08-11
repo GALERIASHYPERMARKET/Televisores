@@ -70,7 +70,7 @@ main{
 }
 
 main#panaderia{
-  background-image: url("./otono/PANADERIA.png");
+  background-image: url("./otono/PANADERIA.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -109,7 +109,7 @@ main#gourmet{
   background-size: 100% 100%;
 }
 main#pasteles{
-  background-image: url("./otono/PASTELES.png");
+  background-image: url("./otono/PASTELES.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
