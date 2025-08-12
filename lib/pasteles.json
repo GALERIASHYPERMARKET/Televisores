@@ -3,11 +3,11 @@
     "pasteles": [
    {
      "descripcion": "CACHITO DE JAMON",
-     "precio": "2.17 Ref"
+     "precio": "2.06 Ref"
    },
    {
     "descripcion": "CACHITO DE JAMON Y QUESO",
-    "precio": "2.70 Ref"
+    "precio": "2.06 Ref"
   },
   {
     "descripcion": "PAN DE QUESO",
@@ -15,7 +15,7 @@
   },
   {
     "descripcion": "PAN DE QUESO CON TOCINETA",
-    "precio": "3.96 Ref"
+    "precio": "3.69 Ref"
   },
   {
     "descripcion": "HOJALDRE DE POLLO UND",
@@ -23,7 +23,7 @@
   },
   {
     "descripcion": "HOJALDRE DE JAMON",
-    "precio": "2.25 Ref"
+    "precio": "2.06 Ref"
   },
   
   {
@@ -32,7 +32,7 @@
   },
   {
     "descripcion": "HOJALDRE DE CARNE",
-    "precio": "1.79 Ref"
+    "precio": "2.00 Ref"
   },
   {
     "descripcion": "HOJALDRE DE QUESO",
@@ -44,7 +44,7 @@
   },
   {
     "descripcion": "PASTELITO AMERICANO UND",
-    "precio": "2.49 Ref"
+    "precio": "3.84 Ref"
   },
   {
     "descripcion": "TRENZA ITALIANA UND",
@@ -52,7 +52,7 @@
   },
   {
     "descripcion":"EMPANADA DOMINICANA UND",
-    "precio":"2.50 Ref"
+    "precio":"2.51 Ref"
   }
   
 
