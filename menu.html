@@ -83,23 +83,23 @@ function loadAnimation() {
 {
   if(cpublicidad==1)
  {
-    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/COMIDA.jpg')";
+    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/COMIDA.webp')";
     cpublicidad++; 
   }
   else if(cpublicidad==2)
   {
-    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/SOPAS.png')";
+    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/SOPAS.webp')";
     cpublicidad++; 
   }
   else if(cpublicidad==3)
   {
-    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/lumpias.png')";
+    document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/lumpias.webp')";
     cpublicidad++;
   }else if(cpublicidad==4)
   {
     let hour= new Date().getHours();
     if(hour<15){
-      document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.png')";
+      document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.webp')";
       cpublicidad++;
     }else{
       document.getElementById("gourmet").style.backgroundImage  = "url('./publicidad/perros.png')";
@@ -123,7 +123,7 @@ function loadAnimation() {
     document.querySelector(".listaProductos").innerHTML=text;
     }else{
      
-      document.getElementById("gourmet").style.backgroundImage  = "url('./otono/MENU.png')";
+      document.getElementById("gourmet").style.backgroundImage  = "url('./otono/MENU.webp')";
       fetch('./lib/menu.json').then(function(response) {
      if(response.ok) {
        response.json().then(function(response) {
