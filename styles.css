@@ -84,7 +84,7 @@ main#carniceria{
   background-size: 100% 100%;
 }
 main#charcuteria{
-  background-image: url("./otono/QUESO.png");
+  background-image: url("./otono/QUESO.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -121,7 +121,7 @@ main#pollo{
   background-size: 100% 100%;
 }
 main#embutidos{
-  background-image: url("./otono/JAMON.png");
+  background-image: url("./otono/JAMON.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
