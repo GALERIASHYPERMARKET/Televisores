@@ -4,63 +4,63 @@
 
    {
     "descripcion": "CARNE MOLIDA ESPECIAL",
-    "precio": "11.50 Ref",
+    "precio": "12.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/molida.webp"
    },
    {
     "descripcion": "COSTILLA DE RES",
-    "precio": "6.00 Ref",
+    "precio": "7.39 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/costilla.webp"
    },
    {
     "descripcion": "LAGARTO SIN HUESO",
-    "precio": "10.50 Ref",
+    "precio": "12.00 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lagarto.webp"
   },
   {
     "descripcion": "LOMITO DE RES",
-    "precio": "13.22 Ref",
+    "precio": "16.54 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lomito.webp"
   },
   {
     "descripcion": "PUNTA TRASERA",
-    "precio": "11.69 Ref",
+    "precio": "14.39 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
-    "precio": "11.69 Ref",
+    "precio": "14.13 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/solomoCuerito.webp"
   },
   {
     "descripcion": "BISTECK DE RES",
-    "precio": "10.99 Ref",
+    "precio": "12.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
-    "precio": "10.99 Ref",
+    "precio": "12.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
-    "precio": "10.99 Ref",
+    "precio": "12.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneMechar.webp"
@@ -74,7 +74,7 @@
   },
   {
     "descripcion": "STROGONOFF DE RES",
-    "precio": "10.99 Ref",
+    "precio": "12.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/strogonoff.webp"
