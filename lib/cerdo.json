@@ -17,21 +17,21 @@
    },
    {
     "descripcion": "PALETA DE CERDO",
-    "precio": "6.5 Ref",
+    "precio": "6.90 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/paletacerdo.webp"
    },
    {
     "descripcion": "PERNIL CON HUESO",
-    "precio": "7.30 Ref",
+    "precio": "8.02 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/pernil.webp"
   },
   {
     "descripcion": "COSTILLA DE CERDO",
-    "precio": "6.99 Ref",
+    "precio": "8.30 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/costilla.webp"
