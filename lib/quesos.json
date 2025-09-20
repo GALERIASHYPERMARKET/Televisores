@@ -24,7 +24,7 @@
   },
   {
     "descripcion": "QUESO TELITA",
-    "precio": "5.47 Ref",
+    "precio": "5.94 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "7.80 Ref",
+    "precio": "9.45 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"

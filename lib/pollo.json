@@ -3,7 +3,7 @@
     "pollo": [
    {
      "descripcion": "POLLO ENTERO CONGELADO",
-     "precio": "3.68 Ref",
+     "precio": "4.44 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./pollo/polloentero.webp"
@@ -45,7 +45,7 @@
   },
   {
     "descripcion": "FILET DE POLLO",
-    "precio": "8.55 Ref",
+    "precio": "9.50 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/filet.webp"
