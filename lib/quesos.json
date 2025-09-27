@@ -31,7 +31,7 @@
   },
   {
     "descripcion": "QUESO GOUDA MONTESANO",
-    "precio": "14.78 Ref",
+    "precio": "17.91 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/montesano.webp"
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "14.93 Ref",
+    "precio": "19.07 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
