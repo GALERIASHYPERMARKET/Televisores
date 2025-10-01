@@ -4,7 +4,7 @@
 
    {
     "descripcion": "CARNE MOLIDA ESPECIAL",
-    "precio": "13.99 Ref",
+    "precio": "14.30 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/molida.webp"
@@ -16,13 +16,7 @@
         "oferta": "no",
         "imagen":"./carnes/costilla.webp"
    },
-   {
-    "descripcion": "LAGARTO SIN HUESO",
-    "precio": "11.50 Ref",
-        "peso": "POR KG",
-        "oferta": "no",
-        "imagen":"./carnes/lagarto.webp"
-  },
+   
   {
     "descripcion": "LOMITO DE RES",
     "precio": "16.84 Ref",
@@ -46,44 +40,38 @@
   },
   {
     "descripcion": "BISTECK DE RES",
-    "precio": "12.99 Ref",
+    "precio": "13.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
-    "precio": "12.99 Ref",
+    "precio": "13.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
-    "precio": "12.99 Ref",
+    "precio": "13.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneMechar.webp"
   },
   {
     "descripcion": "HIGADO DE RES",
-    "precio": "7.8 Ref",
+    "precio": "7.80 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/higado.webp"
   },
   {
     "descripcion": "STROGONOFF DE RES",
-    "precio": "12.99 Ref",
+    "precio": "13.99 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/strogonoff.webp"
-  },  {
-    "descripcion": "CHULETA DE RES",
-    "precio": "8.99 Ref",
-        "peso": "POR KG",
-        "oferta": "no",
-        "imagen":"./carnes/chuleta.webp"
   }
   
  ]
