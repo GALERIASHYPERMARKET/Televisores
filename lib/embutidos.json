@@ -3,35 +3,35 @@
     "embutidos": [
    {
      "descripcion": "JAMON PIERNA COCIDA VILLA JULIA",
-     "precio": "7.55 Ref",
+     "precio": "7.34 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./embutidos/donjulia.webp"
    },
    {
     "descripcion": "JAM SUP DON VITTORIO",
-    "precio": "14.10 Ref",
+    "precio": "13.05 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/vittorio.webp"
   },
   {
     "descripcion": "JAMON DE ESPALDA ALIBAL",
-    "precio": "8.58 Ref",
+    "precio": "8.08 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/alibal.webp"
   },
   {
     "descripcion":"PECHUGA DE PAVO EL VALLE",
-    "precio":"9.25 Ref",
+    "precio":"10.73 Ref",
     "peso":"POR KG",
     "oferta":"no",
     "imagen":"./embutidos/valle.webp"
   },
   {
     "descripcion": "PECHUGA PAVO SUPERIOR P.MONTE",
-    "precio": "11.20 Ref",
+    "precio": "10.08 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/puntamonte.webp"
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "JAMON ESTANDAR MILLENIUM",
-    "precio": "12.87 Ref",
+    "precio": "12.68 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/jamonmillenium.webp"
@@ -68,14 +68,14 @@
   
   {
     "descripcion": "JAM SUPERIOR PUROLOMO 96%",
-    "precio": "13.99 Ref",
+    "precio": "11.52 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/purolomo.webp"
   },
   {
     "descripcion": "MORTADELA TAPARA GIIO",
-    "precio": "14.52 Ref",
+    "precio": "15.34 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/giio.jpg"
