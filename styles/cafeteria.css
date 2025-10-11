@@ -41,17 +41,45 @@ box-sizing: border-box;
 }
 
 .menu{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+}
+
+.lista_cafes{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+ margin-top: 30px;
+ padding-left: 30px;
+ padding-right: 30px;
 }
 .subtitulo{
      font-size:40px;
      letter-spacing: 5px;
 }
-.listas-cafes{
-    
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: inherit;
+}
+li{
+    margin-bottom: 60px;
+    font-size: 30px;
+    font-family: sans-serif;
+    justify-content: space-between;
+}
+p{
+    font-weight: bold;
+}
+.elemento{
+    display: flex;
 }
 .imagenes{
      background-color: #a58a3a;
