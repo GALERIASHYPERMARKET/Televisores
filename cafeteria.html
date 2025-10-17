@@ -52,30 +52,18 @@
     <section class="imagenes">
         <video class="video"  autoplay loop>
              <source src="./videos/coffeVideo.mp4" type="video/mp4">
+             Your browser does not support the video tag.
         </video>
     </section>
 </body>
 
 <script>
      var video= document.querySelector(".video");
-     video.muted = true;
+     video.style.display="block";
+    
      video.play();
-    gsap.registerPlugin(SplitText);
+    video.muted = true;
 
-    function setup() {
-  
-  var split = SplitText.create(".text", {type:"chars"});
-
-  var animation = gsap.from(split.chars, {
-    x: 150,
-    opacity: 0,
-    duration: 0.7, 
-    ease: "power4",
-    stagger: 0.04
-  })
-  split && split.revert();
-  animation && animation.revert();
-}
-setup();
+    
 </script>
 </html>
