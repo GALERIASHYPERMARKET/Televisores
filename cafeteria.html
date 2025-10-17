@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./styles/cafeteria.css" />
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 
     <title>Cafeteria</title>
 </head>
@@ -23,23 +25,23 @@
             <div class="lista_cafes">
                 <ul class="lista">
                     <li class="elemento">
-                     <p class="descripcion"> CAFE NEGRO PEQUEÑO</p>
-                     <p class="precio">0,68 REF</p>
+                     <p class="descripcion text"> CAFE NEGRO PEQUEÑO</p>
+                     <p class="precio text">0,68 REF</p>
                     </li>
 
                    <li class="elemento">
-                     <p class="descripcion">CAFE NEGRO GRANDE</p>
-                     <p class="precio">0,89 REF</p>
+                     <p class="descripcion text">CAFE NEGRO GRANDE</p>
+                     <p class="precio text">0,89 REF</p>
                     </li>
 
                     <li class="elemento">
-                     <p class="descripcion">CAFE CON LECHE PEQUEÑO</p>
-                     <p class="precio">0,79 REF</p>
+                     <p class="descripcion text">CAFE CON LECHE PEQUEÑO</p>
+                     <p class="precio text">0,79 REF</p>
                     </li>
 
                     <li class="elemento">
-                     <p class="descripcion">CAFE CON LECHE GRANDE</p>
-                     <p class="precio">1,29 REF</p>
+                     <p class="descripcion text">CAFE CON LECHE GRANDE</p>
+                     <p class="precio text">1,29 REF</p>
                     </li> 
                 </ul>
             </div>
@@ -47,6 +49,33 @@
         </section>
       
     </section>
-    <section class="imagenes"></section>
+    <section class="imagenes">
+        <video class="video"  autoplay loop>
+             <source src="./videos/coffeVideo.mp4" type="video/mp4">
+        </video>
+    </section>
 </body>
+
+<script>
+     var video= document.querySelector(".video");
+     video.muted = true;
+     video.play();
+    gsap.registerPlugin(SplitText);
+
+    function setup() {
+  
+  var split = SplitText.create(".text", {type:"chars"});
+
+  var animation = gsap.from(split.chars, {
+    x: 150,
+    opacity: 0,
+    duration: 0.7, 
+    ease: "power4",
+    stagger: 0.04
+  })
+  split && split.revert();
+  animation && animation.revert();
+}
+setup();
+</script>
 </html>
