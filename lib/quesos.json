@@ -17,21 +17,21 @@
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "5.50 Ref",
+    "precio": "5.94 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
   },
   {
     "descripcion": "QUESO TELITA",
-    "precio": "6.07 Ref",
+    "precio": "6.44 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
   },
   {
     "descripcion": "QUESO GOUDA MONTESANO",
-    "precio": "17.91 Ref",
+    "precio": "14.40 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/montesano.webp"
@@ -45,7 +45,7 @@
   },
   {
     "descripcion": "QUESO PALMITO",
-    "precio": "10.13 Ref",
+    "precio": "10.96 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/quesoPalmito.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "9.45 Ref",
+    "precio": "10.65 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"
