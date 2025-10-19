@@ -50,7 +50,7 @@
       
     </section>
     <section class="imagenes">
-        <video class="video" muted  autoplay loop>
+        <video class="video" muted loop>
              <source src="./videos/coffeVideo.mp4" type="video/mp4">
              Your browser does not support the video tag.
         </video>
@@ -60,7 +60,9 @@
 <script>
      var video= document.querySelector(".video");
      video.style.display="block";
-    
+    window.onload=function(){
+        document.querySelector(".video").play();
+    }
      video.play();
     
 
