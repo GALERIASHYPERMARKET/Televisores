@@ -78,7 +78,7 @@ main#panaderia{
 }
 
 main#carniceria{
-  background-image: url("./otono/CARNE.png");
+  background-image: url("./otono/CARNE.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -115,7 +115,7 @@ main#pasteles{
   background-size: 100% 100%;
 }
 main#pollo{
-  background-image: url("./otono/POLLO.png");
+  background-image: url("./otono/POLLO.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
@@ -128,7 +128,7 @@ main#embutidos{
 }
 
 main#cerdo{
-  background-image: url("./otono/CERDO.png");
+  background-image: url("./otono/CERDO.webp");
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
