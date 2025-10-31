@@ -29,7 +29,9 @@ box-sizing: border-box;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    z-index: 40;
+    opacity: 0;
     
     
 }
@@ -75,6 +77,39 @@ box-sizing: border-box;
      font-size:40px;
      letter-spacing: 5px;
 }
+.elemento_decorativo{
+ position: relative;
+ z-index: -1;
+}
+.decoration_container:before{
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background-color: #242021;
+transform-origin: center;
+
+
+animation: fadeEffect 8s ease-in-out;
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+    
+  }
+  50% {
+    opacity: 0.5;
+    width: 50%;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
 ul{
     margin: 0;
     padding: 0;

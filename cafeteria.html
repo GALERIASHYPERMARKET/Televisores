@@ -14,14 +14,17 @@
 <body class="body">
     <section class="cafes">
         <div class="logoDescripcion">
-            <img src="./images/logoG.png" width="100" height="100" alt="logoG">
+            <img src="./images/logoG.png" width="200" height="200" alt="logoG">
           
         </div>
           <h1 id="titulo" class="titulo">CAFES</h1>
         <section class="menu">
             <h2 class="subtitulo">BEBIDAS CALIENTES</h2>
             <div class="elemento_decorativo">
-               <img src="./images/decorativeLine.webp" width="600" height="40" alt="">
+                <div class="decoration_container">
+                <img class="decoration" src="./images/decorativeLine.webp" width="600" height="40" alt="">
+                </div>
+              
             </div>
             <div class="lista_cafes">
                 <ul class="lista">
@@ -64,16 +67,53 @@
     gsap.fromTo(".cafes", {x:-2000},{x: 0, duration: 2,ease:"power2.inOut"});
      gsap.fromTo(".imagenes", {x:2000},{x: 0, duration: 2,ease:"power2.inOut"});
 
+     gsap.fromTo(".logoDescripcion",
+        {
+            x:900,
+           
+        },
+        {
+            x:0,
+            opacity:1,
+            delay:2,
+            duration:2.5,
+            ease:"power2.inOut"
+        }
+     )
+
      gsap.registerPlugin(SplitText);
 
      let split= SplitText.create(".titulo",{type:"chars"});
-      gsap.from(split.chars,{
-        duration:1,
-        delay:2.5,
-        y:100,
-        autoAlpha:0,
-        stagger:0.05
-      })
+     let split2=SplitText.create(".subtitulo",{type:"chars"});
+     let split3= SplitText.create(".elemento",{type:"chars"});
+
+    gsap.from(split.chars, {
+    y: 150,
+    opacity: 0,
+    duration: 0.7, 
+    ease: "power4",
+    stagger: 0.04,
+    delay:3
+  })
+gsap.from(split2.chars, {
+    y: 150,
+    opacity: 0,
+    duration: 0.7, 
+    ease: "power4",
+    stagger: 0.04,
+    delay:3.4
+  })
+    
+gsap.from(split3.chars, {
+    x: 150,
+    opacity: 0,
+    duration: 0.7, 
+    ease: "power4",
+    stagger: 0.04,
+    delay:4
+  })
+    
+      
      
      var video= document.querySelector(".video");
      video.style.display="block";
