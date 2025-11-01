@@ -40,21 +40,21 @@
   },
   {
     "descripcion": "BISTECK DE RES",
-    "precio": "13.99 Ref",
+    "precio": "13.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
-    "precio": "13.99 Ref",
+    "precio": "13.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
-    "precio": "13.99 Ref",
+    "precio": "13.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneMechar.webp"
@@ -68,7 +68,7 @@
   },
   {
     "descripcion": "STROGONOFF DE RES",
-    "precio": "13.99 Ref",
+    "precio": "13.49 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/strogonoff.webp"
