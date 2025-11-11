@@ -34,7 +34,7 @@ box-sizing: border-box;
 
 .firstImage{
     flex-basis: 60%;
-    background-image: url("/images/jugosfondo.webp");
+    background-image: url("/images/jugos.webp");
     background-color: black;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@ box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #99106b;
+    background-color: #0A6D3E;
 }
 .descripcionContainer{
     position: absolute;
