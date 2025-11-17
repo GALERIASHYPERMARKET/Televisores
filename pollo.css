@@ -39,6 +39,19 @@ padding: 10px;
 
 
 }
+.containerGorroNavidad{
+  width: 0px;
+  height: 0px;
+}
+.gorroNavidad{
+ position: relative;
+  top: -70px;
+  right: 50px;
+  z-index: 1;
+  width: 110px;
+  height: 110px;
+  transform: rotate(-70deg);
+}
 .containerOferta{
   width: 0px;
   height: 0px;
@@ -62,11 +75,11 @@ width: 50%;
 font-size: 30px;
 font-family:  Helvetica;
 font-weight: bold;
-color: black;
+color: rgb(195,15,22);
 
 }
 .cuantity_background{
-background-color: rgb(255,214,51);
+background-color: #0C6F41;
 width: 50%;
 display: flex;
 flex-direction: column;
@@ -79,7 +92,7 @@ padding: 5px;
 font-size: 20px;
 font-family:  Helvetica;
 font-weight: bold;
-color: black;
+color: rgb(195,15,22);
 
 }
 .price{
