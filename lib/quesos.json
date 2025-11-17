@@ -53,7 +53,7 @@
   
   {
     "descripcion": "QUESO MOZARELLA PAISA",
-    "precio": "21.58 Ref",
+    "precio": "25.14 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOPAISA.webp"
@@ -83,7 +83,7 @@
   
   {
     "descripcion":"QUESO AMARILLO ESP SELLO ROJO",
-    "precio":"16.81 Ref",
+    "precio":"17.80 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/espSelloRojo.webp"
