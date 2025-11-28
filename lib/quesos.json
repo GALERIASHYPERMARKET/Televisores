@@ -2,11 +2,11 @@
   "data": {
     "quesos": [
       {
-        "descripcion": "QUESO AMARILLO NAPOLITANO",
+        "descripcion": "QUESO GOUDA QUENACA",
         "precio": "14.86 Ref",
         "peso": "POR KG",
         "oferta": "no",
-        "imagen":"./fotoQuesos/napolitanoamarillo.jpg"
+        "imagen":"./fotoQuesos/quenaca.webp"
       },
    {
      "descripcion": "QUESO DURO",
@@ -37,11 +37,11 @@
     "imagen":"./fotoQuesos/montesano.webp"
   },
   {
-    "descripcion": "QUESO AMARILLO LUCERO",
-    "precio": "16.53 Ref",
+    "descripcion": "QUESO AMARILLO TABLON",
+    "precio": "18.44 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/lucero.webp"
+    "imagen":"./fotoQuesos/tablonamarillo.webp"
   },
   {
     "descripcion": "QUESO PALMITO",
@@ -66,11 +66,11 @@
     "imagen":"./fotoQuesos/emmanuel.webp"
   },
   {
-    "descripcion": "QUESO BLANCO DE BUFALA EMMANUEL",
+    "descripcion": "QUESO BLANCO MONTESANO",
     "precio": "13.79 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/QUESOBUFALA2.jpg"
+    "imagen":"./fotoQuesos/MONTESANOBLANCO.webp"
   },
   
   {
@@ -82,11 +82,11 @@
   },
   
   {
-    "descripcion":"QUESO AMARILLO ESP SELLO ROJO",
-    "precio":"17.80 Ref",
+    "descripcion":"QUESO MOZARELLA TABLON",
+    "precio":"13.43 Ref",
     "peso": "POR KG",
     "oferta": "no",
-    "imagen":"./fotoQuesos/espSelloRojo.webp"
+    "imagen":"./fotoQuesos/tablonMozarella.webp"
   }
 
   
