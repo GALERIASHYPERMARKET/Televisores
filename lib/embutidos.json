@@ -31,17 +31,17 @@
   },
   {
     "descripcion": "PECHUGA PAVO SUPERIOR P.MONTE",
-    "precio": "10.08 Ref",
+    "precio": "10.57 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/puntamonte.webp"
   },
   {
-    "descripcion":"CHORIZO RIOJA E/GRUESO LEONESA",
-    "precio": "25.30 Ref",
+    "descripcion":"JAMON ESTANDAR RICCI",
+    "precio": "14.05 Ref",
     "peso": "POR KG",
-    "oferta": "si",
-    "imagen":"./embutidos/leonesa.jpg"
+    "oferta": "no",
+    "imagen":"./embutidos/RICCI.webp"
   },
   {
     "descripcion": "JAMON PIERNA SUPERIOR MAGROS",
@@ -60,7 +60,7 @@
   },
   {
     "descripcion": "JAMON ESTANDAR MILLENIUM",
-    "precio": "12.68 Ref",
+    "precio": "12.57 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/jamonmillenium.webp"
@@ -68,7 +68,7 @@
   
   {
     "descripcion": "JAM SUPERIOR PUROLOMO 96%",
-    "precio": "11.52 Ref",
+    "precio": "12.00 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./embutidos/purolomo.webp"
