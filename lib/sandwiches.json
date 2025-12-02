@@ -3,27 +3,27 @@
     "sandwiches": [
    {
      "descripcion": "SANDWICH JAMON Y QUESO",
-     "precio": "5.05 Ref",
+     "precio": "5.50 Ref",
      "imagen":"./fotos/sjamonqueso.png"
    },
    {
     "descripcion": "SANDWICH ITALIANO",
-    "precio": "3.48 Ref",
+    "precio": "3.65 Ref",
     "imagen":"./fotos/sitaliano.png"
   },
   {
     "descripcion": "SANDWICH PERNIL",
-    "precio": "3.99 Ref",
+    "precio": "4.20 Ref",
     "imagen":"./fotos/spernil.png"
   },
   {
     "descripcion": "CLUB HOUSE",
-    "precio": "6.74 Ref",
+    "precio": "7.99 Ref",
     "imagen":"./fotos/clubhouse1.png"
   },
   {
     "descripcion": "SANDWICH DE POLLO",
-    "precio": "3.69 Ref",
+    "precio": "3.89 Ref",
     "imagen":"./fotos/spollo.png"
   }
  ]
