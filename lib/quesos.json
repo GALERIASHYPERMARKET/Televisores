@@ -3,7 +3,7 @@
     "quesos": [
       {
         "descripcion": "QUESO GOUDA QUENACA",
-        "precio": "14.86 Ref",
+        "precio": "23.27 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./fotoQuesos/quenaca.webp"
@@ -31,14 +31,14 @@
   },
   {
     "descripcion": "QUESO GOUDA MONTESANO",
-    "precio": "14.40 Ref",
+    "precio": "15.76 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/montesano.webp"
   },
   {
     "descripcion": "QUESO AMARILLO TABLON",
-    "precio": "18.44 Ref",
+    "precio": "19.87 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/tablonamarillo.webp"
@@ -60,14 +60,14 @@
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "19.07 Ref",
+    "precio": "18.50 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
   },
   {
     "descripcion": "QUESO BLANCO MONTESANO",
-    "precio": "13.79 Ref",
+    "precio": "14.75 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/MONTESANOBLANCO.webp"
