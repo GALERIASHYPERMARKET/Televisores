@@ -26,14 +26,14 @@
   },
   {
     "descripcion": "PUNTA TRASERA",
-    "precio": "14.39 Ref",
+    "precio": "15.00 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
-    "precio": "14.43 Ref",
+    "precio": "14.45 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/solomoCuerito.webp"
