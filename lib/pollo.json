@@ -3,14 +3,14 @@
     "pollo": [
    {
      "descripcion": "QUE POLLO CONGELADO",
-     "precio": "4.56 Ref",
+     "precio": "3.9 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./pollo/polloentero.webp"
    },
    {
     "descripcion": "POLLO ENT CONGEL CHICHI",
-    "precio": "4.56 Ref",
+    "precio": "3.90 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/CHICHIS.webp"
