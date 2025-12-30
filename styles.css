@@ -10,9 +10,7 @@ body {
   font-family: system-ui, sans-serif;
   color: black;
   background-color: white;
-  display: block;
-  overflow: auto;
-  height: 100%;
+ 
 }
 
 @font-face {
@@ -101,7 +99,7 @@ main#pollera{
 main#dulceria{
   background-image: url("./otono/DULCES.webp");
   background-repeat: no-repeat;
-  height: 100vh;
+ height: 130vh;
   background-size: 100% 100%;
 }
 main#gourmet{
