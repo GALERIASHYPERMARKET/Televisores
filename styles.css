@@ -10,7 +10,10 @@ body {
   font-family: system-ui, sans-serif;
   color: black;
   background-color: white;
- 
+ -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @font-face {
@@ -71,81 +74,153 @@ main{
 
 main#panaderia{
   background-image: url("./otono/PANADERIA.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
   
 }
 
 main#carniceria{
   background-image: url("./otono/CARNE.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#charcuteria{
   background-image: url("./otono/QUESO.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 
 main#pollera{
   background-image: url("./publicidad/pollera.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#dulceria{
   background-image: url("./otono/DULCES.webp");
-  background-repeat: no-repeat;
- height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#gourmet{
   background-image: url("./otono/MENU.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#pasteles{
   background-image: url("./otono/PASTELES.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#pollo{
   background-image: url("./otono/POLLO.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 main#embutidos{
   background-image: url("./otono/JAMON.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 
 main#cerdo{
   background-image: url("./otono/CERDO.webp");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+   min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 
 main#sandwich{
   background-image: url("./fotos/bgsandwichmejor.png");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 
 main#jugos{
   background-image: url("./publicidad/jugosgaleria (1).png");
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: 100% 100%;
+  min-height: 100vh; 
+  height: auto; 
+
+  /* This fixes the background to the screen so it doesn't scroll/cut off */
+  background-attachment: fixed; 
+  
+  /* Cover ensures the image fills the screen without empty spots */
+  background-size: cover; 
+  background-position: center;
 }
 
 .header{
@@ -219,6 +294,7 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  
   font-size: 40px;
   margin-bottom: 50px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
