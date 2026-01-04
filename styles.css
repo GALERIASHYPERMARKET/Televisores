@@ -76,11 +76,7 @@ main#panaderia{
   background-image: url("./otono/PANADERIA.webp");
   min-height: 100vh; 
   height: auto; 
-
-  /* This fixes the background to the screen so it doesn't scroll/cut off */
   background-attachment: fixed; 
-  
-  /* Cover ensures the image fills the screen without empty spots */
   background-size: cover; 
   background-position: center;
   
@@ -90,11 +86,7 @@ main#carniceria{
   background-image: url("./otono/CARNE.webp");
   min-height: 100vh; 
   height: auto; 
-
-  /* This fixes the background to the screen so it doesn't scroll/cut off */
   background-attachment: fixed; 
-  
-  /* Cover ensures the image fills the screen without empty spots */
   background-size: cover; 
   background-position: center;
 }
@@ -102,11 +94,7 @@ main#charcuteria{
   background-image: url("./otono/QUESO.webp");
    min-height: 100vh; 
   height: auto; 
-
-  /* This fixes the background to the screen so it doesn't scroll/cut off */
   background-attachment: fixed; 
-  
-  /* Cover ensures the image fills the screen without empty spots */
   background-size: cover; 
   background-position: center;
 }
@@ -116,7 +104,7 @@ main#pollera{
    min-height: 100vh; 
   height: auto; 
 
-  /* This fixes the background to the screen so it doesn't scroll/cut off */
+
   background-attachment: fixed; 
   
   /* Cover ensures the image fills the screen without empty spots */
@@ -295,7 +283,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   
-  font-size: 4vh;
+  font-size: 4.5vh;
   margin-bottom: 3vh;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 80%;
