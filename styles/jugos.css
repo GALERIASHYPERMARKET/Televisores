@@ -102,7 +102,7 @@ justify-content: center;
 .preciosGrid1, .preciosGrid2, .preciosGrid3 { 
 
     font-family: 'rustic';
-    font-size: 20px;
+    font-size: 2vh;
     color: white;
     margin-left: 20px;
     margin-right: 80px;
@@ -136,8 +136,8 @@ justify-content: center;
 
 .bebidasTitle{
     font-family: 'rustic';
-    font-size: 50px;
-    letter-spacing: 40px;
+    font-size: 5vh;
+    letter-spacing: 2vh;
     color: white;
 }
 
