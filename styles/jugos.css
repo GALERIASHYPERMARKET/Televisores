@@ -33,7 +33,7 @@ box-sizing: border-box;
 }
 
 .firstImage{
-    flex-basis: 60%;
+    flex-basis: 60vh;
     background-image: url("/images/jugos.webp");
     background-color: black;
     background-size: 100% 100%;
@@ -42,7 +42,7 @@ box-sizing: border-box;
     height: 100vh;
 }
 .secondImage{
-    flex-basis: 40%;
+    flex-basis: 40vh;
     display: flex;
     flex-direction: column;
     width: 100%;
