@@ -3,12 +3,7 @@
     margin: 0;
 box-sizing: border-box;
 }
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
+
 @font-face {
     font-family: 'rustic';
     src: url("/fonts/Halftoned\ Backup.ttf");
@@ -42,7 +37,7 @@ html, body {
     flex: 0 0 60vh;
     background-image: url("/images/jugos.webp");
     background-color: black;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     
