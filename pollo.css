@@ -23,12 +23,13 @@ width: 100%;
 
 }
 .container{
-margin-top: 10rem;
+margin-top: 15vh;
 display: grid;
-grid-template-columns:repeat(3,1fr);
-row-gap: 3VH;
+grid-template-columns: repeat(3,1fr);
+row-gap: 3vh;
 justify-content: center;
 align-items: center;
+
 
 }
 .product{
