@@ -12,7 +12,10 @@
   <body onload="cargarData()">
     
   <main> 
-    
+    <div class="widthport" style="display: block; background-color: white; z-index: 10;">
+      <div class="viewportWidth" style="font-size: 10px; font-weight: bold;"></div>
+      <div class=" viewportHeight" style="font-size: 10px; font-weight: bold;"></div>
+    </div>
     <div class="container">
      
 
@@ -28,6 +31,8 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
   var contador=4;
+  const screenWidth = screen.width;
+const screenHeight = screen.height;
 
   const timeline = gsap.timeline({
     duration: 1,
@@ -80,6 +85,9 @@ function addOferta(id) {
 }
 
 function cargarData(){
+  alert(screenWidth+ "px and"+screen.height );
+  document.querySelector(".viewportWidth").value=screenWidth+ "px";
+  document.querySelector(".viewportHeight").value=screen.height+ "px";
 
  fetch('./lib/carniceria.json').then(function(response) {
    let text="";
