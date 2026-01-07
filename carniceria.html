@@ -12,10 +12,10 @@
   <body onload="cargarData()">
     
   <main> 
-    <div class="widthport" style="display: block; background-color: white; z-index: -100; ">
+   <!--  <div class="widthport" style="display: block; background-color: white; z-index: -100; ">
       <div class="viewportWidth" style="font-size: 50px; font-weight: bold;"></div>
       <div class=" viewportHeight" style="font-size: 50px; font-weight: bold;"></div>
-    </div>
+    </div> -->
     <div class="container">
      
 
@@ -86,8 +86,8 @@ function addOferta(id) {
 
 function cargarData(){
  
-  document.querySelector(".viewportWidth").innerHTML=screenWidth+ "px";
-  document.querySelector(".viewportHeight").innerHTML=screen.height+ "px";
+ /*  document.querySelector(".viewportWidth").innerHTML=screenWidth+ "px";
+  document.querySelector(".viewportHeight").innerHTML=screen.height+ "px"; */
 
  fetch('./lib/carniceria.json').then(function(response) {
    let text="";
