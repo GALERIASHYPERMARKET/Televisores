@@ -5,9 +5,11 @@
 body{
 background-image: url("./otono/CARNE.webp");
 background-repeat: no-repeat;
+ min-height: 100vh; 
+  height: auto; 
   background-size: cover; 
   background-position: center;
-  min-height: 100vh;
+  background-attachment: fixed;
 -webkit-text-size-adjust: 100%; /* Prevents text inflation */
   text-size-adjust: 100%;
   overflow: hidden; /* Prevents accidental scrollbars on TVs */
