@@ -3,7 +3,7 @@
     "embutidos": [
    {
      "descripcion": "JAMON PIERNA COCIDA VILLA JULIA",
-     "precio": "7.34 Ref",
+     "precio": "8.26 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./embutidos/donjulia.webp"
@@ -17,14 +17,14 @@
   },
   {
     "descripcion": "JAMON DE ESPALDA ALIBAL",
-    "precio": "8.08 Ref",
+    "precio": "9.85 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/alibal.webp"
   },
   {
     "descripcion":"PECHUGA DE PAVO EL VALLE",
-    "precio":"10.73 Ref",
+    "precio":"11.09 Ref",
     "peso":"POR KG",
     "oferta":"no",
     "imagen":"./embutidos/valle.webp"
@@ -45,7 +45,7 @@
   },
   {
     "descripcion": "JAMON PIERNA SUPERIOR MAGROS",
-    "precio": "13.95 Ref",
+    "precio": "13.83 Ref",
     "peso": "POR KG", 
     "oferta": "no",
     "imagen":"./embutidos/magros.webp"
