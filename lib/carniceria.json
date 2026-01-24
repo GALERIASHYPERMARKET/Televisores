@@ -4,14 +4,14 @@
 
    {
     "descripcion": "CARNE MOLIDA ESPECIAL",
-    "precio": "15.00 Ref",
+    "precio": "11.85 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/molida.webp"
    },
    {
     "descripcion": "COSTILLA DE RES",
-    "precio": "7.89 Ref",
+    "precio": "6.93 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/costilla.webp"
@@ -19,56 +19,56 @@
    
   {
     "descripcion": "LOMITO DE RES",
-    "precio": "16.79 Ref",
+    "precio": "14.13 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lomito.webp"
   },
   {
     "descripcion": "PUNTA TRASERA",
-    "precio": "14.59 Ref",
+    "precio": "13.13 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
-    "precio": "14.59 Ref",
+    "precio": "13.13 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/solomoCuerito.webp"
   },
   {
     "descripcion": "BISTECK DE RES",
-    "precio": "13.30 Ref",
+    "precio": "10.92 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
-    "precio": "13.30 Ref",
+    "precio": "10.92 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
-    "precio": "13.30 Ref",
+    "precio": "10.92 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneMechar.webp"
   },
   {
     "descripcion": "HIGADO DE RES",
-    "precio": "9.50 Ref",
+    "precio": "7.90 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/higado.webp"
   },
   {
     "descripcion": "STROGONOFF DE RES",
-    "precio": "13.30 Ref",
+    "precio": "10.92 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/strogonoff.webp"
