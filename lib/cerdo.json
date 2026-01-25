@@ -10,7 +10,7 @@
    },
    {
     "descripcion": "CHULETA AHUMADA",
-    "precio": "12.43 Ref",
+    "precio": "10.90 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/chuletaahumada.webp"
@@ -31,7 +31,7 @@
   },
   {
     "descripcion": "COSTILLA DE CERDO",
-    "precio": "8.60 Ref",
+    "precio": "8.29 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/costilla.webp"
