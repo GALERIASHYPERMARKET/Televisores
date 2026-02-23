@@ -5,11 +5,18 @@ const timeline = gsap.timeline({
 });
 function loadAnimation() {
 timeline.to(".listaProductos .producto", {
-  duration: 3,
+  duration: 4,
   opacity: 1,
   stagger: 0.3
 });
 timeline.play();
+}
+function backgroundAnimation() {
+  gsap.fromTo(
+  ".panaderia",
+  { opacity: 0, x: -1000 },
+  { opacity: 1, x:0, duration: 2, ease: "power2.out" }
+);
 }
 function reducirTamano(){
   for (const a of document.querySelectorAll(".linea")) {
@@ -25,7 +32,7 @@ function reducirTamano(){
 }
 
 function cargarData(){
-
+ backgroundAnimation();
   fetch('./lib/panaderia.json').then(function(response) {
     let text="";
     if(response.ok) {
@@ -51,7 +58,7 @@ function cargarData(){
 
 setInterval(function(){
   let text="";
- 
+  backgroundAnimation();
   fetch('./lib/panaderia.json').then(function(response) {
     if(response.ok) {
       response.json().then(function(response) {

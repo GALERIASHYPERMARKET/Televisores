@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./styles/stylesHojaldre.css">
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body onload="cargarData()">
+  <body onload="cargarData()" style="background-color: black;">
      
-    <main id="pasteles"> 
+    <main id="pasteles" class="pasteles" > 
       <div class="header" >
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
         <div class="titulos"  style="color:white">Sopas</div>
@@ -43,11 +43,18 @@
 });
 function loadAnimation() {
   timeline.to(".listaProductos .producto", {
-    duration: 3,
+    duration: 4,
     opacity: 1,
     stagger: 0.3
   });
   timeline.play();
+}
+function backgroundAnimation() {
+  gsap.fromTo(
+  ".pasteles",
+  { opacity: 0, x: -1000 },
+  { opacity: 1, x:0, duration: 2, ease: "power2.out" }
+);
 }
 /*
     var interval=15000;
@@ -163,6 +170,7 @@ function runPublicityAndVideos(){
  fetch('./lib/pasteles.json').then(function(response) {
    let text="";
    document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
+   backgroundAnimation();
    if(response.ok) {
     
      response.json().then(function(response) {
@@ -190,10 +198,24 @@ function runPublicityAndVideos(){
     cpublicidad++;
   }else if(cpublicidad==2){
     document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/POSTRE.png')";
-    cpublicidad=cpublicidad-1;
-  }
- 
+    cpublicidad++;
+  } else if(cpublicidad==3){
+ document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/4ESTACIONES.webp')";
      contadorPublicidad++;
+  }else if(cpublicidad==4){
+ document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/MARGARITA.webp')";
+     contadorPublicidad++;
+  }else if(cpublicidad==5){
+ document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/VEGETARIANA.webp')";
+     contadorPublicidad++;
+  }else if(cpublicidad==6){
+ document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/PEPPERONI.webp')";
+     contadorPublicidad++;
+  }else if(cpublicidad==7){
+ document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/PRIMAVERA.webp')";
+     cpublicidad=cpublicidad-6;
+  }
+
 }
 
  
@@ -202,11 +224,14 @@ setInterval( function(){
    
   if(contadorPublicidad%2==0){
     cargarPublicidad();
+    backgroundAnimation();
     document.querySelector(".listaProductos").innerHTML=text;
+
     }else{
       fetch('./lib/pasteles.json').then(function(response) {
      if(response.ok) {
       document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
+       backgroundAnimation()
        response.json().then(function(response) {
         document.querySelector(".listaProductos").innerHTML="";
          let data=response.data.pasteles.slice(contador,contador+5);
