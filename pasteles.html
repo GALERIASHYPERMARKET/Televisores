@@ -43,7 +43,7 @@
 });
 function loadAnimation() {
   timeline.to(".listaProductos .producto", {
-    duration: 4,
+    duration: 8,
     opacity: 1,
     stagger: 0.3
   });
@@ -54,6 +54,14 @@ function backgroundAnimation() {
   ".pasteles",
   { opacity: 0, x: -1000 },
   { opacity: 1, x:0, duration: 2, ease: "power2.out" }
+);
+}
+
+function removeBackgroundAnimation() {
+  gsap.fromTo(
+  ".pasteles",
+  { opacity: 1, x: 0 },
+  { opacity: 0, x:2000, duration: 2, ease: "power2.out" }
 );
 }
 /*
@@ -230,6 +238,10 @@ setInterval( function(){
     }else{
       fetch('./lib/pasteles.json').then(function(response) {
      if(response.ok) {
+
+      removeBackgroundAnimation().then(function(){
+
+      });
       document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
        backgroundAnimation()
        response.json().then(function(response) {
