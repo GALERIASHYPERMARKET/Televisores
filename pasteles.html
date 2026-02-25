@@ -239,9 +239,7 @@ setInterval( function(){
       fetch('./lib/pasteles.json').then(function(response) {
      if(response.ok) {
 
-      removeBackgroundAnimation().then(function(){
-
-      });
+     
       document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
        backgroundAnimation()
        response.json().then(function(response) {
