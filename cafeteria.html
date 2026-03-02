@@ -55,7 +55,48 @@
     </section>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+   var contador=4;
+   var contadorPublicidad=1;
+    var cpublicidad=1;
 
+    const timeline = gsap.timeline({
+    duration: 1,
+    paused: false
+});
+function loadAnimation() {
+  timeline.to(".listaProductos .producto", {
+    duration: 4,
+    opacity: 1,
+    stagger: 0.3
+  });
+  timeline.play();
+}
+function backgroundAnimation() {
+  gsap.fromTo(
+  ".dulceria",
+  { opacity: 0, x: -1000 },
+  { opacity: 1, x:0, duration: 2, ease: "power2.out" }
+);
+}
+
+function cargarPublicidad() {
+   if(cpublicidad==1){
+    document.getElementById("dulceria").style.backgroundImage  = "url('./publicidad/HELADOS.webp')";
+    
+    cpublicidad++;
+  }else if(cpublicidad==2){
+    document.getElementById("dulceria").style.backgroundImage  = "url('./publicidad/affocato.png')";
+   
+    cpublicidad++;
+  }else if (cpublicidad==3) {
+     document.getElementById("dulceria").style.backgroundImage= "url('./publicidad/POSTRE.png')";
+    
+     cpublicidad= cpublicidad-2;
+  }
+  contadorPublicidad++;
+}
 <script>
     var state=true;
 
