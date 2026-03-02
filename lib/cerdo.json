@@ -3,7 +3,7 @@
     "cerdo": [
    {
      "descripcion": "CHULETA DE CERDO FRESCA",
-     "precio": "10.05 Ref",
+     "precio": "8.77 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./cerdo/chuletafresca.webp"
@@ -17,21 +17,21 @@
    },
    {
     "descripcion": "PALETA DE CERDO",
-    "precio": "9.7 Ref",
+    "precio": "6.9 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/paletacerdo.webp"
    },
    {
     "descripcion": "PERNIL CON HUESO",
-    "precio": "8.99 Ref",
+    "precio": "7.25 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/pernil.webp"
   },
   {
     "descripcion": "COSTILLA DE CERDO",
-    "precio": "8.29 Ref",
+    "precio": "6.80 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/costilla.webp"
