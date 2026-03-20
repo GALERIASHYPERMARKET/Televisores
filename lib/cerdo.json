@@ -17,7 +17,7 @@
    },
    {
     "descripcion": "PALETA DE CERDO",
-    "precio": "6.9 Ref",
+    "precio": "7.80 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/paletacerdo.webp"
@@ -31,7 +31,7 @@
   },
   {
     "descripcion": "COSTILLA DE CERDO",
-    "precio": "6.80 Ref",
+    "precio": "7.50 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/costilla.webp"
