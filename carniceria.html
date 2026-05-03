@@ -38,11 +38,26 @@ const screenHeight = screen.height;
     duration: 1,
     paused: false
 });
+function hideAnimation() {
+  
+  return gsap.to(".container .product", {
+    duration: 2,
+    opacity: 0,
+   /*  xPercent: 50,  // Fly out to the right
+    yPercent: 50,  // Fly out downwards */
+    stagger: 0.3,
+    ease: "back.out(1.7)"
+  });
+   
+}
 function loadAnimation() {
-  timeline.to(".listaProductos .producto", {
-    duration: 3,
-    opacity: 1,
-    stagger: 0.3
+
+   timeline.clear();
+  timeline.to(".container .product", {
+  duration: 2,
+  opacity: 1,
+  stagger: 0.3,
+  ease: "back.out(1.7)"
   });
   timeline.play();
 }
@@ -89,7 +104,8 @@ function cargarData(){
  /*  document.querySelector(".viewportWidth").innerHTML=screenWidth+ "px";
   document.querySelector(".viewportHeight").innerHTML=screen.height+ "px"; */
 
- fetch('./lib/carniceria.json').then(function(response) {
+hideAnimation().eventCallback("onComplete",function(){
+fetch('./lib/carniceria.json').then(function(response) {
    let text="";
    let id=1;
    if(response.ok) {
@@ -121,12 +137,15 @@ function cargarData(){
          id++;
        }
        document.querySelector(".container").innerHTML=text;
-       
+        loadAnimation()
      });
    } else {
      console.log('Respuesta de red OK pero respuesta HTTP no OK');
    }
  })
+})
+
+ 
  .catch(function(error) {
    console.log('Hubo un problema con la petición Fetch:' + error.message);
  });
@@ -135,8 +154,8 @@ function cargarData(){
 setInterval(function(){
 
  let text="";
- 
- fetch('./lib/carniceria.json').then(function(response) {
+ hideAnimation().eventCallback("onComplete", function () {
+  fetch('./lib/carniceria.json').then(function(response) {
    if(response.ok) {
      response.json().then(function(response) {
       document.querySelector(".container").innerHTML="";
@@ -175,6 +194,8 @@ setInterval(function(){
      console.log('Respuesta de red OK pero respuesta HTTP no OK');
    }
  })
+ })
+ 
  .catch(function(error) {
    console.log('Hubo un problema con la petición Fetch:' + error.message);
  });
