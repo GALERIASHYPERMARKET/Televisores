@@ -38,8 +38,8 @@ function hideAnimation() {
   return gsap.to(".container .product", {
     duration: 2,
     opacity: 0,
-   /*  xPercent: 50,  // Fly out to the right
-    yPercent: 50,  // Fly out downwards */
+    xPercent: 50,  // Fly out to the right
+    yPercent: 50,  // Fly out downwards 
     stagger: 0.3,
     ease: "back.out(1.7)"
   });
@@ -51,6 +51,7 @@ function loadAnimation() {
   timeline.to(".container .product", {
   duration: 2,
   opacity: 1,
+  
   stagger: 0.3,
   ease: "back.out(1.7)"
   });
