@@ -49,9 +49,15 @@ function hideAnimation() {
 function loadAnimation() {
 
    timeline.clear();
-  timeline.to(".container .product", {
-  duration: 2,
+  timeline.fromTo(".container .product",
+  {opacity:0, 
+    xPercent:-50,
+     yPercent:-50}, 
+     {
+  duration: 1,
   opacity: 1,
+  xPercent:0,
+  yPercent:0,
   stagger: 0.3,
   ease: "back.out(1.7)"
   });
