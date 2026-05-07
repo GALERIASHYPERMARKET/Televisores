@@ -2,8 +2,8 @@
   "data": {
     "pollo": [
    {
-     "descripcion": "QUE POLLO CONGELADO",
-     "precio": "3.84 Ref",
+     "descripcion": "POLLO CONGELADO",
+     "precio": "3.90 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./pollo/polloentero.webp"
