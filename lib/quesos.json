@@ -10,21 +10,21 @@
       },
    {
      "descripcion": "QUESO DURO",
-     "precio": "8.90 Ref",
+     "precio": "9.49 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./fotoQuesos/queso-duro.webp"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "6.11 Ref",
+    "precio": "7.00 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
   },
   {
     "descripcion": "QUESO TELITA",
-    "precio": "6.44 Ref",
+    "precio": "7.66 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
@@ -38,7 +38,7 @@
   },
   {
     "descripcion": "QUESO AMARILLO TABLON",
-    "precio": "19.87 Ref",
+    "precio": "17.79 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/tablonamarillo.webp"
@@ -67,7 +67,7 @@
   },
   {
     "descripcion": "QUESO BLANCO MONTESANO",
-    "precio": "18.75 Ref",
+    "precio": "16.46 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/MONTESANOBLANCO.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "10.65 Ref",
+    "precio": "14.11 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"
@@ -83,7 +83,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA TABLON",
-    "precio":"13.15 Ref",
+    "precio":"13.70 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/tablonMozarella.webp"
