@@ -10,14 +10,14 @@
       },
    {
      "descripcion": "QUESO DURO",
-     "precio": "9.49 Ref",
+     "precio": "7.15 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./fotoQuesos/queso-duro.webp"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "7.00 Ref",
+    "precio": "7.28 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
