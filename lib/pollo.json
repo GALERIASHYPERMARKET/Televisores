@@ -17,14 +17,14 @@
   },
    {
     "descripcion": "PECHUGA DE POLLO",
-    "precio": "4.99 Ref",
+    "precio": "5.79 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/PECHUGAPOLLO.webp"
    },
    {
     "descripcion": "MUSLO DE POLLO",
-    "precio": "3.60 Ref",
+    "precio": "5.05 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/muslo.webp"
