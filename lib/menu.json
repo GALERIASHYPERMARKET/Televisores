@@ -3,23 +3,23 @@
     "Menu": [
    {
      "descripcion": "COMIDA 500G",
-     "precio": "7.245 Ref"
+     "precio": "7.25 Ref"
    },
    {
     "descripcion": "SOPA DE RES",
-    "precio": "4.00 Ref"
+    "precio": "5.00 Ref"
    },
    {
     "descripcion": "SOPA DE POLLO",
-    "precio": "4.30 Ref"
+    "precio": "4.67 Ref"
    },
    {
     "descripcion": "EMPANADA UND",
-    "precio": "2.09 Ref"
+    "precio": "2.27 Ref"
   },
   {
     "descripcion": "EMPANADA DE MECHADA UND",
-    "precio": "2.41 Ref"
+    "precio": "2.27 Ref"
   },
   {
     "descripcion": "PAPA RELLENA",
@@ -27,15 +27,15 @@
   },
   {
     "descripcion": "CACHAPA UND",
-    "precio": "3.49 Ref"
+    "precio": "3.54 Ref"
   },
   {
     "descripcion": "AREPA GOURMET",
-    "precio": "2.99 Ref"
+    "precio": "3.03 Ref"
   },
   {
     "descripcion": "AREPA DE MECHADA",
-    "precio": "3.30 Ref"
+    "precio": "2.89 Ref"
   },
   {
     "descripcion": "AREPA ESPECIAL GALERIA",
