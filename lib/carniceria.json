@@ -4,14 +4,14 @@
 
    {
     "descripcion": "CARNE MOLIDA ESPECIAL",
-    "precio": "12.50 Ref",
+    "precio": "12.70 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/molida.webp"
    },
    {
     "descripcion": "COSTILLA DE RES",
-    "precio": "6.93 Ref",
+    "precio": "7.35 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/costilla.webp"
