@@ -11,7 +11,7 @@
    },
    {
     "descripcion": "COSTILLA DE RES",
-    "precio": "7.36 Ref",
+    "precio": "7.35 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/costilla.webp"
@@ -19,42 +19,42 @@
    
   {
     "descripcion": "LOMITO DE RES",
-    "precio": "14.13 Ref",
+    "precio": "14.08 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/lomito.webp"
   },
   {
     "descripcion": "PUNTA TRASERA",
-    "precio": "13.68 Ref",
+    "precio": "14.08 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/puntaTrasera.webp"
   },
   {
     "descripcion": "SOLOMO CUERITO",
-    "precio": "13.68 Ref",
+    "precio": "14.38 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/solomoCuerito.webp"
   },
   {
     "descripcion": "BISTECK DE RES",
-    "precio": "11.38 Ref",
+    "precio": "11.98 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/bisteck.webp"
   },
   {
     "descripcion": "CARNE PARA GUISAR",
-    "precio": "11.38 Ref",
+    "precio": "11.98 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneGuisar.webp"
   },
   {
     "descripcion": "CARNE PARA MECHAR",
-    "precio": "11.38 Ref",
+    "precio": "11.98 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/carneMechar.webp"
@@ -68,7 +68,7 @@
   },
   {
     "descripcion": "STROGONOFF DE RES",
-    "precio": "11.38 Ref",
+    "precio": "11.98 Ref",
         "peso": "POR KG",
         "oferta": "no",
         "imagen":"./carnes/strogonoff.webp"
