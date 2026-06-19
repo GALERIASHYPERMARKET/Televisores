@@ -3,12 +3,12 @@
     "jugos": [
       {
         "descripcion": "JUGO DE PIÑA",
-        "precio": "1.30 Ref",
+        "precio": "1.40 Ref",
         "imagen": "./frutas/pina.png"
       },
       {
         "descripcion": "MERENGADA DE CAMBUR",
-        "precio": "0.90 Ref",
+        "precio": "1.30 Ref",
         "imagen": "./frutas/cambur.png"
       },
       
@@ -19,12 +19,12 @@
       },
       {
         "descripcion": "JUGO DE NARANJA NATURAL",
-        "precio": "1.40 Ref",
+        "precio": "2.10 Ref",
         "imagen": "./frutas/naranja.png"
       },
       {
         "descripcion": "JUGO DE PARCHITA",
-        "precio": "1.50 Ref",
+        "precio": "2.60 Ref",
         "imagen" : "./frutas/parchita.png"
       },
       {
@@ -39,7 +39,7 @@
       },
       {
         "descripcion": "JUGO DE FRESA",
-        "precio": "2.51 Ref",
+        "precio": "2.99 Ref",
         "imagen": "./frutas/fresa.png"
       },
       {
@@ -49,7 +49,7 @@
       },
       {
         "descripcion": "JUGO DE LECHOZA",
-        "precio": "1.28 Ref",
+        "precio": "1.40 Ref",
         "imagen": "./frutas/papaya.png"
       },
       {
