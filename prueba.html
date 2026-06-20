@@ -231,13 +231,19 @@ function cargarPublicidad() {
 
     if(hour<15){
       document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.webp')";
-cpublicidad=cpublicidad-6;
+cpublicidad++;
     }else{
       document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/perros.webp')";
-      cpublicidad=cpublicidad-6;
+      cpublicidad++;
     } 
    
-  }
+  }else if(cpublicidad==8){
+      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CASHEA1.webp')";
+      cpublicidad++;
+    }else if(cpublicidad==9){
+      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CASHEA2.webp')";
+      cpublicidad=cpublicidad-8;
+    }
  
      contadorPublicidad++;
 }
