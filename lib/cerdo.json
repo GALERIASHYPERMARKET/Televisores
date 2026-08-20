@@ -38,14 +38,14 @@
   },
   {
     "descripcion": "PATICAS DE CERDO",
-    "precio": "4.70 Ref",
+    "precio": "3.82 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/paticas.webp"
   },
   {
     "descripcion": "HUESO AHUMADO",
-    "precio": "6.44 Ref",
+    "precio": "5.53 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/huesoahumado.webp"
@@ -66,7 +66,7 @@
   },
   {
     "descripcion": "ASADURA",
-    "precio": "2.18 Ref",
+    "precio": "2.32 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./cerdo/asadura.webp"
