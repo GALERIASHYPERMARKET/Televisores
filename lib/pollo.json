@@ -38,7 +38,7 @@
   },
   {
     "descripcion": "HIGADO DE POLLO",
-    "precio": "4.16 Ref",
+    "precio": "3.24 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/higado.webp"
@@ -59,7 +59,7 @@
   },
   {
     "descripcion": "ALAS DE POLLO",
-    "precio": "4.66 Ref",
+    "precio": "3.98 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./pollo/alaspollo.webp"
