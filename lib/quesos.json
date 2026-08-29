@@ -10,28 +10,28 @@
       },
    {
      "descripcion": "QUESO DURO",
-     "precio": "7.15 Ref",
+     "precio": "7.66 Ref",
      "peso": "POR KG",
      "oferta": "no",
      "imagen":"./fotoQuesos/queso-duro.webp"
    },
    {
     "descripcion": "QUESO GUAYANES",
-    "precio": "7.28 Ref",
+    "precio": "5.95 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOGUAYANES.webp"
   },
   {
     "descripcion": "QUESO TELITA",
-    "precio": "5.28 Ref",
+    "precio": "6.30 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOTELITA.webp"
   },
   {
     "descripcion": "QUESO GOUDA MONTESANO",
-    "precio": "16.27 Ref",
+    "precio": "14.58 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/montesano.webp"
@@ -53,14 +53,14 @@
   
   {
     "descripcion": "QUESO MOZARELLA PAISA",
-    "precio": "25.14 Ref",
+    "precio": "26.40 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/QUESOPAISA.webp"
   },
   {
     "descripcion": "QUESO EMMENTAL EMMANUEL",
-    "precio": "22.88 Ref",
+    "precio": "20.98 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/emmanuel.webp"
@@ -75,7 +75,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA ARTESANAL",
-    "precio": "14.11 Ref",
+    "precio": "7.94 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/queso_mozzarella.webp"
@@ -83,7 +83,7 @@
   
   {
     "descripcion":"QUESO MOZARELLA TABLON",
-    "precio":"13.70 Ref",
+    "precio":"13.02 Ref",
     "peso": "POR KG",
     "oferta": "no",
     "imagen":"./fotoQuesos/tablonMozarella.webp"
