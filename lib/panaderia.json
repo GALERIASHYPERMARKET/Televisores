@@ -28,7 +28,7 @@
   
   {
     "descripcion": "CAFE PEQUEÑO",
-    "precio": "0.68 Ref"
+    "precio": "1.10 Ref"
   },
   {
     "descripcion": "CAFE GRANDE",
@@ -36,11 +36,11 @@
   },
   {
     "descripcion": "CAFE CON LECHE PEQUEÑO",
-    "precio": "0.79 Ref"
+    "precio": "1.28 Ref"
   },
   {
     "descripcion": "CAFE CON LECHE GRANDE",
-    "precio": "1.29 Ref"
+    "precio": "1.65 Ref"
   }
   
  ]
