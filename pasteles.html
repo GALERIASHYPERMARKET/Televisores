@@ -9,267 +9,182 @@
     <script type="text/javascript" src="script.js"></script>
   </head>
   <body onload="cargarData()" style="background-color: black;">
-     
-    <main id="pasteles" class="pasteles" > 
-      <div class="header" >
+      
+    <main id="pasteles" class="pasteles" style="position: relative; overflow: hidden;"> 
+      <!-- Video de fondo para animaciones -->
+      <video id="videoBg" autoplay loop muted playsinline style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"></video>
+
+      <div class="header">
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
-        <div class="titulos"  style="color:white">Sopas</div>
+        <div class="titulos" style="color:white">Sopas</div>
       </div>
-     <section class="listas">
-      <iframe src="/prueba2.html" id="frameHojaldre" title="W3Schools Free Online Web Tutorials">
-      </iframe>
-      
-      <div class="listaProductos">
+      <section class="listas">
+        <iframe src="/prueba2.html" id="frameHojaldre" title="W3Schools Free Online Web Tutorials">
+        </iframe>
         
-      </div>
-
-
-     </section>
-      
-     
-      
+        <div class="listaProductos">
+          
+        </div>
+      </section>
     </main>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script>
-    var contador=4;
-    var contadorPublicidad=1;
-    var cpublicidad=1;
-    var contadorVideo=1;
-    var contadorHojaldre=1;
+    var contador = 4;
+    var contadorPublicidad = 1;
+    var cpublicidad = 1;
+    var contadorVideo = 1;
+    var contadorHojaldre = 1;
+
     const timeline = gsap.timeline({
-    duration: 1,
-    paused: false
-});
-function loadAnimation() {
-  timeline.to(".listaProductos .producto", {
-    duration: 8,
-    opacity: 1,
-    stagger: 0.3
-  });
-  timeline.play();
-}
-function backgroundAnimation() {
-  gsap.fromTo(
-  ".pasteles",
-  { opacity: 0, x: -1000 },
-  { opacity: 1, x:0, duration: 2, ease: "power2.out" }
-);
-}
+      duration: 1,
+      paused: false
+    });
 
-function removeBackgroundAnimation() {
-  gsap.fromTo(
-  ".pasteles",
-  { opacity: 1, x: 0 },
-  { opacity: 0, x:2000, duration: 2, ease: "power2.out" }
-);
-}
-/*
-    var interval=15000;
-   var run=setInterval(runPublicityAndVideos, interval);
-
-
- function reducirTamano(){
-   for (const a of document.querySelectorAll(".linea")) {
-     
-     var text=a.textContent;
-     var length = 18;
-     var trimmedString = text.length > length ? 
-                     text.substring(0, 21) + "..." : 
-                     text;
-      a.textContent = trimmedString;
- 
-   }
- }
- 
-
-document.getElementById('myVideo').addEventListener('ended',myHandler,false);
-
-function myHandler(e) {
-    var video2=document.getElementById('myVideo');
-    video2.style.display="none";
-    e.preventDefault();
-    clearInterval(run);
-    interval=15000;
-    run = setInterval(runPublicityAndVideos, interval);
-
-  }
-
-function runPublicityAndVideos(){
-  let text="";
-   
-
-  if(contadorHojaldre===3){
-  
-
-    contadorHojaldre=contadorHojaldre-2;
-    document.querySelector(".listaProductos").style.paddingTop="0";
-    document.querySelector(".listaProductos").innerHTML=text;
-    document.getElementById("frameHojaldre").style.display="block";
-
-    // ESTO ESTABA EN COMENTARIOS
-    let text3="  <div class='containerHojaldre'><div class='descripcionContainer'><div class='hojaldre'>HOJALDRE</div><img class='detalleshojaldre' width='500' height='100' src='/images/detallesHojaldre.png' alt=''><div class='comidaPreferida'>EN TU LUGAR PREFERIDO</div></div><div class='firstImage'></div><div class='secondImage'><div class='logoAndQrContainer'><img src='/logo.png' width='150' height='80'  alt=''><img src='/images/qr-code.png' width='100' height='80' alt=''></div><div class='gridContainer'><div class='preciosGrid'><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE POLLO</div><div class='price'>REF 1,95</div></div><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE CARNE</div><div class='price'>REF 1,95</div></div><div class='descripcionyPrecio'<div class='description'>HOJALDRE DE QUESO</div><div class='price'>REF 1,95</div></div><div class='descripcionyPrecio'><div class='description'>HOJALDRE RICOTTA CON ESPINACA</div><div class='price'>REF 1,95</div></div></div><div class='preciosGrid'><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE GUAYABA</div><div class='price'>REF 1,50</div> </div><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE CABELLO DE ANGEL</div><div class='price'>REF 1,50</div> </div><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE JAMON</div><div class='price'>REF 2,25</div></div><div class='descripcionyPrecio'><div class='description'>HOJALDRE DE JAMON CON QUESO CREMA</div><div class='price'>REF 3,09</div></div></div></div></div></div>"
-     text+=text3;
-     document.querySelector(".listaProductos").innerHTML=text;
-     //ESTO ESTABA  EN COMENTARIOS
-
-
-  }else if(contadorVideo===6){
-    contadorVideo=contadorVideo-5;
-    document.getElementById("frameHojaldre").style.display="none";
-   var video= document.getElementById("myVideo");
-   video.style.display="block";
-   video.muted = true;
-   video.play();
-
-   
-  }else if(contadorPublicidad%2==0){
-    cargarPublicidad();
-    document.getElementById("frameHojaldre").style.display="none";
-    document.querySelector(".listaProductos").innerHTML=text;
-    }else{
-      contadorVideo++;
-      fetch('./lib/pasteles.json').then(function(response) {
-     if(response.ok) {
-      document.getElementById("frameHojaldre").style.display="none";
-      document.getElementById("pasteles").style.backgroundImage  = "url('./fotos/pasteles.png')";
-       response.json().then(function(response) {
-        document.querySelector(".listaProductos").style.paddingTop="10%";
-        document.querySelector(".listaProductos").innerHTML="";
-         let data=response.data.pasteles.slice(contador,contador+5);
-          
-         for (const productos of data) {
-           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-           text+=text2;
-         }
-         document.querySelector(".listaProductos").innerHTML=text;
-         if(contador>=response.data.pasteles.length-5){
-           contador=0;
-           }else{
-           contador=contador+4;
-           }
-       });
-       contadorPublicidad++;
-       contadorHojaldre++;
-       if(contadorVideo===6){
-      clearInterval(run);
-      var video1= document.getElementById("myVideo");
-      var duration=(video1.duration*1000);
-      console.log(video1.duration)
-      interval=duration
-      run = setInterval(runPublicityAndVideos, interval);
-     }
-     } else {
-       console.log('Respuesta de red OK pero respuesta HTTP no OK');
-     }
-   })
-   .catch(function(error) {
-     console.log('Hubo un problema con la petición Fetch:' + error.message);
-   });
+    function loadAnimation() {
+      timeline.to(".listaProductos .producto", {
+        duration: 8,
+        opacity: 1,
+        stagger: 0.3
+      });
+      timeline.play();
     }
-  
-}
- 
 
-
- */
- function cargarData(){
- 
- fetch('./lib/pasteles.json').then(function(response) {
-   let text="";
-   document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
-   backgroundAnimation();
-   if(response.ok) {
-    
-     response.json().then(function(response) {
-       
-       let data=response.data.pasteles.slice(0,5);
-        
-       for (const productos of data) {
-         let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-         text+=text2;
-       }
-       document.querySelector(".listaProductos").innerHTML=text;
-       loadAnimation()
-     });
-   } else {
-     console.log('Respuesta de red OK pero respuesta HTTP no OK');
-   }
- })
- .catch(function(error) {
-   console.log('Hubo un problema con la petición Fetch:' + error.message);
- });
-}
- function cargarPublicidad() {
-   if(cpublicidad==1){
-    document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/PIZZA.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==2){
-    document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/POSTRE.png')";
-    cpublicidad++;
-  } else if(cpublicidad==3){
- document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/4ESTACIONES.webp')";
-     cpublicidad++;
-  }else if(cpublicidad==4){
- document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/MARGARITA.webp')";
-     cpublicidad++;
-  }else if(cpublicidad==5){
- document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/VEGETARIANA.webp')";
-     cpublicidad++;
-  }else if(cpublicidad==6){
- document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/PEPPERONI.webp')";
-     cpublicidad++;
-  }else if(cpublicidad==7){
- document.getElementById("pasteles").style.backgroundImage  = "url('./publicidad/PRIMAVERA.webp')";
-     cpublicidad=cpublicidad-6;
-  }
-contadorPublicidad++;
-}
-
- 
-setInterval( function(){
-   let text="";
-   
-  if(contadorPublicidad%2==0){
-    cargarPublicidad();
-    backgroundAnimation();
-    document.querySelector(".listaProductos").innerHTML=text;
-
-    }else{
-      fetch('./lib/pasteles.json').then(function(response) {
-     if(response.ok) {
-
-     
-      document.getElementById("pasteles").style.backgroundImage  = "url('./otono/PASTELES.webp')";
-       backgroundAnimation()
-       response.json().then(function(response) {
-        document.querySelector(".listaProductos").innerHTML="";
-         let data=response.data.pasteles.slice(contador,contador+5);
-          
-         for (const productos of data) {
-           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-           text+=text2;
-         }
-         document.querySelector(".listaProductos").innerHTML=text;
-         loadAnimation()
-         if(contador>=response.data.pasteles.length-5){
-           contador=0;
-           }else{
-           contador=contador+4;
-           }
-       });
-       contadorPublicidad++;
-     } else {
-       console.log('Respuesta de red OK pero respuesta HTTP no OK');
-     }
-   })
-   .catch(function(error) {
-     console.log('Hubo un problema con la petición Fetch:' + error.message);
-   });
+    function backgroundAnimation() {
+      gsap.fromTo(
+        ".pasteles",
+        { opacity: 0, x: -1000 },
+        { opacity: 1, x: 0, duration: 2, ease: "power2.out" }
+      );
     }
-  
- }
-   , 30000);
- 
-     </script>
+
+    function removeBackgroundAnimation() {
+      gsap.fromTo(
+        ".pasteles",
+        { opacity: 1, x: 0 },
+        { opacity: 0, x: 2000, duration: 2, ease: "power2.out" }
+      );
+    }
+
+    // Funciones auxiliares para controlar el video de fondo
+    function ocultarVideoFondo() {
+      const video = document.getElementById("videoBg");
+      if (video) {
+        video.pause();
+        video.style.display = "none";
+      }
+    }
+
+    function mostrarVideoFondo(src) {
+      const pasteles = document.getElementById("pasteles");
+      const video = document.getElementById("videoBg");
+      if (video) {
+        pasteles.style.backgroundImage = "none";
+        video.src = src;
+        video.style.display = "block";
+        video.play();
+      }
+    }
+
+    function cargarData() {
+      ocultarVideoFondo();
+      fetch('./lib/pasteles.json').then(function(response) {
+        let text = "";
+        document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
+        backgroundAnimation();
+        if (response.ok) {
+          response.json().then(function(response) {
+            let data = response.data.pasteles.slice(0, 5);
+            for (const productos of data) {
+              let text2 = "<div class='producto'><div class='nombreProducto'>" + productos.descripcion + "</div><div class='precioProducto'>" + productos.precio + "</div></div>";
+              text += text2;
+            }
+            document.querySelector(".listaProductos").innerHTML = text;
+            loadAnimation();
+          });
+        } else {
+          console.log('Respuesta de red OK pero respuesta HTTP no OK');
+        }
+      })
+      .catch(function(error) {
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+      });
+    }
+
+    function cargarPublicidad() {
+      const pasteles = document.getElementById("pasteles");
+
+      if (cpublicidad == 1) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
+        cpublicidad++;
+      } else if (cpublicidad == 2) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
+        cpublicidad++;
+      } else if (cpublicidad == 3) {
+        // Muestra el video de 4 estaciones
+        mostrarVideoFondo('./publicidad/4ESTACIONES.mp4');
+        cpublicidad++;
+      } else if (cpublicidad == 4) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/MARGARITA.webp')";
+        cpublicidad++;
+      } else if (cpublicidad == 5) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/VEGETARIANA.webp')";
+        cpublicidad++;
+      } else if (cpublicidad == 6) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
+        cpublicidad++;
+      } else if (cpublicidad == 7) {
+        ocultarVideoFondo();
+        pasteles.style.backgroundImage = "url('./publicidad/PRIMAVERA.webp')";
+        cpublicidad = cpublicidad - 6;
+      }
+      contadorPublicidad++;
+    }
+
+    setInterval(function() {
+      let text = "";
+      
+      if (contadorPublicidad % 2 == 0) {
+        cargarPublicidad();
+        backgroundAnimation();
+        document.querySelector(".listaProductos").innerHTML = text;
+      } else {
+        ocultarVideoFondo();
+
+        fetch('./lib/pasteles.json').then(function(response) {
+          if (response.ok) {
+            document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
+            backgroundAnimation();
+            response.json().then(function(response) {
+              document.querySelector(".listaProductos").innerHTML = "";
+              let data = response.data.pasteles.slice(contador, contador + 5);
+              
+              for (const productos of data) {
+                let text2 = "<div class='producto'><div class='nombreProducto'>" + productos.descripcion + "</div><div class='precioProducto'>" + productos.precio + "</div></div>";
+                text += text2;
+              }
+              document.querySelector(".listaProductos").innerHTML = text;
+              loadAnimation();
+              if (contador >= response.data.pasteles.length - 5) {
+                contador = 0;
+              } else {
+                contador = contador + 4;
+              }
+            });
+            contadorPublicidad++;
+          } else {
+            console.log('Respuesta de red OK pero respuesta HTTP no OK');
+          }
+        })
+        .catch(function(error) {
+          console.log('Hubo un problema con la petición Fetch:' + error.message);
+        });
+      }
+    }, 30000);
+  </script>
 </html>
