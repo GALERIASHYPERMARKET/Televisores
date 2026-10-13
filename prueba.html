@@ -1,307 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Other page</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="styles2.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body onload="cargarData()">
-    
-  <main id="sandwich"> 
-    
-    <div class="header" >
-      <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
-      <div class="titulos"  style="color:white">Charcuteria</div>
-    </div>
-   <section class="listas" >
-    
-    <div class="listaProductosGrid">
-      
-      
+<html lang="es">
+<head>
+  <title>Sandwiches</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @font-face { font-family: 'rustic'; src: url("./fonts/Halftoned Backup.ttf"); font-display: swap; }
+    @font-face { font-family: 'script'; src: url("./fonts/DancingScript-Bold.ttf"); font-display: swap; }
 
-    </div>
+    :root {
+      --acento: #ff8a2b;
+      --texto: #fff;
+      /* Opacidad del velo oscuro sobre la foto: .20 = foto muy visible, .60 = muy tenue */
+      --velo: .30;
+    }
 
-   
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0a00; }
 
-      
+    #sandwich {
+      position: relative; width: 100vw; height: 100vh; overflow: hidden;
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--texto);
+    }
 
+    /* ===== ESCENAS: la nueva aparece encima y la anterior se retira después ===== */
+    .escena {
+      position: absolute; inset: 0; z-index: 1;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0s linear 1.5s, visibility 0s linear 1.5s;
+    }
+    .escena.activa {
+      z-index: 2; opacity: 1; visibility: visible;
+      transition: opacity 1.5s ease, visibility 0s;
+    }
+    .escena-menu { display: flex; flex-direction: column; padding: 2.2vh 3vw 3vh; }
 
-    
+    /* ===== FONDO ===== */
+    .fondo { position: absolute; inset: 0; z-index: 0; background: #000; }
+    .fondo-imagen {
+      position: absolute; inset: 0;
+      background: url("./fotos/bgsandwichmejor.png") center / cover no-repeat;
+      filter: saturate(1.1);
+    }
+    .fondo-velo {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        rgba(20, 8, 0, calc(var(--velo) + .20)) 0%,
+        rgba(20, 8, 0, var(--velo)) 40%,
+        rgba(20, 8, 0, calc(var(--velo) + .25)) 100%);
+    }
 
+    /* ===== CABECERA ===== */
+    .cabecera {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      margin-bottom: 2.6vh;
+    }
+    .logo { height: 9vh; width: auto; justify-self: start; filter: drop-shadow(0 3px 6px rgba(0,0,0,.5)); }
+    .titulo {
+      font-family: 'rustic', 'Segoe UI', sans-serif; font-weight: 400;
+      font-size: clamp(32px, 7vh, 110px); letter-spacing: .35em; padding-left: .35em;
+      text-shadow: 0 3px 14px rgba(0,0,0,.6);
+    }
+    .titulo::after {
+      content: ""; display: block; height: .6vh; margin: .8vh auto 0; width: 40%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, transparent, var(--acento), transparent);
+      animation: pulsoLinea 3s ease-in-out infinite;
+    }
+    @keyframes pulsoLinea {
+      0%, 100% { width: 25%; opacity: .6; }
+      50%      { width: 60%; opacity: 1; }
+    }
 
-   </section>
-    
-   
-    
+    /* ===== LISTA DE TARJETAS ===== */
+    .lista {
+      position: relative; z-index: 2; flex: 1; min-height: 0;
+      display: grid; align-content: center;
+      grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+      grid-template-rows: repeat(var(--rows, 2), minmax(0, 1fr));
+      gap: 3.4vh 2.2vw;
+    }
+    .tarjeta {
+      position: relative; display: flex; flex-direction: column;
+      width: 100%; max-width: 34vw; height: 100%; max-height: 42vh; min-height: 0;
+      justify-self: center; align-self: center;
+      padding: 2.4vh 1.2vw 1.6vh;
+      border-radius: 2.4vh;
+      background: rgba(25, 10, 2, .62);
+      border: 1px solid rgba(255,255,255,.14);
+      border-bottom: .7vh solid var(--acento);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.45);
+    }
+    /* La animación de entrada arranca cada vez que la escena se activa */
+    .escena-menu.activa .tarjeta {
+      animation: tarjetaEntra .8s cubic-bezier(.2, .8, .2, 1) both;
+      animation-delay: calc(var(--i, 0) * 120ms + .4s);
+    }
+    @keyframes tarjetaEntra {
+      from { opacity: 0; transform: translateY(3vh) scale(.95); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .foto { position: relative; flex: 1; min-height: 0; }
+    .foto::before {
+      content: ""; position: absolute; left: 50%; top: 50%;
+      width: min(75%, 30vh); aspect-ratio: 1; transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,138,43,.45), transparent 70%);
+    }
+    .foto img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      filter: drop-shadow(0 1vh 1.2vh rgba(0,0,0,.55));
+      animation: flota 5s ease-in-out infinite;
+      animation-delay: calc(var(--i, 0) * 400ms);
+    }
+    @keyframes flota {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-.8vh); }
+    }
+
+    .nombre { text-align: center; line-height: 1.05; margin-top: 1vh; }
+    .n1 {
+      display: block; font-weight: 900; text-transform: uppercase; letter-spacing: .05em;
+      font-size: clamp(18px, min(4.4vh, 2.4vw), 72px);
+      color: var(--acento); text-shadow: 0 2px 6px rgba(0,0,0,.6);
+    }
+    .n2 {
+      display: block; margin-top: .2vh;
+      font-family: 'script', 'Segoe Script', 'Brush Script MT', cursive;
+      font-size: clamp(18px, min(4.6vh, 2.5vw), 76px);
+      color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.6);
+    }
+
+    /* ===== ETIQUETA DE PRECIO ===== */
+    .precio {
+      position: absolute; top: -2vh; right: -.8vw; z-index: 3;
+      display: flex; align-items: flex-start; gap: .12em;
+      padding: .05em .45em .12em; border-radius: 2vh; transform: rotate(3deg);
+      font-weight: 900; line-height: 1; color: #2a1000;
+      font-size: clamp(24px, min(6.6vh, 3.5vw), 104px);
+      background: linear-gradient(135deg, #ffc247, #ff8a2b 60%, #eb6123);
+      box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 0 rgba(255,255,255,.4);
+    }
+    .precio .ref { font-size: .36em; margin-top: .5em; letter-spacing: .02em; }
+    .precio .dec { font-size: .46em; margin-top: .18em; }
+
+    /* ===== PUBLICIDAD (fundido entre imágenes) ===== */
+    .escena-publi { background: #000; }
+    .capa {
+      position: absolute; inset: 0; z-index: 1;
+      background: center / cover no-repeat;
+      opacity: 0;
+      transition: opacity 0s linear 1.5s;
+    }
+    .capa.visible { z-index: 2; opacity: 1; transition: opacity 1.5s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main id="sandwich">
+
+    <!-- ESCENA 1: LISTA -->
+    <section class="escena escena-menu activa" id="escenaMenu">
+      <div class="fondo" aria-hidden="true">
+        <div class="fondo-imagen"></div>
+        <div class="fondo-velo"></div>
+      </div>
+
+      <header class="cabecera">
+        <img class="logo" src="./logo.png" alt="" onerror="this.style.display='none'" />
+        <h1 class="titulo">SANDWICHES</h1>
+        <span></span>
+      </header>
+
+      <div class="lista" id="lista"></div>
+    </section>
+
+    <!-- ESCENA 2: PUBLICIDAD (dos capas para fundir entre imágenes) -->
+    <section class="escena escena-publi" id="escenaPubli" aria-hidden="true">
+      <div class="capa"></div>
+      <div class="capa"></div>
+    </section>
+
   </main>
-</body>
 
-<script>
-  function cargarData(){
+  <script>
+  (() => {
+    'use strict';
 
-fetch('./lib/sandwiches.json').then(function(response) {
-  let text="";
-  if(response.ok) {
-    response.json().then(function(response) {
-      
-      let data=response.data.sandwiches.slice(0,6);
-       
-      for (const productos of data) {
-        let descripcion=productos.descripcion.split(/(?<=^\S+)\s/);
-        let primeraDescripcion=descripcion[0];
-        let segundaDescripcion=descripcion[1];
-        let precio=productos.precio.split(".");
-        let precio1=precio[0];
-        let precio2=precio[1];
-        let text2="<div class='productoGrid'><div class='titulos' style='display: flex; flex-direction: column; align-items: center; text-align: center;'><div class='descripcionProducto'><h4 class='tituloPrimeraParte' style='color:blue;'>"+primeraDescripcion+"</h4><h6 class='tituloSegundaParte' style='font-family:'cursive'; color:green;'>"+segundaDescripcion+"</h6></div></div><div class='parteCentral' style='display: flex; flex-direction:row; align-items:center;'><div class='parteDerecha'><div class='imagenGrid' style='background-image:url("+productos.imagen+"); width:200px;'></div></div><div class='parteIzquierda'><div class='Precios' style='display: flex; flex-direction: row ;align-items: center;'><span class='small ref' style='position: relative; top: -40px; color:orange;'>Ref</span><div class='precioProductoGrid' style='font-size: 80px; color:orange;''>"+precio1+"</div><span class='small decimales' style='position: relative; top: 40px; color:orange;'>"+precio2+"</span></div></div></div></div>";
-        
-        text+=text2;
+    /* ============ CONFIGURACIÓN ============ */
+    const CONFIG = {
+      json: './lib/sandwiches.json',
+      porPagina: 6,         // máximo por pantalla (3 x 2)
+      menuMs: 50000,        // tiempo que se muestra la lista (50 s, como el original)
+      publiMs: 50000,       // tiempo que se muestra cada publicidad
+      publiPorTurno: 1,     // publicidades seguidas antes de volver a la lista
+    };
+
+    const PUBLI_ANTES = [
+      './publicidad/CARNE.webp',
+      './publicidad/POLLO.webp',
+      './publicidad/CRISPY.webp',
+      './publicidad/MIXTA.webp',
+      './publicidad/CACHAPAS.webp',
+      './publicidad/PAPASFRITAS.webp',
+    ];
+    const PERROS = './publicidad/perros.webp';           // solo después de las 3 p. m.
+    const PUBLI_DESPUES = [
+      './publicidad/CASHEA1.webp',
+      './publicidad/CASHEA2.webp',
+    ];
+
+    function listaPublicidad() {
+      const l = [...PUBLI_ANTES];
+      if (new Date().getHours() >= 15) l.push(PERROS);
+      return l.concat(PUBLI_DESPUES);
+    }
+
+    /* ============ ELEMENTOS ============ */
+    const escenaMenu  = document.getElementById('escenaMenu');
+    const escenaPubli = document.getElementById('escenaPubli');
+    const lista       = document.getElementById('lista');
+    const capas       = Array.from(escenaPubli.querySelectorAll('.capa'));
+
+    let productos = [];
+    let indicePubli = 0;
+    let capaActual = 0;
+
+    const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    /* ============ DATOS ============ */
+    async function cargarProductos() {
+      try {
+        const resp = await fetch(CONFIG.json, { cache: 'no-store' });
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const json = await resp.json();
+        const l = json && json.data && json.data.sandwiches;
+        if (Array.isArray(l) && l.length) productos = l;
+      } catch (err) {
+        console.warn('No se pudo actualizar sandwiches.json:', err.message);
       }
-      document.querySelector(".listaProductosGrid").innerHTML=text;
-      
-    });
-  } else {
-    console.log('Respuesta de red OK pero respuesta HTTP no OK');
-  }
-})
-.catch(function(error) {
-  console.log('Hubo un problema con la petición Fetch:' + error.message);
-});
-}
-</script>
-
-
-<script>
-  var contador=4;
-  var contadorVideo=1;
-  var contadorPublicidad=1;
-  var cpublicidad=1;
-    var dt = new Date();
-    
-function reducirTamano(){
- for (const a of document.querySelectorAll(".linea")) {
-   
-   var text=a.textContent;
-   var length = 18;
-   var trimmedString = text.length > length ? 
-                   text.substring(0, 21) + "..." : 
-                   text;
-    a.textContent = trimmedString;
-
- }
-}
-
-function cargarData(){
-
- fetch('./lib/sandwiches.json').then(function(response) {
-   let text="";
-   if(response.ok) {
-     response.json().then(function(response) {
-       
-       let data=response.data.sandwiches.slice(0,6);
-        
-       for (const productos of data) {
-        let descripcion=productos.descripcion.split(/(?<=^\S+)\s/);
-        let primeraDescripcion=descripcion[0];
-        let segundaDescripcion=descripcion[1];
-        let precio=productos.precio.split(".");
-        let precio1=precio[0];
-        let precio2=precio[1];
-         let text2="<div class='productoGrid'><div class='titulos' style='display: flex; flex-direction: column; align-items: center; text-align: center;'><div class='descripcionProducto'><h4 class='tituloPrimeraParte' style='color:#eb6123;'>"+primeraDescripcion+"</h4><h6 class='tituloSegundaParte' style='font-family:'cursive'; color:white;'>"+segundaDescripcion+"</h6></div></div><div class='parteCentral' style='display: flex; flex-direction:row; align-items:center;'><div class='parteDerecha'><div class='imagenGrid' style='background-image:url("+productos.imagen+"); width:200px;'></div></div><div class='parteIzquierda'><div class='Precios' style='display: flex; flex-direction: row ;align-items: center;'><span class='small ref' style='position: relative; top: -40px; color:orange;'>Ref</span><div class='precioProductoGrid' style='font-size: 80px; color:orange;''>"+precio1+"</div><span class='small decimales' style='position: relative; top: 40px; color:orange;'>,"+precio2+"</span></div></div></div></div>";
-         text+=text2;
-       }
-       document.querySelector(".listaProductosGrid").innerHTML=text;
-       
-     });
-   } else {
-     console.log('Respuesta de red OK pero respuesta HTTP no OK');
-   }
- })
- .catch(function(error) {
-   console.log('Hubo un problema con la petición Fetch:' + error.message);
- });
-}
-/*
-var interval=5000;
-var run=setInterval(runPublicityAndVideos, interval);
-
-document.getElementById('myVideo').addEventListener('ended',myHandler,false);
-
-function myHandler(e) {
-    var video2=document.getElementById('myVideo');
-    video2.style.display="none";
-    e.preventDefault();
-    clearInterval(run);
-    interval=5000;
-    run = setInterval(runPublicityAndVideos, interval);
-
-  }
-
-function runPublicityAndVideos() {
-  var dt = new Date();
-  dt.getHours();
- let text="";
- if(contadorVideo===5){
-  console.log("running...")
-    contadorVideo=contadorVideo-4;
-    document.querySelector(".listaProductosGrid").innerHTML="";
-   var video= document.getElementById("myVideo");
-   video.style.display="block";
-   video.muted = true;
-   video.play();
-
-   
-  } else if(contadorPublicidad%2==0){
-    cargarPublicidad();
-    document.querySelector(".listaProductosGrid").innerHTML=text;
-    }else{
-      contadorVideo++;
-      document.getElementById("sandwich").style.backgroundImage  = "url('./fotos/bgsandwichmejor.png')";
-      fetch('./lib/sandwiches.json').then(function(response) {
-   if(response.ok) {
-
-     response.json().then(function(response) {
-      document.querySelector(".listaProductosGrid").innerHTML="";
-       let data=response.data.sandwiches.slice(contador>response.data.sandwiches.length-5? 0:contador,contador+6);
-        
-       for (const productos of data) {
-         let descripcion=productos.descripcion.split(/(?<=^\S+)\s/);
-        let primeraDescripcion=descripcion[0];
-        let segundaDescripcion=descripcion[1];
-        let precio=productos.precio.split(".");
-        let precio1=precio[0];
-        let precio2=precio[1];
-         let text2="<div class='productoGrid'><div class='titulos' style='display: flex; flex-direction: column; align-items: center; text-align: center;'><div class='descripcionProducto'><h4 class='tituloPrimeraParte' style='color:orange;'>"+primeraDescripcion+"</h4><h6 class='tituloSegundaParte' style='font-family:'cursive'; color:green;'>"+segundaDescripcion+"</h6></div></div><div class='parteCentral' style='display: flex; flex-direction:row; align-items:center;'><div class='parteDerecha'><div class='imagenGrid' style='background-image:url("+productos.imagen+"); width:200px;'></div></div><div class='parteIzquierda'><div class='Precios' style='display: flex; flex-direction: row ;align-items: center;'><span class='small ref' style='position: relative; top: -40px; color:orange;'>Ref</span><div class='precioProductoGrid' style='font-size: 80px; color:orange;''>"+precio1+"</div><span class='small decimales' style='position: relative; top: 40px; color:orange;'>,"+precio2+"</span></div></div></div></div>";
-         text+=text2;
-       }
-       document.querySelector(".listaProductosGrid").innerHTML=text;
-       
-       if(contador>=response.data.sandwiches.length-5){
-         contador=0;
-         }else{
-         contador=contador+4;
-         }
-     });
-     contadorPublicidad++;
-     if(contadorVideo===5){
-      clearInterval(run);
-      var video1= document.getElementById("myVideo");
-      var duration=(video1.duration *1000);
-      console.log(video1.duration % 60)
-      interval=duration
-      run = setInterval(runPublicityAndVideos, interval);
-     }
-   } else {
-     console.log('Respuesta de red OK pero respuesta HTTP no OK');
-   }
- })
- .catch(function(error) {
-   console.log('Hubo un problema con la petición Fetch:' + error.message);
- });
     }
- 
 
-}
-*/
+    /* ============ RENDER ============ */
+    function crearPrecio(valor) {
+      const el = document.createElement('div');
+      el.className = 'precio';
+      const t = String(valor ?? '').trim();
+      const m = t.match(/(\d+)(?:[.,](\d+))?/);
 
-function cargarPublicidad() {
-   if(cpublicidad==1){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CARNE.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==2){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/POLLO.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==3){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CRISPY.webp')";
-    cpublicidad++;
-    
-  }else if(cpublicidad==4){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/MIXTA.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==5){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CACHAPAS.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==6){
-    document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==7){
-    let hour= new Date().getHours();
+      const ref = document.createElement('span');
+      ref.className = 'ref';
+      ref.textContent = 'Ref';
+      el.appendChild(ref);
 
-    if(hour<15){
-      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/PAPASFRITAS.webp')";
-cpublicidad++;
-    }else{
-      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/perros.webp')";
-      cpublicidad++;
-    } 
-   
-  }else if(cpublicidad==8){
-      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CASHEA1.webp')";
-      cpublicidad++;
-    }else if(cpublicidad==9){
-      document.getElementById("sandwich").style.backgroundImage  = "url('./publicidad/CASHEA2.webp')";
-      cpublicidad=cpublicidad-8;
+      const ent = document.createElement('span');
+      ent.className = 'ent';
+      ent.textContent = m ? m[1] : t;
+      el.appendChild(ent);
+
+      if (m && m[2]) {
+        const dec = document.createElement('span');
+        dec.className = 'dec';
+        dec.textContent = ',' + m[2].padEnd(2, '0').slice(0, 2);
+        el.appendChild(dec);
+      }
+      return el;
     }
- 
-     contadorPublicidad++;
-}
 
+    function crearTarjeta(p, i) {
+      const tarjeta = document.createElement('article');
+      tarjeta.className = 'tarjeta';
+      tarjeta.style.setProperty('--i', i);
 
+      const foto = document.createElement('div');
+      foto.className = 'foto';
+      if (p.imagen) {
+        const img = document.createElement('img');
+        img.src = p.imagen;
+        img.alt = '';
+        img.onerror = () => img.remove();
+        foto.appendChild(img);
+      }
 
-setInterval(function(){
-  var dt = new Date();
-  dt.getHours();
-console.log(contadorPublicidad);
- let text="";
- 
-  if(contadorPublicidad%2==0){
-    cargarPublicidad();
-    document.querySelector(".listaProductosGrid").innerHTML=text;
-    }else{
-      document.getElementById("sandwich").style.backgroundImage  = "url('./fotos/bgsandwichmejor.png')";
-      fetch('./lib/sandwiches.json').then(function(response) {
-   if(response.ok) {
+      const txt = String(p.descripcion || '').trim();
+      const k = txt.search(/\s/);
+      const primera = k < 0 ? txt : txt.slice(0, k);
+      const segunda = k < 0 ? '' : txt.slice(k + 1).trim();
 
-     response.json().then(function(response) {
-      document.querySelector(".listaProductosGrid").innerHTML="";
-       let data=response.data.sandwiches.slice(contador>response.data.sandwiches.length-5? 0:contador,contador+6);
-        
-       for (const productos of data) {
-         let descripcion=productos.descripcion.split(/(?<=^\S+)\s/);
-        let primeraDescripcion=descripcion[0];
-        let segundaDescripcion=descripcion[1];
-        let precio=productos.precio.split(".");
-        let precio1=precio[0];
-        let precio2=precio[1];
-         let text2="<div class='productoGrid'><div class='titulos' style='display: flex; flex-direction: column; align-items: center; text-align: center;'><div class='descripcionProducto'><h4 class='tituloPrimeraParte' style='color:orange;'>"+primeraDescripcion+"</h4><h6 class='tituloSegundaParte' style='font-family:'cursive'; color:green;'>"+segundaDescripcion+"</h6></div></div><div class='parteCentral' style='display: flex; flex-direction:row; align-items:center;'><div class='parteDerecha'><div class='imagenGrid' style='background-image:url("+productos.imagen+"); width:200px;'></div></div><div class='parteIzquierda'><div class='Precios' style='display: flex; flex-direction: row ;align-items: center;'><span class='small ref' style='position: relative; top: -40px; color:orange;'>Ref</span><div class='precioProductoGrid' style='font-size: 80px; color:orange;''>"+precio1+"</div><span class='small decimales' style='position: relative; top: 40px; color:orange;'>,"+precio2+"</span></div></div></div></div>";
-         text+=text2;
-       }
-       document.querySelector(".listaProductosGrid").innerHTML=text;
-       console.log(response.data.sandwiches.length-5);
-       console.log(contador);
-       if(contador>=response.data.sandwiches.length-5){
-         contador=0;
-         }else{
-         contador=contador+4;
-         }
-     });
-     contadorPublicidad++;
-   } else {
-     console.log('Respuesta de red OK pero respuesta HTTP no OK');
-   }
- })
- .catch(function(error) {
-   console.log('Hubo un problema con la petición Fetch:' + error.message);
- });
+      const nombre = document.createElement('div');
+      nombre.className = 'nombre';
+      const n1 = document.createElement('span');
+      n1.className = 'n1';
+      n1.textContent = primera;
+      nombre.appendChild(n1);
+      if (segunda) {
+        const n2 = document.createElement('span');
+        n2.className = 'n2';
+        n2.textContent = segunda;
+        nombre.appendChild(n2);
+      }
+
+      tarjeta.append(foto, nombre, crearPrecio(p.precio));
+      return tarjeta;
     }
- 
 
- }
+    function productosPorPagina() {
+      const paginas = Math.ceil(productos.length / CONFIG.porPagina);
+      return Math.ceil(productos.length / paginas);
+    }
 
- , 50000);
+    function pintarPagina(pagina) {
+      const porPag = productosPorPagina();
+      const items = productos.slice(pagina * porPag, (pagina + 1) * porPag);
+      const cols = items.length === 4 ? 2 : Math.min(items.length, 3);
+      const filas = Math.ceil(items.length / cols);
+      lista.style.setProperty('--cols', cols);
+      lista.style.setProperty('--rows', filas);
+      lista.replaceChildren(...items.map(crearTarjeta));
+    }
 
-   </script>
+    /* ============ ESCENAS ============ */
+    function mostrarMenu() {
+      escenaPubli.classList.remove('activa');
+      escenaPubli.setAttribute('aria-hidden', 'true');
+      escenaMenu.classList.add('activa');
+      escenaMenu.removeAttribute('aria-hidden');
+    }
 
+    function mostrarPubli() {
+      const l = listaPublicidad();
+      const src = l[indicePubli % l.length];
+      indicePubli = (indicePubli + 1) % l.length;
+
+      const siguiente = 1 - capaActual;
+      capas[siguiente].style.backgroundImage = `url('${src}')`;
+      capas[siguiente].classList.add('visible');
+      capas[capaActual].classList.remove('visible');
+      capaActual = siguiente;
+
+      escenaMenu.classList.remove('activa');
+      escenaMenu.setAttribute('aria-hidden', 'true');
+      escenaPubli.classList.add('activa');
+      escenaPubli.removeAttribute('aria-hidden');
+    }
+
+    function precargarImagenes() {
+      [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES].forEach((src) => { new Image().src = src; });
+    }
+
+    /* ============ CICLO PRINCIPAL ============ */
+    async function ciclo() {
+      let pagina = 0;
+
+      while (true) {
+        await cargarProductos();
+
+        if (!productos.length) {
+          await esperar(5000);
+          continue;
+        }
+
+        const paginas = Math.ceil(productos.length / CONFIG.porPagina);
+        if (pagina >= paginas) pagina = 0;
+
+        // 1) Sandwiches
+        pintarPagina(pagina);
+        mostrarMenu();
+        await esperar(CONFIG.menuMs);
+        pagina = (pagina + 1) % paginas;
+
+        // 2) Publicidad(es)
+        for (let k = 0; k < CONFIG.publiPorTurno; k++) {
+          mostrarPubli();
+          await esperar(CONFIG.publiMs);
+        }
+      }
+    }
+
+    precargarImagenes();
+    ciclo();
+  })();
+  </script>
+</body>
 </html>
