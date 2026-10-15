@@ -1,225 +1,205 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <title>Bebidas</title>
+    <title>Other page</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="./styles/jugos.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles/jugos.css">
     <script type="module" src="script.js"></script>
   </head>
+  <body onload="cargarData()">
+    
+  <main id="jugos"> 
+   
+   <section class="listas2">
+    <div class="containerJugos">
+       
+      <div class="firstImage">
+      </div>
+      <div class="secondImage">
+          <div class="logoAndQrContainer">
+              <img src="/logo.png" width="150" height="80"  alt="">
+              <div class="bebidasTitle">BEBIDAS</div>
+              <img src="/images/qr-code.png " width="100" height="80" alt="">
+          </div>
+          <div class="gridContainer">
+              <div class="preciosGrid1">
+                 <div class="firstSection">
+                  
+                 </div>
+                 <div class="secondSection">
+                  
+                 </div>
+                 
+              </div>
+              <div class="preciosGrid2">
+                  <div class="firstSection">
+                     
+                     </div>
+                     <div class="secondSection">
+                     
+                     </div>
+                 
+              </div>
+              <div class="preciosGrid3">
+                  <div class="firstSection">
+                     
+                     </div>
+                     <div class="secondSection">
+                      
+                     </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="listaProductos">
+     
 
-  <body>
-    <main id="jugos">
+    </div>
 
-      <!-- ESCENA 1: LISTA DE PRECIOS -->
-      <section class="escena escena-menu activa" id="escenaMenu">
 
-        <!-- Fondo: foto + velo morado ligero -->
-        <div class="fondo" aria-hidden="true">
-          <div class="fondo-imagen"></div>
-          <div class="fondo-velo"></div>
-        </div>
+   </section>
+    
+   
+    
+  </main>
+</body>
+<script>
+  var contadorGrid=-1;
+  var estado=1;
+  var contador=1;
+  var contadorPublicidad=1;
+    var cpublicidad=1;
+function reducirTamano(){
+ for (const a of document.querySelectorAll(".linea")) {
+   
+   var text=a.textContent;
+   var length = 18;
+   var trimmedString = text.length > length ? 
+                   text.substring(0, 21) + "..." : 
+                   text;
+    a.textContent = trimmedString;
 
-        <!-- Burbujas decorativas -->
-        <div class="burbujas" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
+ }
+}
 
-        <header class="cabecera">
-          <img class="logo" src="/logo.png" alt="Logo" />
-          <h1 class="titulo">BEBIDAS</h1>
-          <img class="qr" src="/images/qr-code.png" alt="Código QR" />
-        </header>
+function cargarPublicidad(){
+  if(cpublicidad===1){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/chicha.webp')";
+    cpublicidad++; 
+  }else if(cpublicidad===2){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/COMIDA.webp')";
+    cpublicidad++;
+  }else if (cpublicidad===3) {
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/PCLASICO.webp')";
+    cpublicidad++;
+  }else if(cpublicidad===4){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/POLLO-QUESO.webp')";
+    cpublicidad++;
+  }else if(cpublicidad===5){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/papas.webp')";
+    cpublicidad++;
+  }
+  else if(cpublicidad===6){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/COMIDA.webp')";
+    cpublicidad++;
+  } else if(cpublicidad===7){
+    document.getElementById("jugos").style.backgroundImage  = "url('./publicidad/ENROLLADO.webp')";
+    cpublicidad=cpublicidad-6;
+  }
+  contadorPublicidad++;
+}
 
-        <div class="lista" id="lista">
-          <div class="columna" data-col="0"></div>
-          <div class="columna" data-col="1"></div>
-        </div>
-      </section>
 
-      <!-- ESCENA 2: PUBLICIDAD -->
-      <section class="escena escena-publi" id="escenaPubli" aria-hidden="true">
-        <div class="publi-imagen" id="publiImagen"></div>
-      </section>
+function cargarData(){
 
-    </main>
-
-    <script>
-    (() => {
-      'use strict';
-
-      /* ============ CONFIGURACIÓN ============ */
-      const CONFIG = {
-        json: './lib/jugos.json',
-        porPagina: 12,        // máximo por pantalla (2 columnas x 6 filas)
-        menuMs: 50000,        // tiempo que se muestra la lista (50 s, como el original)
-        publiMs: 50000,       // tiempo que se muestra cada publicidad
-        publiPorTurno: 1,     // cuántas publicidades seguidas antes de volver a bebidas
-      };
-
-      const PUBLICIDAD = [
-        './publicidad/chicha.webp',
-        './publicidad/COMIDA.webp',
-        './publicidad/PCLASICO.webp',
-        './publicidad/POLLO-QUESO.webp',
-        './publicidad/papas.webp',
-        './publicidad/COMIDA.webp',
-        './publicidad/ENROLLADO.webp',
-      ];
-
-      /* ============ ELEMENTOS ============ */
-      const escenaMenu  = document.getElementById('escenaMenu');
-      const escenaPubli = document.getElementById('escenaPubli');
-      const publiImagen = document.getElementById('publiImagen');
-      const columnas    = Array.from(document.querySelectorAll('.columna'));
-
-      let productos = [];
-      let indicePubli = 0;
-
-      const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
-
-      /* ============ DATOS ============ */
-      async function cargarProductos() {
-        try {
-          const resp = await fetch(CONFIG.json, { cache: 'no-store' });
-          if (!resp.ok) throw new Error('HTTP ' + resp.status);
-          const json = await resp.json();
-          const lista = json && json.data && json.data.jugos;
-          if (Array.isArray(lista) && lista.length) productos = lista;
-        } catch (err) {
-          console.warn('No se pudo actualizar jugos.json:', err.message);
+ fetch('./lib/jugos.json').then(function(response) {
+   let text="";
+   if(response.ok) {
+     response.json().then(function(response) {
+       
+       let data=response.data.jugos.slice(0,9);
+        
+       for (const productos of data) {
+        contadorGrid++;
+        
+        
+        if(contadorGrid===3){
+          contadorGrid=contadorGrid-3;
+          estado++;
         }
+        
+        document.querySelector(".preciosGrid"+estado+" > .firstSection").innerHTML+=" <div class='description'>"+productos.descripcion+"</div>"
+        document.querySelector(".preciosGrid"+estado+" > .secondSection").innerHTML+=" <div class='price'>"+productos.precio+"</div>"
+        
+       }
+       contadorGrid=-1;
+       estado=1
+     });
+   } else {
+     console.log('Respuesta de red OK pero respuesta HTTP no OK');
+   }
+ })
+ .catch(function(error) {
+   console.log('Hubo un problema con la petición Fetch:' + error.message);
+ });
+}
+
+setInterval(function(){
+
+ let text="";
+ if(contadorPublicidad%2==0){
+    document.querySelector(".containerJugos").style.display="none"
+    cargarPublicidad();
+    }else{
+      document.querySelector(".containerJugos").style.display="flex"
+      fetch('./lib/jugos.json').then(function(response) {
+   if(response.ok) {
+     response.json().then(function(response) {
+      for (let index = 1; index < 4; index++) {
+        
+        document.querySelector(".preciosGrid"+index+" > .firstSection").innerHTML="";
+        document.querySelector(".preciosGrid"+index+" > .secondSection").innerHTML="";
+        
       }
-
-      /* ============ RENDER ============ */
-      function crearPrecio(valor) {
-        const precio = document.createElement('span');
-        precio.className = 'precio';
-
-        const texto = String(valor ?? '').trim();
-        const m = texto.match(/^([\d.,]+)\s*(.*)$/);
-        const montoTxt = m ? m[1] : texto;
-        let unidadTxt = m ? m[2].trim() : '';
-        if (/^r(ef)?\.?$/i.test(unidadTxt)) unidadTxt = 'Ref';   // R / ref / REF -> Ref
-
-        const monto = document.createElement('span');
-        monto.className = 'monto';
-        monto.textContent = montoTxt;
-        precio.appendChild(monto);
-
-        if (unidadTxt) {
-          const unidad = document.createElement('span');
-          unidad.className = 'unidad';
-          unidad.textContent = unidadTxt;
-          precio.appendChild(unidad);
+     
+       let data=response.data.jugos.slice(contador,contador+9);
+        
+       for (const productos of data) {
+        contadorGrid++;
+        if(contadorGrid===3){
+          contadorGrid=contadorGrid-3;
+          estado++;
         }
-        return precio;
-      }
+        document.querySelector(".preciosGrid"+estado+" > .firstSection").innerHTML+=" <div class='description'>"+productos.descripcion+"</div>"
+        document.querySelector(".preciosGrid"+estado+" > .secondSection").innerHTML+=" <div class='price'>"+productos.precio+"</div>"
+        
+       }
+       contadorGrid=-1;
+       estado=1
+       if(contador>=response.data.jugos.length-8){
+         
+         contador=0;
+         }else{
+          
+         contador=contador+1;
+         }
+     });
+     contadorPublicidad++;
+   } else {
+     console.log('Respuesta de red OK pero respuesta HTTP no OK');
+   }
+ })
+ .catch(function(error) {
+   console.log('Hubo un problema con la petición Fetch:' + error.message);
+ });
+    }
+ 
 
-      function crearFila(producto, i) {
-        const fila = document.createElement('div');
-        fila.className = 'fila';
-        fila.style.setProperty('--i', i);
 
-        if (producto.imagen) {
-          const fruta = document.createElement('img');
-          fruta.className = 'fruta';
-          fruta.src = producto.imagen;
-          fruta.alt = '';
-          fruta.onerror = () => fruta.remove();
-          fila.appendChild(fruta);
-        }
+}
+ , 50000);
 
-        const desc = document.createElement('span');
-        desc.className = 'desc';
-        desc.textContent = String(producto.descripcion || '').trim();
-
-        const puntos = document.createElement('span');
-        puntos.className = 'puntos';
-
-        fila.append(desc, puntos, crearPrecio(producto.precio));
-        return fila;
-      }
-
-      function productosPorPagina() {
-        const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-        return Math.ceil(productos.length / paginas);
-      }
-
-      function pintarPagina(pagina) {
-        const porPag = productosPorPagina();
-        const inicio = pagina * porPag;
-        const items = productos.slice(inicio, inicio + porPag);
-        const porColumna = Math.ceil(porPag / columnas.length);
-
-        columnas.forEach((col, c) => {
-          col.classList.remove('sale');
-          col.replaceChildren();
-          items.slice(c * porColumna, (c + 1) * porColumna).forEach((p, i) => {
-            col.appendChild(crearFila(p, c * porColumna + i));
-          });
-        });
-      }
-
-      /* ============ ESCENAS ============ */
-      function mostrarMenu() {
-        escenaPubli.classList.remove('activa');
-        escenaPubli.setAttribute('aria-hidden', 'true');
-        escenaMenu.classList.add('activa');
-        escenaMenu.removeAttribute('aria-hidden');
-      }
-
-      function mostrarPubli() {
-        publiImagen.style.backgroundImage = `url('${PUBLICIDAD[indicePubli]}')`;
-        indicePubli = (indicePubli + 1) % PUBLICIDAD.length;
-        escenaMenu.classList.remove('activa');
-        escenaMenu.setAttribute('aria-hidden', 'true');
-        escenaPubli.classList.add('activa');
-        escenaPubli.removeAttribute('aria-hidden');
-      }
-
-      function precargarImagenes() {
-        PUBLICIDAD.forEach((src) => { new Image().src = src; });
-      }
-
-      /* ============ CICLO PRINCIPAL ============ */
-      async function ciclo() {
-        let pagina = 0;
-
-        while (true) {
-          await cargarProductos();
-
-          if (!productos.length) {
-            await esperar(5000);
-            continue;
-          }
-
-          const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-          if (pagina >= paginas) pagina = 0;
-
-          // 1) Bebidas
-          pintarPagina(pagina);
-          mostrarMenu();
-          await esperar(CONFIG.menuMs);
-          pagina = (pagina + 1) % paginas;
-
-          // 2) Publicidad(es)
-          if (PUBLICIDAD.length) {
-            for (let k = 0; k < CONFIG.publiPorTurno; k++) {
-              mostrarPubli();
-              await esperar(CONFIG.publiMs);
-            }
-          } else {
-            columnas.forEach((col) => col.classList.add('sale'));
-            await esperar(900);
-          }
-        }
-      }
-
-      precargarImagenes();
-      ciclo();
-    })();
-    </script>
-  </body>
+   </script>
 </html>
