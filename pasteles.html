@@ -11,8 +11,6 @@
   <body onload="cargarData()" style="background-color: black;">
       
     <main id="pasteles" class="pasteles" style="position: relative; overflow: hidden;"> 
-      <!-- Video de fondo para animaciones -->
-      <video id="videoBg" autoplay loop muted playsinline style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"></video>
 
       <div class="header">
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
@@ -66,28 +64,7 @@
       );
     }
 
-    // Funciones auxiliares para controlar el video de fondo
-    function ocultarVideoFondo() {
-      const video = document.getElementById("videoBg");
-      if (video) {
-        video.pause();
-        video.style.display = "none";
-      }
-    }
-
-    function mostrarVideoFondo(src) {
-      const pasteles = document.getElementById("pasteles");
-      const video = document.getElementById("videoBg");
-      if (video) {
-        pasteles.style.backgroundImage = "none";
-        video.src = src;
-        video.style.display = "block";
-        video.play();
-      }
-    }
-
     function cargarData() {
-      ocultarVideoFondo();
       fetch('./lib/pasteles.json').then(function(response) {
         let text = "";
         document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
@@ -115,31 +92,25 @@
       const pasteles = document.getElementById("pasteles");
 
       if (cpublicidad == 1) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 2) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
         cpublicidad++;
       } else if (cpublicidad == 3) {
-        // Muestra el video de 4 estaciones
-        mostrarVideoFondo('./publicidad/4ESTACIONES.mp4');
+        // WebP animado (reemplaza al video). El ?t= fuerza que la animación reinicie.
+        pasteles.style.backgroundImage = "url('./publicidad/4ESTACIONES.webp?t=" + Date.now() + "')";
         cpublicidad++;
       } else if (cpublicidad == 4) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/MARGARITA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 5) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/VEGETARIANA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 6) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
         cpublicidad++;
       } else if (cpublicidad == 7) {
-        ocultarVideoFondo();
         pasteles.style.backgroundImage = "url('./publicidad/PRIMAVERA.webp')";
         cpublicidad = cpublicidad - 6;
       }
@@ -154,8 +125,6 @@
         backgroundAnimation();
         document.querySelector(".listaProductos").innerHTML = text;
       } else {
-        ocultarVideoFondo();
-
         fetch('./lib/pasteles.json').then(function(response) {
           if (response.ok) {
             document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
