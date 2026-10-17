@@ -199,8 +199,8 @@
     const CONFIG = {
       json: './lib/sandwiches.json',
       porPagina: 6,         // máximo por pantalla (3 x 2)
-      menuMs: 50000,        // tiempo que se muestra la lista (50 s, como el original)
-      publiMs: 50000,       // tiempo que se muestra cada publicidad
+      menuMs: 35000,        // tiempo que se muestra la lista (50 s, como el original)
+      publiMs: 35000,       // tiempo que se muestra cada publicidad
       publiPorTurno: 1,     // publicidades seguidas antes de volver a la lista
     };
 
@@ -218,10 +218,33 @@
       './publicidad/CASHEA2.webp',
     ];
 
+    /* ============ PROMOCIÓN SUSHIS ============ */
+    // Fotos de sushi que se intercalan entre las demás publicidades.
+    const SUSHIS = [
+      './publicidad/ROLLTEMPURA.webp',
+      './publicidad/FILADELFIAROLL.webp',
+      './publicidad/CALIFORNIAROLL.webp',
+    ];
+    // Cuántas fotos de sushi salen después de CADA publicidad normal.
+    // 1 = la mitad de las fotos son sushi, 2 = dos de cada tres, 3 = tres de cada cuatro.
+    const SUSHIS_POR_PUBLI = 3;
+
     function listaPublicidad() {
-      const l = [...PUBLI_ANTES];
-      if (new Date().getHours() >= 15) l.push(PERROS);
-      return l.concat(PUBLI_DESPUES);
+      const base = [...PUBLI_ANTES];
+      if (new Date().getHours() >= 15) base.push(PERROS);
+      base.push(...PUBLI_DESPUES);
+
+      // Después de cada publicidad normal se meten los sushis, rotando entre los tres
+      const l = [];
+      let s = 0;
+      for (const p of base) {
+        l.push(p);
+        for (let k = 0; k < SUSHIS_POR_PUBLI; k++) {
+          l.push(SUSHIS[s % SUSHIS.length]);
+          s++;
+        }
+      }
+      return l;
     }
 
     /* ============ ELEMENTOS ============ */
@@ -353,7 +376,7 @@
     }
 
     function precargarImagenes() {
-      [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES].forEach((src) => { new Image().src = src; });
+      [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES, ...SUSHIS].forEach((src) => { new Image().src = src; });
     }
 
     /* ============ CICLO PRINCIPAL ============ */
