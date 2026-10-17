@@ -1,30 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <title>Other page</title>
+    <title>Galeria Hypermarket</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./styles/stylesHojaldre.css">
     <script type="text/javascript" src="script.js"></script>
+    <style>
+      /* Estilos para forzar que el video se mantenga como capa de fondo en el TV */
+      #video4Estaciones {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body onload="cargarData()" style="background-color: black;">
       
     <main id="pasteles" class="pasteles" style="position: relative; overflow: hidden;"> 
-      <!-- Video de fondo para animaciones -->
-      <video id="videoBg" autoplay loop muted playsinline style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"></video>
+      
+      <!-- Video precargado fijo en el HTML para no disparar el reproductor del Smart TV -->
+      <video 
+        id="video4Estaciones" 
+        src="./publicidad/4ESTACIONES.mp4" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        webkit-playsinline 
+        disablePictureInPicture 
+        controlslist="nodownload nofullscreen noremoteplayback">
+      </video>
 
       <div class="header">
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
         <div class="titulos" style="color:white">Sopas</div>
       </div>
       <section class="listas">
-        <iframe src="/prueba2.html" id="frameHojaldre" title="W3Schools Free Online Web Tutorials">
-        </iframe>
-        
-        <div class="listaProductos">
-          
-        </div>
+        <iframe src="/prueba2.html" id="frameHojaldre" title="W3Schools Free Online Web Tutorials"></iframe>
+        <div class="listaProductos"></div>
       </section>
     </main>
   </body>
@@ -33,13 +55,8 @@
     var contador = 4;
     var contadorPublicidad = 1;
     var cpublicidad = 1;
-    var contadorVideo = 1;
-    var contadorHojaldre = 1;
 
-    const timeline = gsap.timeline({
-      duration: 1,
-      paused: false
-    });
+    const timeline = gsap.timeline({ duration: 1, paused: false });
 
     function loadAnimation() {
       timeline.to(".listaProductos .producto", {
@@ -58,36 +75,26 @@
       );
     }
 
-    function removeBackgroundAnimation() {
-      gsap.fromTo(
-        ".pasteles",
-        { opacity: 1, x: 0 },
-        { opacity: 0, x: 2000, duration: 2, ease: "power2.out" }
-      );
-    }
-
-    // Funciones auxiliares para controlar el video de fondo
-    function ocultarVideoFondo() {
-      const video = document.getElementById("videoBg");
+    // Funciones para controlar la visibilidad del video
+    function mostrarVideo() {
+      const pasteles = document.getElementById("pasteles");
+      const video = document.getElementById("video4Estaciones");
+      pasteles.style.backgroundImage = "none";
       if (video) {
-        video.pause();
-        video.style.display = "none";
+        video.style.opacity = "1";
+        video.play().catch(e => console.log("Autoplay prevenido:", e));
       }
     }
 
-    function mostrarVideoFondo(src) {
-      const pasteles = document.getElementById("pasteles");
-      const video = document.getElementById("videoBg");
+    function ocultarVideo() {
+      const video = document.getElementById("video4Estaciones");
       if (video) {
-        pasteles.style.backgroundImage = "none";
-        video.src = src;
-        video.style.display = "block";
-        video.play();
+        video.style.opacity = "0";
       }
     }
 
     function cargarData() {
-      ocultarVideoFondo();
+      ocultarVideo();
       fetch('./lib/pasteles.json').then(function(response) {
         let text = "";
         document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
@@ -102,12 +109,7 @@
             document.querySelector(".listaProductos").innerHTML = text;
             loadAnimation();
           });
-        } else {
-          console.log('Respuesta de red OK pero respuesta HTTP no OK');
         }
-      })
-      .catch(function(error) {
-        console.log('Hubo un problema con la petición Fetch:' + error.message);
       });
     }
 
@@ -115,31 +117,31 @@
       const pasteles = document.getElementById("pasteles");
 
       if (cpublicidad == 1) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 2) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
         cpublicidad++;
       } else if (cpublicidad == 3) {
-        // Muestra el video de 4 estaciones
-        mostrarVideoFondo('./publicidad/4ESTACIONES.mp4');
+        // En lugar de cargar un video nuevo, simplemente mostramos el que está precargado
+        mostrarVideo();
         cpublicidad++;
       } else if (cpublicidad == 4) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/MARGARITA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 5) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/VEGETARIANA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 6) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
         cpublicidad++;
       } else if (cpublicidad == 7) {
-        ocultarVideoFondo();
+        ocultarVideo();
         pasteles.style.backgroundImage = "url('./publicidad/PRIMAVERA.webp')";
         cpublicidad = cpublicidad - 6;
       }
@@ -154,7 +156,7 @@
         backgroundAnimation();
         document.querySelector(".listaProductos").innerHTML = text;
       } else {
-        ocultarVideoFondo();
+        ocultarVideo();
 
         fetch('./lib/pasteles.json').then(function(response) {
           if (response.ok) {
@@ -177,12 +179,7 @@
               }
             });
             contadorPublicidad++;
-          } else {
-            console.log('Respuesta de red OK pero respuesta HTTP no OK');
           }
-        })
-        .catch(function(error) {
-          console.log('Hubo un problema con la petición Fetch:' + error.message);
         });
       }
     }, 30000);
