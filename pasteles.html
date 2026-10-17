@@ -7,41 +7,10 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./styles/stylesHojaldre.css">
     <script type="text/javascript" src="script.js"></script>
-    <style>
-      /* Estilos para forzar que el video se mantenga como capa de fondo en el TV */
-      #video4Estaciones {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none;
-      }
-    </style>
   </head>
   <body onload="cargarData()" style="background-color: black;">
       
     <main id="pasteles" class="pasteles" style="position: relative; overflow: hidden;"> 
-<<<<<<< HEAD
-      
-      <!-- Video precargado fijo en el HTML para no disparar el reproductor del Smart TV -->
-      <video 
-        id="video4Estaciones" 
-        src="./publicidad/4ESTACIONES.mp4" 
-        autoplay 
-        loop 
-        muted 
-        playsinline 
-        webkit-playsinline 
-        disablePictureInPicture 
-        controlslist="nodownload nofullscreen noremoteplayback">
-      </video>
-=======
->>>>>>> 11e9db700cdef9df7c9f271aee9700d7a26e345b
 
       <div class="header">
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
@@ -78,28 +47,6 @@
       );
     }
 
-<<<<<<< HEAD
-    // Funciones para controlar la visibilidad del video
-    function mostrarVideo() {
-      const pasteles = document.getElementById("pasteles");
-      const video = document.getElementById("video4Estaciones");
-      pasteles.style.backgroundImage = "none";
-      if (video) {
-        video.style.opacity = "1";
-        video.play().catch(e => console.log("Autoplay prevenido:", e));
-      }
-    }
-
-    function ocultarVideo() {
-      const video = document.getElementById("video4Estaciones");
-      if (video) {
-        video.style.opacity = "0";
-      }
-    }
-
-    function cargarData() {
-      ocultarVideo();
-=======
     function removeBackgroundAnimation() {
       gsap.fromTo(
         ".pasteles",
@@ -109,7 +56,6 @@
     }
 
     function cargarData() {
->>>>>>> 11e9db700cdef9df7c9f271aee9700d7a26e345b
       fetch('./lib/pasteles.json').then(function(response) {
         let text = "";
         document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
@@ -132,40 +78,13 @@
       const pasteles = document.getElementById("pasteles");
 
       if (cpublicidad == 1) {
-<<<<<<< HEAD
-        ocultarVideo();
-        pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 2) {
-        ocultarVideo();
-        pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
-        cpublicidad++;
-      } else if (cpublicidad == 3) {
-        // En lugar de cargar un video nuevo, simplemente mostramos el que está precargado
-        mostrarVideo();
-        cpublicidad++;
-      } else if (cpublicidad == 4) {
-        ocultarVideo();
-        pasteles.style.backgroundImage = "url('./publicidad/MARGARITA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 5) {
-        ocultarVideo();
-        pasteles.style.backgroundImage = "url('./publicidad/VEGETARIANA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 6) {
-        ocultarVideo();
-        pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 7) {
-        ocultarVideo();
-=======
         pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
         cpublicidad++;
       } else if (cpublicidad == 2) {
         pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
         cpublicidad++;
       } else if (cpublicidad == 3) {
-        // WebP animado (reemplaza al video). El ?t= fuerza que la animación reinicie.
+        // GIF animado (reemplaza al video). El ?t= fuerza que la animación reinicie.
         pasteles.style.backgroundImage = "url('./publicidad/4ESTACIONES.gif?t=" + Date.now() + "')";
         cpublicidad++;
       } else if (cpublicidad == 4) {
@@ -178,7 +97,6 @@
         pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
         cpublicidad++;
       } else if (cpublicidad == 7) {
->>>>>>> 11e9db700cdef9df7c9f271aee9700d7a26e345b
         pasteles.style.backgroundImage = "url('./publicidad/PRIMAVERA.webp')";
         cpublicidad = cpublicidad - 6;
       }
@@ -193,11 +111,6 @@
         backgroundAnimation();
         document.querySelector(".listaProductos").innerHTML = text;
       } else {
-<<<<<<< HEAD
-        ocultarVideo();
-
-=======
->>>>>>> 11e9db700cdef9df7c9f271aee9700d7a26e345b
         fetch('./lib/pasteles.json').then(function(response) {
           if (response.ok) {
             document.getElementById("pasteles").style.backgroundImage = "url('./otono/PASTELES.webp')";
