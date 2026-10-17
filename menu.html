@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="styles.css" />
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body >
+  <body style="background-color:#000;">
      
-    <main id="gourmet"> 
+    <main id="gourmet" style="background-color:#000;"> 
       <div class="header" >
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
         <div class="titulos"  style="color:white">Pastas</div>
@@ -30,126 +30,179 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
   <script>
-    var contador=4;
-    var contadorPublicidad=1;
-    var cpublicidad=1;
-    const timeline = gsap.timeline({
-    duration: 1,
-    paused: false
-});
-function loadAnimation() {
-  timeline.to(".listaProductos .producto", {
-    duration: 3,
-    opacity: 1,
-    stagger: 0.3
-  });
-  timeline.play();
-}
+  (function () {
+    'use strict';
 
+    /* ============ CONFIGURACIÓN ============ */
+    var CONFIG = {
+      json: './lib/menu.json',
+      menuMs: 35000,        // tiempo que se muestra el menú
+      publiMs: 35000,       // tiempo que se muestra cada publicidad
+      publiPorTurno: 4,     // publicidades seguidas antes de volver al menú
+      porPantalla: 5,       // productos por pantalla del menú
+      avance: 4             // cuántos productos avanza cada vez (como el original)
+    };
 
+    var FONDO_MENU = './otono/MENU.webp';
 
-    const d = new Date();
-   var day = d.getDay();
-   console.log(day);
-    cargarData();
-  
- function cargarData(){
- 
-   fetch('./lib/menu.json').then(function(response) {
-     let text="";
-     if(response.ok) {
-       response.json().then(function(response) {
-         
-         let data=response.data.Menu.slice(0,5);
-          
-         for (const productos of data) {
-           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-           text+=text2;
-         }
-         document.querySelector(".listaProductos").innerHTML=text;
-         loadAnimation()
-         
-       });
-     } else {
-       console.log('Respuesta de red OK pero respuesta HTTP no OK');
-     }
-   })
-   .catch(function(error) {
-     console.log('Hubo un problema con la petición Fetch:' + error.message);
-   });
- }
+    // ===== LISTA DE PUBLICIDADES =====
+    // Para agregar una foto nueva, solo añade una línea aquí
+    // (la imagen debe estar en ./publicidad/).
+    // null = papas fritas (antes de las 3pm) o perros (después de las 3pm)
+    var publicidades = [
+      'ROLLTEMPURA.webp',
+      'FILADELFIAROLL.webp',
+      'COMIDA.webp',
+      'CALIFORNIAROLL.webp',
+      'ROLLTEMPURA.webp',
+      null,                       // papas fritas o perros según la hora
+      'FILADELFIAROLL.webp',
+      'CALIFORNIAROLL.webp',
+      'CASHEA1.webp',
+      'ROLLTEMPURA.webp',
+      'FILADELFIAROLL.webp',
+      'EMPANADAS.webp'
+    ];
 
- // ===== LISTA DE PUBLICIDADES =====
- // Para agregar una foto nueva, solo añade una línea aquí
- // (la imagen debe estar en ./publicidad/).
- // null = papas fritas (antes de las 3pm) o perros (después de las 3pm)
- const publicidades = [
-  'ROLLTEMPURA.webp',
-  'FILADELFIAROLL.webp',
-  'COMIDA.webp',
-  'CALIFORNIAROLL.webp',
-  'ROLLTEMPURA.webp',
-  null,                       // papas fritas o perros según la hora
-  'FILADELFIAROLL.webp',
-  'CALIFORNIAROLL.webp',
-  'CASHEA1.webp',
-  'ROLLTEMPURA.webp',
-  'FILADELFIAROLL.webp',
-  'EMPANADAS.webp'
-];
+    /* ============ ELEMENTOS Y ESTADO ============ */
+    var main = document.getElementById('gourmet');
+    var listaEl = document.querySelector('.listaProductos');
 
- function cargarPublicidad(){
-   let img = publicidades[cpublicidad - 1];
-   if(img === null){
-     img = new Date().getHours() < 15 ? 'PAPASFRITAS.webp' : 'perros.webp';
-   }
-   document.getElementById("gourmet").style.backgroundImage = "url('./publicidad/" + img + "')";
-   // avanza al siguiente; al llegar al final vuelve a 1
-   cpublicidad = (cpublicidad % publicidades.length) + 1;
-   contadorPublicidad++;
- }
- 
+    var contador = 0;          // posición actual dentro del menú
+    var cpublicidad = 1;       // posición actual dentro de la lista de publicidades
+    var datosMenu = null;      // último menú cargado correctamente
 
-
- const myInterval= setInterval( function(){
-   let text="";
-   if(contadorPublicidad%2==0){
-    cargarPublicidad();
-    document.querySelector(".listaProductos").innerHTML=text;
-    }else{
-     
-      document.getElementById("gourmet").style.backgroundImage  = "url('./otono/MENU.webp')";
-      fetch('./lib/menu.json').then(function(response) {
-     if(response.ok) {
-       response.json().then(function(response) {
-        document.querySelector(".listaProductos").innerHTML="";
-         let data=response.data.Menu.slice(contador,contador+5);
-          
-         for (const productos of data) {
-           let text2="<div class='producto'><div class='nombreProducto'>"+productos.descripcion+"</div><div class='precioProducto'>"+productos.precio+"</div></div>"
-           text+=text2;
-         }
-         document.querySelector(".listaProductos").innerHTML=text;
-         loadAnimation()
-         if(contador>=response.data.Menu.length-5){
-           contador=0;
-           }else{
-           contador=contador+4;
-           }
-       });
-       contadorPublicidad++;
-     } else {
-       console.log('Respuesta de red OK pero respuesta HTTP no OK');
-     }
-   })
-   .catch(function(error) {
-     console.log('Hubo un problema con la petición Fetch:' + error.message);
-   });
+    function esperar(ms) {
+      return new Promise(function (r) { setTimeout(r, ms); });
     }
-  
- }
-   , 35000);
- 
- 
-     </script>
+
+    /* ============ PRECARGA DE IMÁGENES ============ */
+    // Cada imagen se descarga una sola vez y queda en caché del navegador.
+    // Así nunca se muestra un fondo vacío mientras la imagen carga.
+    var cacheImagenes = {};
+
+    function precargar(src) {
+      if (!cacheImagenes[src]) {
+        cacheImagenes[src] = new Promise(function (resolve) {
+          var im = new Image();
+          im.onload = function () { resolve(true); };
+          im.onerror = function () { resolve(false); };
+          im.src = src;
+        });
+      }
+      return cacheImagenes[src];
+    }
+
+    function precargarTodas() {
+      precargar(FONDO_MENU);
+      precargar('./publicidad/PAPASFRITAS.webp');
+      precargar('./publicidad/perros.webp');
+      publicidades.forEach(function (img) {
+        if (img) precargar('./publicidad/' + img);
+      });
+    }
+
+    // Cambia el fondo solo cuando la imagen ya está lista.
+    // Devuelve false si la imagen no existe (y deja el fondo anterior).
+    async function ponerFondo(src) {
+      var ok = await precargar(src);
+      if (ok) {
+        main.style.backgroundImage = "url('" + src + "')";
+      } else {
+        console.warn('No se pudo cargar la imagen:', src);
+      }
+      return ok;
+    }
+
+    /* ============ ANIMACIÓN DE PRODUCTOS ============ */
+    function loadAnimation() {
+      gsap.fromTo(".listaProductos .producto",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, stagger: 0.15, overwrite: true }
+      );
+    }
+
+    /* ============ MENÚ ============ */
+    async function cargarMenu() {
+      try {
+        var resp = await fetch(CONFIG.json, { cache: 'no-store' });
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var json = await resp.json();
+        if (json && json.data && Array.isArray(json.data.Menu) && json.data.Menu.length) {
+          datosMenu = json.data.Menu;
+        }
+      } catch (err) {
+        console.log('Hubo un problema con la petición Fetch: ' + err.message);
+      }
+      return datosMenu;
+    }
+
+    async function mostrarMenu() {
+      var menu = await cargarMenu();
+      if (!menu) return false;
+
+      if (contador >= menu.length) contador = 0;
+      var data = menu.slice(contador, contador + CONFIG.porPantalla);
+
+      var html = '';
+      data.forEach(function (p) {
+        html += "<div class='producto'><div class='nombreProducto'>" + p.descripcion +
+                "</div><div class='precioProducto'>" + p.precio + "</div></div>";
+      });
+
+      // Fondo y productos aparecen juntos: primero se carga todo, luego se muestra
+      await ponerFondo(FONDO_MENU);
+      listaEl.innerHTML = html;
+      loadAnimation();
+
+      // avanzar para la próxima vez (misma lógica del original)
+      if (contador >= menu.length - CONFIG.porPantalla) {
+        contador = 0;
+      } else {
+        contador = contador + CONFIG.avance;
+      }
+      return true;
+    }
+
+    /* ============ PUBLICIDAD ============ */
+    function siguientePublicidad() {
+      var img = publicidades[cpublicidad - 1];
+      if (img === null) {
+        img = new Date().getHours() < 15 ? 'PAPASFRITAS.webp' : 'perros.webp';
+      }
+      // avanza al siguiente; al llegar al final vuelve a 1
+      cpublicidad = (cpublicidad % publicidades.length) + 1;
+      return './publicidad/' + img;
+    }
+
+    async function mostrarPublicidad() {
+      var src = siguientePublicidad();
+      var ok = await ponerFondo(src);
+      if (ok) listaEl.innerHTML = '';   // se limpia la lista solo cuando la foto ya está puesta
+      return ok;
+    }
+
+    /* ============ CICLO PRINCIPAL ============ */
+    async function ciclo() {
+      while (true) {
+        // 1) Menú
+        var hayMenu = await mostrarMenu();
+        if (!hayMenu) {
+          await esperar(5000);
+          continue;
+        }
+        await esperar(CONFIG.menuMs);
+
+        // 2) Varias publicidades seguidas
+        for (var k = 0; k < CONFIG.publiPorTurno; k++) {
+          var ok = await mostrarPublicidad();
+          if (ok) await esperar(CONFIG.publiMs);   // si la imagen no existe, se salta
+        }
+      }
+    }
+
+    precargarTodas();
+    ciclo();
+  })();
+  </script>
 </html>

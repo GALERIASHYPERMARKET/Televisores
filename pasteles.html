@@ -74,32 +74,65 @@
       });
     }
 
+    // ===== LISTA DE PUBLICIDADES =====
+    // Para agregar una foto nueva, solo añade una línea aquí
+    // (la imagen debe estar en ./publicidad/).
+    const PUBLICIDADES = [
+      'PIZZA.webp',
+      'POSTRE.png',
+      '4ESTACIONES.gif',     // GIF animado: se le añade ?t= para que la animación reinicie
+      'MARGARITA.webp',
+      'VEGETARIANA.webp',
+      'PEPPERONI.webp',
+      'PRIMAVERA.webp'
+    ];
+
+    // ===== PROMOCIÓN SUSHIS =====
+    // Se intercalan entre las demás publicidades, rotando entre los tres.
+    const SUSHIS = [
+      'ROLLTEMPURA.webp',
+      'FILADELFIAROLL.webp',
+      'CALIFORNIAROLL.webp'
+    ];
+    // Cuántas fotos de sushi salen después de CADA publicidad normal.
+    // 1 = la mitad de las fotos son sushi, 2 = dos de cada tres, 3 = tres de cada cuatro.
+    const SUSHIS_POR_PUBLI = 2;
+
+    // Lista final: publicidad, sushi, sushi, publicidad, sushi, sushi...
+    const SECUENCIA = [];
+    (function armarSecuencia() {
+      let s = 0;
+      PUBLICIDADES.forEach(function(p) {
+        SECUENCIA.push(p);
+        for (let k = 0; k < SUSHIS_POR_PUBLI; k++) {
+          SECUENCIA.push(SUSHIS[s % SUSHIS.length]);
+          s++;
+        }
+      });
+    })();
+
+    // Precarga: todas las imágenes se descargan al arrancar para que no
+    // aparezca el fondo en blanco al cambiar de foto.
+    (function precargarImagenes() {
+      const todas = PUBLICIDADES.concat(SUSHIS);
+      todas.forEach(function(img) {
+        if (img.indexOf('.gif') === -1) {   // el GIF lleva ?t= y se carga al mostrarse
+          new Image().src = './publicidad/' + img;
+        }
+      });
+      new Image().src = './otono/PASTELES.webp';
+    })();
+
     function cargarPublicidad() {
       const pasteles = document.getElementById("pasteles");
-
-      if (cpublicidad == 1) {
-        pasteles.style.backgroundImage = "url('./publicidad/PIZZA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 2) {
-        pasteles.style.backgroundImage = "url('./publicidad/POSTRE.png')";
-        cpublicidad++;
-      } else if (cpublicidad == 3) {
-        // GIF animado (reemplaza al video). El ?t= fuerza que la animación reinicie.
-        pasteles.style.backgroundImage = "url('./publicidad/4ESTACIONES.gif?t=" + Date.now() + "')";
-        cpublicidad++;
-      } else if (cpublicidad == 4) {
-        pasteles.style.backgroundImage = "url('./publicidad/MARGARITA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 5) {
-        pasteles.style.backgroundImage = "url('./publicidad/VEGETARIANA.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 6) {
-        pasteles.style.backgroundImage = "url('./publicidad/PEPPERONI.webp')";
-        cpublicidad++;
-      } else if (cpublicidad == 7) {
-        pasteles.style.backgroundImage = "url('./publicidad/PRIMAVERA.webp')";
-        cpublicidad = cpublicidad - 6;
+      let img = SECUENCIA[cpublicidad - 1];
+      let url = "./publicidad/" + img;
+      if (img.indexOf('.gif') !== -1) {
+        url += "?t=" + Date.now();
       }
+      pasteles.style.backgroundImage = "url('" + url + "')";
+      // avanza al siguiente; al llegar al final vuelve a 1
+      cpublicidad = (cpublicidad % SECUENCIA.length) + 1;
       contadorPublicidad++;
     }
 
