@@ -1,208 +1,311 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <title>Other page</title>
+    <title>Pastas</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet" />
     <script type="text/javascript" src="script.js"></script>
+
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+
+      #gourmet {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
+      }
+
+      /* ===== Logo arriba a la izquierda ===== */
+      #logo {
+        position: absolute;
+        top: 2vh;
+        left: 2vw;
+        width: 22vw;
+        height: auto;
+        z-index: 5;
+        opacity: 0;
+        transition: opacity .6s ease;
+        filter: drop-shadow(0 .4vh .8vh rgba(0, 0, 0, .5));
+      }
+      #logo.visible { opacity: 1; }
+
+      /* ===== Contenedor de las barras ===== */
+      /* Se usa !important para ganarle a cualquier regla vieja de styles.css */
+      #gourmet .listas {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        transform: none !important;
+      }
+
+      #gourmet .listaProductos {
+        position: absolute !important;
+        top: 22.8vh !important;
+        left: 7.8vw !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 84.5vw !important;          /* 100vw - 7.8vw - 7.7vw */
+        max-width: none !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;   /* cada barra ocupa todo el ancho */
+        justify-content: flex-start !important;
+        gap: 2.6vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: none !important;
+      }
+
+      /* ===== Cada barra ===== */
+      #gourmet .listaProductos .producto {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;  /* nombre izquierda, precio derecha */
+        align-self: stretch !important;
+        width: 100% !important;
+        height: 9.4vh !important;
+        margin: 0 !important;
+        padding: 0 2.4vw !important;
+        box-sizing: border-box !important;
+        border-radius: 999px !important;
+        background: linear-gradient(90deg, rgba(25, 25, 25, .78), rgba(55, 55, 55, .62)) !important;
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 .6vh 1.6vh rgba(0, 0, 0, .35) !important;
+      }
+
+      #gourmet .listaProductos .nombreProducto,
+      #gourmet .listaProductos .precioProducto {
+        color: #fff !important;
+        font-weight: 800 !important;
+        font-size: 3.3vw !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        text-shadow: none !important;
+        background: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: auto !important;
+        position: static !important;
+      }
+
+      #gourmet .listaProductos .nombreProducto { text-transform: uppercase; }
+      #gourmet .listaProductos .precioProducto { text-transform: none !important; margin-left: 2vw !important; }
+    </style>
   </head>
-  <body style="background-color:#000;">
-     
-    <main id="gourmet" style="background-color:#000;"> 
-      <div class="header" >
-        <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
-        <div class="titulos"  style="color:white">Pastas</div>
-      </div>
-     <section class="listas">
-      <div class="listaProductos">
-        
 
-      </div>
+  <body>
+    <main id="gourmet">
+      <img id="logo" src="./LogoGalerias-removebg-preview.png" alt="Galería Hipermarket" />
 
-
-     </section>
-      
-     
-      
+      <section class="listas">
+        <div class="listaProductos"></div>
+      </section>
     </main>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-  <script>
-  (function () {
-    'use strict';
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-    /* ============ CONFIGURACIÓN ============ */
-    var CONFIG = {
-      json: './lib/menu.json',
-      menuMs: 35000,        // tiempo que se muestra el menú
-      publiMs: 35000,       // tiempo que se muestra cada publicidad
-      publiPorTurno: 4,     // publicidades seguidas antes de volver al menú
-      porPantalla: 5,       // productos por pantalla del menú
-      avance: 4             // cuántos productos avanza cada vez (como el original)
-    };
+    <script>
+    (function () {
+      'use strict';
 
-    var FONDO_MENU = './otono/MENU.webp';
+      /* ============ CONFIGURACIÓN ============ */
+      var CONFIG = {
+        json: './lib/menu.json',
+        menuMs: 35000,        // tiempo que se muestra el menú
+        publiMs: 35000,       // tiempo que se muestra cada publicidad
+        publiPorTurno: 4,     // publicidades seguidas antes de volver al menú
+        porPantalla: 5,       // productos por pantalla del menú
+        avance: 4             // cuántos productos avanza cada vez (como el original)
+      };
 
-    // ===== LISTA DE PUBLICIDADES =====
-    // Para agregar una foto nueva, solo añade una línea aquí
-    // (la imagen debe estar en ./publicidad/).
-    // null = papas fritas (antes de las 3pm) o perros (después de las 3pm)
-    var publicidades = [
-      'ROLLTEMPURA.webp',
-      'FILADELFIAROLL.webp',
-      'COMIDA.webp',
-      'CALIFORNIAROLL.webp',
-      'ROLLTEMPURA.webp',
-      null,                       // papas fritas o perros según la hora
-      'FILADELFIAROLL.webp',
-      'CALIFORNIAROLL.webp',
-      'CASHEA1.webp',
-      'ROLLTEMPURA.webp',
-      'FILADELFIAROLL.webp',
-      'EMPANADAS.webp'
-    ];
+      var FONDO_MENU = './otono/MENU.webp';
 
-    /* ============ ELEMENTOS Y ESTADO ============ */
-    var main = document.getElementById('gourmet');
-    var listaEl = document.querySelector('.listaProductos');
+      // ===== LISTA DE PUBLICIDADES =====
+      // Para agregar una foto nueva, solo añade una línea aquí
+      // (la imagen debe estar en ./publicidad/).
+      // null = papas fritas (antes de las 3pm) o perros (después de las 3pm)
+      var publicidades = [
+        'ROLLTEMPURA.webp',
+        'FILADELFIAROLL.webp',
+        'COMIDA.webp',
+        'CALIFORNIAROLL.webp',
+        'ROLLTEMPURA.webp',
+        null,                       // papas fritas o perros según la hora
+        'FILADELFIAROLL.webp',
+        'CALIFORNIAROLL.webp',
+        'CASHEA1.webp',
+        'ROLLTEMPURA.webp',
+        'FILADELFIAROLL.webp',
+        'EMPANADAS.webp'
+      ];
 
-    var contador = 0;          // posición actual dentro del menú
-    var cpublicidad = 1;       // posición actual dentro de la lista de publicidades
-    var datosMenu = null;      // último menú cargado correctamente
+      /* ============ ELEMENTOS Y ESTADO ============ */
+      var main = document.getElementById('gourmet');
+      var listaEl = document.querySelector('.listaProductos');
+      var logo = document.getElementById('logo');
 
-    function esperar(ms) {
-      return new Promise(function (r) { setTimeout(r, ms); });
-    }
+      var contador = 0;          // posición actual dentro del menú
+      var cpublicidad = 1;       // posición actual dentro de la lista de publicidades
+      var datosMenu = null;      // último menú cargado correctamente
 
-    /* ============ PRECARGA DE IMÁGENES ============ */
-    // Cada imagen se descarga una sola vez y queda en caché del navegador.
-    // Así nunca se muestra un fondo vacío mientras la imagen carga.
-    var cacheImagenes = {};
+      function esperar(ms) {
+        return new Promise(function (r) { setTimeout(r, ms); });
+      }
 
-    function precargar(src) {
-      if (!cacheImagenes[src]) {
-        cacheImagenes[src] = new Promise(function (resolve) {
-          var im = new Image();
-          im.onload = function () { resolve(true); };
-          im.onerror = function () { resolve(false); };
-          im.src = src;
+      /* ============ PRECARGA DE IMÁGENES ============ */
+      var cacheImagenes = {};
+
+      function precargar(src) {
+        if (!cacheImagenes[src]) {
+          cacheImagenes[src] = new Promise(function (resolve) {
+            var im = new Image();
+            im.onload = function () { resolve(true); };
+            im.onerror = function () { resolve(false); };
+            im.src = src;
+          });
+        }
+        return cacheImagenes[src];
+      }
+
+      function precargarTodas() {
+        precargar(FONDO_MENU);
+        precargar('./LogoGalerias-removebg-preview.png');
+        precargar('./publicidad/PAPASFRITAS.webp');
+        precargar('./publicidad/perros.webp');
+        publicidades.forEach(function (img) {
+          if (img) precargar('./publicidad/' + img);
         });
       }
-      return cacheImagenes[src];
-    }
 
-    function precargarTodas() {
-      precargar(FONDO_MENU);
-      precargar('./publicidad/PAPASFRITAS.webp');
-      precargar('./publicidad/perros.webp');
-      publicidades.forEach(function (img) {
-        if (img) precargar('./publicidad/' + img);
-      });
-    }
-
-    // Cambia el fondo solo cuando la imagen ya está lista.
-    // Devuelve false si la imagen no existe (y deja el fondo anterior).
-    async function ponerFondo(src) {
-      var ok = await precargar(src);
-      if (ok) {
-        main.style.backgroundImage = "url('" + src + "')";
-      } else {
-        console.warn('No se pudo cargar la imagen:', src);
-      }
-      return ok;
-    }
-
-    /* ============ ANIMACIÓN DE PRODUCTOS ============ */
-    function loadAnimation() {
-      gsap.fromTo(".listaProductos .producto",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.6, stagger: 0.15, overwrite: true }
-      );
-    }
-
-    /* ============ MENÚ ============ */
-    async function cargarMenu() {
-      try {
-        var resp = await fetch(CONFIG.json, { cache: 'no-store' });
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        var json = await resp.json();
-        if (json && json.data && Array.isArray(json.data.Menu) && json.data.Menu.length) {
-          datosMenu = json.data.Menu;
+      // Cambia el fondo solo cuando la imagen ya está lista.
+      async function ponerFondo(src) {
+        var ok = await precargar(src);
+        if (ok) {
+          main.style.backgroundImage = "url('" + src + "')";
+        } else {
+          console.warn('No se pudo cargar la imagen:', src);
         }
-      } catch (err) {
-        console.log('Hubo un problema con la petición Fetch: ' + err.message);
+        return ok;
       }
-      return datosMenu;
-    }
 
-    async function mostrarMenu() {
-      var menu = await cargarMenu();
-      if (!menu) return false;
-
-      if (contador >= menu.length) contador = 0;
-      var data = menu.slice(contador, contador + CONFIG.porPantalla);
-
-      var html = '';
-      data.forEach(function (p) {
-        html += "<div class='producto'><div class='nombreProducto'>" + p.descripcion +
-                "</div><div class='precioProducto'>" + p.precio + "</div></div>";
-      });
-
-      // Fondo y productos aparecen juntos: primero se carga todo, luego se muestra
-      await ponerFondo(FONDO_MENU);
-      listaEl.innerHTML = html;
-      loadAnimation();
-
-      // avanzar para la próxima vez (misma lógica del original)
-      if (contador >= menu.length - CONFIG.porPantalla) {
-        contador = 0;
-      } else {
-        contador = contador + CONFIG.avance;
+      /* ============ ANIMACIÓN DE PRODUCTOS ============ */
+      function loadAnimation() {
+        gsap.fromTo(".listaProductos .producto",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6, stagger: 0.15, overwrite: true }
+        );
       }
-      return true;
-    }
 
-    /* ============ PUBLICIDAD ============ */
-    function siguientePublicidad() {
-      var img = publicidades[cpublicidad - 1];
-      if (img === null) {
-        img = new Date().getHours() < 15 ? 'PAPASFRITAS.webp' : 'perros.webp';
-      }
-      // avanza al siguiente; al llegar al final vuelve a 1
-      cpublicidad = (cpublicidad % publicidades.length) + 1;
-      return './publicidad/' + img;
-    }
-
-    async function mostrarPublicidad() {
-      var src = siguientePublicidad();
-      var ok = await ponerFondo(src);
-      if (ok) listaEl.innerHTML = '';   // se limpia la lista solo cuando la foto ya está puesta
-      return ok;
-    }
-
-    /* ============ CICLO PRINCIPAL ============ */
-    async function ciclo() {
-      while (true) {
-        // 1) Menú
-        var hayMenu = await mostrarMenu();
-        if (!hayMenu) {
-          await esperar(5000);
-          continue;
+      /* ============ MENÚ ============ */
+      async function cargarMenu() {
+        try {
+          var resp = await fetch(CONFIG.json, { cache: 'no-store' });
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          var json = await resp.json();
+          if (json && json.data && Array.isArray(json.data.Menu) && json.data.Menu.length) {
+            datosMenu = json.data.Menu;
+          }
+        } catch (err) {
+          console.log('Hubo un problema con la petición Fetch: ' + err.message);
         }
-        await esperar(CONFIG.menuMs);
+        return datosMenu;
+      }
 
-        // 2) Varias publicidades seguidas
-        for (var k = 0; k < CONFIG.publiPorTurno; k++) {
-          var ok = await mostrarPublicidad();
-          if (ok) await esperar(CONFIG.publiMs);   // si la imagen no existe, se salta
+      async function mostrarMenu() {
+        var menu = await cargarMenu();
+        if (!menu) return false;
+
+        if (contador >= menu.length) contador = 0;
+        var data = menu.slice(contador, contador + CONFIG.porPantalla);
+
+        var html = '';
+        data.forEach(function (p) {
+          html += "<div class='producto'><div class='nombreProducto'>" + p.descripcion +
+                  "</div><div class='precioProducto'>" + p.precio + "</div></div>";
+        });
+
+        // Fondo, logo y productos aparecen juntos
+        await ponerFondo(FONDO_MENU);
+        await precargar('./LogoGalerias-removebg-preview.png');
+        listaEl.innerHTML = html;
+        logo.classList.add('visible');
+        loadAnimation();
+
+        // avanzar para la próxima vez (misma lógica del original)
+        if (contador >= menu.length - CONFIG.porPantalla) {
+          contador = 0;
+        } else {
+          contador = contador + CONFIG.avance;
+        }
+        return true;
+      }
+
+      /* ============ PUBLICIDAD ============ */
+      function siguientePublicidad() {
+        var img = publicidades[cpublicidad - 1];
+        if (img === null) {
+          img = new Date().getHours() < 15 ? 'PAPASFRITAS.webp' : 'perros.webp';
+        }
+        cpublicidad = (cpublicidad % publicidades.length) + 1;
+        return './publicidad/' + img;
+      }
+
+      async function mostrarPublicidad() {
+        var src = siguientePublicidad();
+        var ok = await ponerFondo(src);
+        if (ok) {
+          listaEl.innerHTML = '';             // se limpia la lista solo cuando la foto ya está puesta
+          logo.classList.remove('visible');   // el logo solo se ve con el menú
+        }
+        return ok;
+      }
+
+      /* ============ CICLO PRINCIPAL ============ */
+      async function ciclo() {
+        while (true) {
+          // 1) Menú
+          var hayMenu = await mostrarMenu();
+          if (!hayMenu) {
+            await esperar(5000);
+            continue;
+          }
+          await esperar(CONFIG.menuMs);
+
+          // 2) Varias publicidades seguidas
+          for (var k = 0; k < CONFIG.publiPorTurno; k++) {
+            var ok = await mostrarPublicidad();
+            if (ok) await esperar(CONFIG.publiMs);   // si la imagen no existe, se salta
+          }
         }
       }
-    }
 
-    precargarTodas();
-    ciclo();
-  })();
-  </script>
+      precargarTodas();
+      ciclo();
+    })();
+    </script>
+  </body>
 </html>
