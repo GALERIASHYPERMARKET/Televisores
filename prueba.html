@@ -1,3 +1,6 @@
+En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.escena.activa`, `.capa` y `.capa.visible`. Las quité, así que el cambio entre lista y publicidad, y entre una publicidad y la siguiente, es instantáneo. El efecto escalonado de las tarjetas (`tarjetaEntra`) lo dejé igual, y no toqué nada más.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,15 +27,13 @@
       color: var(--texto);
     }
 
-    /* ===== ESCENAS: la nueva aparece encima y la anterior se retira después ===== */
+    /* ===== ESCENAS: cambio directo, sin fade ===== */
     .escena {
       position: absolute; inset: 0; z-index: 1;
       opacity: 0; visibility: hidden;
-      transition: opacity 0s linear 1.5s, visibility 0s linear 1.5s;
     }
     .escena.activa {
       z-index: 2; opacity: 1; visibility: visible;
-      transition: opacity 1.5s ease, visibility 0s;
     }
     .escena-menu { display: flex; flex-direction: column; padding: 2.2vh 3vw 3vh; }
 
@@ -148,15 +149,14 @@
     .precio .ref { font-size: .36em; margin-top: .5em; letter-spacing: .02em; }
     .precio .dec { font-size: .46em; margin-top: .18em; }
 
-    /* ===== PUBLICIDAD (fundido entre imágenes) ===== */
+    /* ===== PUBLICIDAD (cambio directo entre imágenes, sin fundido) ===== */
     .escena-publi { background: #000; }
     .capa {
       position: absolute; inset: 0; z-index: 1;
       background: center / cover no-repeat;
       opacity: 0;
-      transition: opacity 0s linear 1.5s;
     }
-    .capa.visible { z-index: 2; opacity: 1; transition: opacity 1.5s ease; }
+    .capa.visible { z-index: 2; opacity: 1; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
@@ -183,7 +183,7 @@
       <div class="lista" id="lista"></div>
     </section>
 
-    <!-- ESCENA 2: PUBLICIDAD (dos capas para fundir entre imágenes) -->
+    <!-- ESCENA 2: PUBLICIDAD (dos capas para alternar entre imágenes) -->
     <section class="escena escena-publi" id="escenaPubli" aria-hidden="true">
       <div class="capa"></div>
       <div class="capa"></div>
@@ -415,3 +415,8 @@
   </script>
 </body>
 </html>
+```
+
+**Nota:** el escalonado de las tarjetas tiene un retraso fijo de `.4s` (`+ .4s` en `animation-delay`), que estaba pensado para esperar a que terminara el fade. Ahora que no hay fade, la lista se ve vacía ese medio segundo antes de que entre la primera tarjeta. No lo toqué porque pediste no cambiar nada más, pero si quieres que arranque de inmediato, quita ese `+ .4s`.
+
+Si todavía notas lag en el TV, lo más probable es el `backdrop-filter: blur(4px)` de cada tarjeta.
