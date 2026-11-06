@@ -1,6 +1,3 @@
-En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.escena.activa`, `.capa` y `.capa.visible`. Las quité, así que el cambio entre lista y publicidad, y entre una publicidad y la siguiente, es instantáneo. El efecto escalonado de las tarjetas (`tarjetaEntra`) lo dejé igual, y no toqué nada más.
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,13 +13,16 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
       --texto: #fff;
       /* Opacidad del velo oscuro sobre la foto: .20 = foto muy visible, .60 = muy tenue */
       --velo: .30;
+      /* Márgenes de seguridad anti-overscan (súbelos si el TV sigue cortando) */
+      --seguro-x: 2.5vw;
+      --seguro-y: 3vh;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0a00; }
 
     #sandwich {
-      position: relative; width: 100vw; height: 100vh; overflow: hidden;
+      position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden;
       font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
       color: var(--texto);
     }
@@ -35,7 +35,10 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
     .escena.activa {
       z-index: 2; opacity: 1; visibility: visible;
     }
-    .escena-menu { display: flex; flex-direction: column; padding: 2.2vh 3vw 3vh; }
+    .escena-menu {
+      display: flex; flex-direction: column;
+      padding: calc(var(--seguro-y) + 1vh) calc(var(--seguro-x) + 1vw) var(--seguro-y);
+    }
 
     /* ===== FONDO ===== */
     .fondo { position: absolute; inset: 0; z-index: 0; background: #000; }
@@ -82,6 +85,7 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
       grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
       grid-template-rows: repeat(var(--rows, 2), minmax(0, 1fr));
       gap: 3.4vh 2.2vw;
+      padding-top: 2.5vh; /* espacio para la etiqueta de precio que sobresale */
     }
     .tarjeta {
       position: relative; display: flex; flex-direction: column;
@@ -153,7 +157,9 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
     .escena-publi { background: #000; }
     .capa {
       position: absolute; inset: 0; z-index: 1;
-      background: center / cover no-repeat;
+      /* contain: la imagen se ve completa (sin recortar arriba/abajo).
+         Si prefieres llenar toda la pantalla recortando, cambia contain por cover */
+      background: #000 center / contain no-repeat;
       opacity: 0;
     }
     .capa.visible { z-index: 2; opacity: 1; }
@@ -199,7 +205,7 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
     const CONFIG = {
       json: './lib/sandwiches.json',
       porPagina: 6,         // máximo por pantalla (3 x 2)
-      menuMs: 35000,        // tiempo que se muestra la lista (50 s, como el original)
+      menuMs: 35000,        // tiempo que se muestra la lista
       publiMs: 35000,       // tiempo que se muestra cada publicidad
       publiPorTurno: 3,     // publicidades seguidas antes de volver a la lista
     };
@@ -227,7 +233,6 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
       './publicidad/WAFFLE.webp',
     ];
     // Cuántas fotos de sushi salen después de CADA publicidad normal.
-    // 1 = la mitad de las fotos son sushi, 2 = dos de cada tres, 3 = tres de cada cuatro.
     const SUSHIS_POR_PUBLI = 3;
 
     function listaPublicidad() {
@@ -235,7 +240,6 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
       if (new Date().getHours() >= 15) base.push(PERROS);
       base.push(...PUBLI_DESPUES);
 
-      // Después de cada publicidad normal se meten los sushis, rotando entre los tres
       const l = [];
       let s = 0;
       for (const p of base) {
@@ -353,6 +357,7 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
 
     /* ============ ESCENAS ============ */
     function mostrarMenu() {
+      window.scrollTo(0, 0);
       escenaPubli.classList.remove('activa');
       escenaPubli.setAttribute('aria-hidden', 'true');
       escenaMenu.classList.add('activa');
@@ -360,6 +365,7 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
     }
 
     function mostrarPubli() {
+      window.scrollTo(0, 0);
       const l = listaPublicidad();
       const src = l[indicePubli % l.length];
       indicePubli = (indicePubli + 1) % l.length;
@@ -415,8 +421,3 @@ En este archivo el fade viene de cuatro reglas con `transition`: `.escena`, `.es
   </script>
 </body>
 </html>
-```
-
-**Nota:** el escalonado de las tarjetas tiene un retraso fijo de `.4s` (`+ .4s` en `animation-delay`), que estaba pensado para esperar a que terminara el fade. Ahora que no hay fade, la lista se ve vacía ese medio segundo antes de que entre la primera tarjeta. No lo toqué porque pediste no cambiar nada más, pero si quieres que arranque de inmediato, quita ese `+ .4s`.
-
-Si todavía notas lag en el TV, lo más probable es el `backdrop-filter: blur(4px)` de cada tarjeta.
