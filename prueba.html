@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <title>Sandwiches</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    @font-face { font-family: 'rustic'; src: url("./fonts/Halftoned Backup.ttf"); font-display: swap; }
-    @font-face { font-family: 'script'; src: url("./fonts/DancingScript-Bold.ttf"); font-display: swap; }
+    @font-face {
+      font-family: 'rustic';
+      src: url("./fonts/Halftoned Backup.ttf");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'script';
+      src: url("./fonts/DancingScript-Bold.ttf");
+      font-display: swap;
+    }
 
     :root {
       --acento: #ff8a2b;
@@ -18,154 +28,306 @@
       --seguro-y: 3vh;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0a00; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #1a0a00;
+    }
 
     #sandwich {
-      position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
       color: var(--texto);
     }
 
     /* ===== ESCENAS: cambio directo, sin fade ===== */
     .escena {
-      position: absolute; inset: 0; z-index: 1;
-      opacity: 0; visibility: hidden;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
     }
+
     .escena.activa {
-      z-index: 2; opacity: 1; visibility: visible;
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
     }
+
     .escena-menu {
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       padding: calc(var(--seguro-y) + 1vh) calc(var(--seguro-x) + 1vw) var(--seguro-y);
     }
 
     /* ===== FONDO ===== */
-    .fondo { position: absolute; inset: 0; z-index: 0; background: #000; }
+    .fondo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #000;
+    }
+
     .fondo-imagen {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: url("./fotos/bgsandwichmejor.png") center / cover no-repeat;
       filter: saturate(1.1);
     }
+
     .fondo-velo {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: linear-gradient(180deg,
-        rgba(20, 8, 0, calc(var(--velo) + .20)) 0%,
-        rgba(20, 8, 0, var(--velo)) 40%,
-        rgba(20, 8, 0, calc(var(--velo) + .25)) 100%);
+          rgba(20, 8, 0, calc(var(--velo) + .20)) 0%,
+          rgba(20, 8, 0, var(--velo)) 40%,
+          rgba(20, 8, 0, calc(var(--velo) + .25)) 100%);
     }
 
     /* ===== CABECERA ===== */
     .cabecera {
-      position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
       margin-bottom: 2.6vh;
     }
-    .logo { height: 9vh; width: auto; justify-self: start; filter: drop-shadow(0 3px 6px rgba(0,0,0,.5)); }
-    .titulo {
-      font-family: 'rustic', 'Segoe UI', sans-serif; font-weight: 400;
-      font-size: clamp(32px, 7vh, 110px); letter-spacing: .35em; padding-left: .35em;
-      text-shadow: 0 3px 14px rgba(0,0,0,.6);
+
+    .logo {
+      height: 9vh;
+      width: auto;
+      justify-self: start;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .5));
     }
+
+    .titulo {
+      font-family: 'rustic', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: clamp(32px, 7vh, 110px);
+      letter-spacing: .35em;
+      padding-left: .35em;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, .6);
+    }
+
     .titulo::after {
-      content: ""; display: block; height: .6vh; margin: .8vh auto 0; width: 40%;
+      content: "";
+      display: block;
+      height: .6vh;
+      margin: .8vh auto 0;
+      width: 40%;
       border-radius: 99px;
       background: linear-gradient(90deg, transparent, var(--acento), transparent);
       animation: pulsoLinea 3s ease-in-out infinite;
     }
+
     @keyframes pulsoLinea {
-      0%, 100% { width: 25%; opacity: .6; }
-      50%      { width: 60%; opacity: 1; }
+
+      0%,
+      100% {
+        width: 25%;
+        opacity: .6;
+      }
+
+      50% {
+        width: 60%;
+        opacity: 1;
+      }
     }
 
     /* ===== LISTA DE TARJETAS ===== */
     .lista {
-      position: relative; z-index: 2; flex: 1; min-height: 0;
-      display: grid; align-content: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      align-content: center;
       grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
       grid-template-rows: repeat(var(--rows, 2), minmax(0, 1fr));
       gap: 3.4vh 2.2vw;
-      padding-top: 2.5vh; /* espacio para la etiqueta de precio que sobresale */
+      padding-top: 2.5vh;
+      /* espacio para la etiqueta de precio que sobresale */
     }
+
     .tarjeta {
-      position: relative; display: flex; flex-direction: column;
-      width: 100%; max-width: 34vw; height: 100%; max-height: 42vh; min-height: 0;
-      justify-self: center; align-self: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 34vw;
+      height: 100%;
+      max-height: 42vh;
+      min-height: 0;
+      justify-self: center;
+      align-self: center;
       padding: 2.4vh 1.2vw 1.6vh;
       border-radius: 2.4vh;
       background: rgba(25, 10, 2, .62);
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255, 255, 255, .14);
       border-bottom: .7vh solid var(--acento);
       backdrop-filter: blur(4px);
-      box-shadow: 0 8px 22px rgba(0,0,0,.45);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
     }
+
     /* La animación de entrada arranca cada vez que la escena se activa */
     .escena-menu.activa .tarjeta {
       animation: tarjetaEntra .8s cubic-bezier(.2, .8, .2, 1) both;
       animation-delay: calc(var(--i, 0) * 120ms + .4s);
     }
+
     @keyframes tarjetaEntra {
-      from { opacity: 0; transform: translateY(3vh) scale(.95); }
-      to   { opacity: 1; transform: none; }
+      from {
+        opacity: 0;
+        transform: translateY(3vh) scale(.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
 
-    .foto { position: relative; flex: 1; min-height: 0; }
-    .foto::before {
-      content: ""; position: absolute; left: 50%; top: 50%;
-      width: min(75%, 30vh); aspect-ratio: 1; transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,138,43,.45), transparent 70%);
+    .foto {
+      position: relative;
+      flex: 1;
+      min-height: 0;
     }
+
+    .foto::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(75%, 30vh);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 138, 43, .45), transparent 70%);
+    }
+
     .foto img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
-      filter: drop-shadow(0 1vh 1.2vh rgba(0,0,0,.55));
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 1vh 1.2vh rgba(0, 0, 0, .55));
       animation: flota 5s ease-in-out infinite;
       animation-delay: calc(var(--i, 0) * 400ms);
     }
+
     @keyframes flota {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-.8vh); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-.8vh);
+      }
     }
 
-    .nombre { text-align: center; line-height: 1.05; margin-top: 1vh; }
-    .n1 {
-      display: block; font-weight: 900; text-transform: uppercase; letter-spacing: .05em;
-      font-size: clamp(18px, min(4.4vh, 2.4vw), 72px);
-      color: var(--acento); text-shadow: 0 2px 6px rgba(0,0,0,.6);
+    .nombre {
+      text-align: center;
+      line-height: 1.05;
+      margin-top: 1vh;
     }
+
+    .n1 {
+      display: block;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-size: clamp(18px, min(4.4vh, 2.4vw), 72px);
+      color: var(--acento);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+    }
+
     .n2 {
-      display: block; margin-top: .2vh;
+      display: block;
+      margin-top: .2vh;
       font-family: 'script', 'Segoe Script', 'Brush Script MT', cursive;
       font-size: clamp(18px, min(4.6vh, 2.5vw), 76px);
-      color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.6);
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
     }
 
     /* ===== ETIQUETA DE PRECIO ===== */
     .precio {
-      position: absolute; top: -2vh; right: -.8vw; z-index: 3;
-      display: flex; align-items: flex-start; gap: .12em;
-      padding: .05em .45em .12em; border-radius: 2vh; transform: rotate(3deg);
-      font-weight: 900; line-height: 1; color: #2a1000;
+      position: absolute;
+      top: -2vh;
+      right: -.8vw;
+      z-index: 3;
+      display: flex;
+      align-items: flex-start;
+      gap: .12em;
+      padding: .05em .45em .12em;
+      border-radius: 2vh;
+      transform: rotate(3deg);
+      font-weight: 900;
+      line-height: 1;
+      color: #2a1000;
       font-size: clamp(24px, min(6.6vh, 3.5vw), 104px);
       background: linear-gradient(135deg, #ffc247, #ff8a2b 60%, #eb6123);
-      box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 0 rgba(255,255,255,.4);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .4);
     }
-    .precio .ref { font-size: .36em; margin-top: .5em; letter-spacing: .02em; }
-    .precio .dec { font-size: .46em; margin-top: .18em; }
+
+    .precio .ref {
+      font-size: .36em;
+      margin-top: .5em;
+      letter-spacing: .02em;
+    }
+
+    .precio .dec {
+      font-size: .46em;
+      margin-top: .18em;
+    }
 
     /* ===== PUBLICIDAD (cambio directo entre imágenes, sin fundido) ===== */
-    .escena-publi { background: #000; }
+    .escena-publi {
+      background: #000;
+    }
+
     .capa {
-      position: absolute; inset: 0; z-index: 1;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
       /* contain: la imagen se ve completa (sin recortar arriba/abajo).
          Si prefieres llenar toda la pantalla recortando, cambia contain por cover */
       background: #000 center / contain no-repeat;
       opacity: 0;
     }
-    .capa.visible { z-index: 2; opacity: 1; }
+
+    .capa.visible {
+      z-index: 2;
+      opacity: 1;
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
@@ -198,229 +360,249 @@
   </main>
 
   <script>
-  (() => {
-    'use strict';
+    (() => {
+      'use strict';
 
-    /* ============ CONFIGURACIÓN ============ */
-    const CONFIG = {
-      json: './lib/sandwiches.json',
-      porPagina: 6,         // máximo por pantalla (3 x 2)
-      menuMs: 35000,        // tiempo que se muestra la lista
-      publiMs: 35000,       // tiempo que se muestra cada publicidad
-      publiPorTurno: 3,     // publicidades seguidas antes de volver a la lista
-    };
+      /* ============ CONFIGURACIÓN ============ */
+      const CONFIG = {
+        json: './lib/sandwiches.json',
+        porPagina: 6,         // máximo por pantalla (3 x 2)
+        menuMs: 35000,        // tiempo que se muestra la lista
+        publiMs: 35000,       // tiempo que se muestra cada publicidad
+        publiPorTurno: 3,     // publicidades seguidas antes de volver a la lista
+      };
 
-    const PUBLI_ANTES = [
-      './publicidad/CARNE.webp',
-      './publicidad/POLLO.webp',
-      './publicidad/CRISPY.webp',
-      './publicidad/MIXTA.webp',
-      './publicidad/CACHAPAS.webp',
-      './publicidad/PAPASFRITAS.webp',
-    ];
-    const PERROS = './publicidad/perros.webp';           // solo después de las 3 p. m.
-    const PUBLI_DESPUES = [
-      './publicidad/CASHEA1.webp',
-      './publicidad/CASHEA2.webp',
-    ];
+      const PUBLI_ANTES = [
+        './publicidad/CARNE.webp',
+        './publicidad/POLLO.webp',
+        './publicidad/CRISPY.webp',
+        './publicidad/MIXTA.webp',
+        './publicidad/CACHAPAS.webp',
+        './publicidad/PAPASFRITAS.webp',
+      ];
+      const PERROS = './publicidad/perros.webp';           // solo después de las 3 p. m.
+      const PUBLI_DESPUES = [
+        './publicidad/CASHEA1.webp',
+        './publicidad/CASHEA2.webp',
+      ];
 
-    /* ============ PROMOCIÓN SUSHIS ============ */
-    // Fotos de sushi que se intercalan entre las demás publicidades.
-    const SUSHIS = [
-      './publicidad/ROLLTEMPURA.webp',
-      './publicidad/FILADELFIAROLL.webp',
-      './publicidad/CALIFORNIAROLL.webp',
-      './publicidad/WAFFLE.webp',
-    ];
-    // Cuántas fotos de sushi salen después de CADA publicidad normal.
-    const SUSHIS_POR_PUBLI = 3;
+      /* ============ PROMOCIÓN SUSHIS ============ */
+      // Fotos de sushi que se intercalan entre las demás publicidades.
+      const SUSHIS = [];
+      // Cuántas fotos de sushi salen después de CADA publicidad normal.
+      const SUSHIS_POR_PUBLI = 0;
 
-    function listaPublicidad() {
-      const base = [...PUBLI_ANTES];
-      if (new Date().getHours() >= 15) base.push(PERROS);
-      base.push(...PUBLI_DESPUES);
+      function listaPublicidad() {
+        const base = [...PUBLI_ANTES];
+        if (new Date().getHours() >= 15) base.push(PERROS);
+        base.push(...PUBLI_DESPUES);
 
-      const l = [];
-      let s = 0;
-      for (const p of base) {
-        l.push(p);
-        for (let k = 0; k < SUSHIS_POR_PUBLI; k++) {
-          l.push(SUSHIS[s % SUSHIS.length]);
-          s++;
+        const l = [];
+        let s = 0;
+        for (const p of base) {
+          l.push(p);
+          for (let k = 0; k < SUSHIS_POR_PUBLI; k++) {
+            l.push(SUSHIS[s % SUSHIS.length]);
+            s++;
+          }
+        }
+        return l;
+      }
+
+      /* ============ ELEMENTOS ============ */
+      const escenaMenu = document.getElementById('escenaMenu');
+      const escenaPubli = document.getElementById('escenaPubli');
+      const lista = document.getElementById('lista');
+      const capas = Array.from(escenaPubli.querySelectorAll('.capa'));
+
+      let productos = [];
+      let indicePubli = 0;
+      let capaActual = 0;
+
+      const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      /* ============ DATOS ============ */
+      async function cargarProductos() {
+        try {
+          const resp = await fetch(CONFIG.json, { cache: 'no-store' });
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          const json = await resp.json();
+          const l = json && json.data && json.data.sandwiches;
+          if (Array.isArray(l) && l.length) productos = l;
+        } catch (err) {
+          console.warn('No se pudo actualizar sandwiches.json:', err.message);
         }
       }
-      return l;
-    }
 
-    /* ============ ELEMENTOS ============ */
-    const escenaMenu  = document.getElementById('escenaMenu');
-    const escenaPubli = document.getElementById('escenaPubli');
-    const lista       = document.getElementById('lista');
-    const capas       = Array.from(escenaPubli.querySelectorAll('.capa'));
+      /* ============ RENDER ============ */
+      function crearPrecio(valor) {
+        const el = document.createElement('div');
+        el.className = 'precio';
+        const t = String(valor ?? '').trim();
+        const m = t.match(/(\d+)(?:[.,](\d+))?/);
 
-    let productos = [];
-    let indicePubli = 0;
-    let capaActual = 0;
+        const ref = document.createElement('span');
+        ref.className = 'ref';
+        ref.textContent = 'Ref';
+        el.appendChild(ref);
 
-    const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+        const ent = document.createElement('span');
+        ent.className = 'ent';
+        ent.textContent = m ? m[1] : t;
+        el.appendChild(ent);
 
-    /* ============ DATOS ============ */
-    async function cargarProductos() {
-      try {
-        const resp = await fetch(CONFIG.json, { cache: 'no-store' });
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const json = await resp.json();
-        const l = json && json.data && json.data.sandwiches;
-        if (Array.isArray(l) && l.length) productos = l;
-      } catch (err) {
-        console.warn('No se pudo actualizar sandwiches.json:', err.message);
-      }
-    }
-
-    /* ============ RENDER ============ */
-    function crearPrecio(valor) {
-      const el = document.createElement('div');
-      el.className = 'precio';
-      const t = String(valor ?? '').trim();
-      const m = t.match(/(\d+)(?:[.,](\d+))?/);
-
-      const ref = document.createElement('span');
-      ref.className = 'ref';
-      ref.textContent = 'Ref';
-      el.appendChild(ref);
-
-      const ent = document.createElement('span');
-      ent.className = 'ent';
-      ent.textContent = m ? m[1] : t;
-      el.appendChild(ent);
-
-      if (m && m[2]) {
-        const dec = document.createElement('span');
-        dec.className = 'dec';
-        dec.textContent = ',' + m[2].padEnd(2, '0').slice(0, 2);
-        el.appendChild(dec);
-      }
-      return el;
-    }
-
-    function crearTarjeta(p, i) {
-      const tarjeta = document.createElement('article');
-      tarjeta.className = 'tarjeta';
-      tarjeta.style.setProperty('--i', i);
-
-      const foto = document.createElement('div');
-      foto.className = 'foto';
-      if (p.imagen) {
-        const img = document.createElement('img');
-        img.src = p.imagen;
-        img.alt = '';
-        img.onerror = () => img.remove();
-        foto.appendChild(img);
+        if (m && m[2]) {
+          const dec = document.createElement('span');
+          dec.className = 'dec';
+          dec.textContent = ',' + m[2].padEnd(2, '0').slice(0, 2);
+          el.appendChild(dec);
+        }
+        return el;
       }
 
-      const txt = String(p.descripcion || '').trim();
-      const k = txt.search(/\s/);
-      const primera = k < 0 ? txt : txt.slice(0, k);
-      const segunda = k < 0 ? '' : txt.slice(k + 1).trim();
+      function crearTarjeta(p, i) {
+        const tarjeta = document.createElement('article');
+        tarjeta.className = 'tarjeta';
+        tarjeta.style.setProperty('--i', i);
 
-      const nombre = document.createElement('div');
-      nombre.className = 'nombre';
-      const n1 = document.createElement('span');
-      n1.className = 'n1';
-      n1.textContent = primera;
-      nombre.appendChild(n1);
-      if (segunda) {
-        const n2 = document.createElement('span');
-        n2.className = 'n2';
-        n2.textContent = segunda;
-        nombre.appendChild(n2);
-      }
-
-      tarjeta.append(foto, nombre, crearPrecio(p.precio));
-      return tarjeta;
-    }
-
-    function productosPorPagina() {
-      const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-      return Math.ceil(productos.length / paginas);
-    }
-
-    function pintarPagina(pagina) {
-      const porPag = productosPorPagina();
-      const items = productos.slice(pagina * porPag, (pagina + 1) * porPag);
-      const cols = items.length === 4 ? 2 : Math.min(items.length, 3);
-      const filas = Math.ceil(items.length / cols);
-      lista.style.setProperty('--cols', cols);
-      lista.style.setProperty('--rows', filas);
-      lista.replaceChildren(...items.map(crearTarjeta));
-    }
-
-    /* ============ ESCENAS ============ */
-    function mostrarMenu() {
-      window.scrollTo(0, 0);
-      escenaPubli.classList.remove('activa');
-      escenaPubli.setAttribute('aria-hidden', 'true');
-      escenaMenu.classList.add('activa');
-      escenaMenu.removeAttribute('aria-hidden');
-    }
-
-    function mostrarPubli() {
-      window.scrollTo(0, 0);
-      const l = listaPublicidad();
-      const src = l[indicePubli % l.length];
-      indicePubli = (indicePubli + 1) % l.length;
-
-      const siguiente = 1 - capaActual;
-      capas[siguiente].style.backgroundImage = `url('${src}')`;
-      capas[siguiente].classList.add('visible');
-      capas[capaActual].classList.remove('visible');
-      capaActual = siguiente;
-
-      escenaMenu.classList.remove('activa');
-      escenaMenu.setAttribute('aria-hidden', 'true');
-      escenaPubli.classList.add('activa');
-      escenaPubli.removeAttribute('aria-hidden');
-    }
-
-    function precargarImagenes() {
-      [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES, ...SUSHIS].forEach((src) => { new Image().src = src; });
-    }
-
-    /* ============ CICLO PRINCIPAL ============ */
-    async function ciclo() {
-      let pagina = 0;
-
-      while (true) {
-        await cargarProductos();
-
-        if (!productos.length) {
-          await esperar(5000);
-          continue;
+        const foto = document.createElement('div');
+        foto.className = 'foto';
+        if (p.imagen) {
+          const img = document.createElement('img');
+          img.src = p.imagen;
+          img.alt = '';
+          img.onerror = () => img.remove();
+          foto.appendChild(img);
         }
 
+        const txt = String(p.descripcion || '').trim();
+        const k = txt.search(/\s/);
+        const primera = k < 0 ? txt : txt.slice(0, k);
+        const segunda = k < 0 ? '' : txt.slice(k + 1).trim();
+
+        const nombre = document.createElement('div');
+        nombre.className = 'nombre';
+        const n1 = document.createElement('span');
+        n1.className = 'n1';
+        n1.textContent = primera;
+        nombre.appendChild(n1);
+        if (segunda) {
+          const n2 = document.createElement('span');
+          n2.className = 'n2';
+          n2.textContent = segunda;
+          nombre.appendChild(n2);
+        }
+
+        tarjeta.append(foto, nombre, crearPrecio(p.precio));
+        return tarjeta;
+      }
+
+      function productosPorPagina() {
         const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-        if (pagina >= paginas) pagina = 0;
+        return Math.ceil(productos.length / paginas);
+      }
 
-        // 1) Sandwiches
-        pintarPagina(pagina);
-        mostrarMenu();
-        await esperar(CONFIG.menuMs);
-        pagina = (pagina + 1) % paginas;
+      function pintarPagina(pagina) {
+        const porPag = productosPorPagina();
+        const items = productos.slice(pagina * porPag, (pagina + 1) * porPag);
+        const cols = items.length === 4 ? 2 : Math.min(items.length, 3);
+        const filas = Math.ceil(items.length / cols);
+        lista.style.setProperty('--cols', cols);
+        lista.style.setProperty('--rows', filas);
+        lista.replaceChildren(...items.map(crearTarjeta));
+      }
 
-        // 2) Publicidad(es)
-        for (let k = 0; k < CONFIG.publiPorTurno; k++) {
-          mostrarPubli();
-          await esperar(CONFIG.publiMs);
+      /* ============ ESCENAS ============ */
+      function mostrarMenu() {
+        window.scrollTo(0, 0);
+        escenaPubli.classList.remove('activa');
+        escenaPubli.setAttribute('aria-hidden', 'true');
+        escenaMenu.classList.add('activa');
+        escenaMenu.removeAttribute('aria-hidden');
+      }
+
+      async function mostrarPubli() {
+        window.scrollTo(0, 0);
+        const l = listaPublicidad();
+
+        // Busca la próxima imagen que sí cargue; las que fallan se saltan
+        let src = null;
+        for (let intento = 0; intento < l.length; intento++) {
+          const candidata = l[indicePubli % l.length];
+          indicePubli = (indicePubli + 1) % l.length;
+          if (await precargar(candidata)) { src = candidata; break; }
+          console.warn('No se pudo cargar la imagen:', candidata);
+        }
+        if (!src) return false;   // ninguna cargó: se queda en la escena actual
+
+        const siguiente = 1 - capaActual;
+        capas[siguiente].style.backgroundImage = `url('${src}')`;
+        capas[siguiente].classList.add('visible');
+        capas[capaActual].classList.remove('visible');
+        capaActual = siguiente;
+
+        escenaMenu.classList.remove('activa');
+        escenaMenu.setAttribute('aria-hidden', 'true');
+        escenaPubli.classList.add('activa');
+        escenaPubli.removeAttribute('aria-hidden');
+        return true;
+      }
+
+      // Precarga una imagen y dice si cargó. Si falla, no se guarda en caché
+      // para que se vuelva a intentar en el próximo ciclo (por si subes el archivo después).
+      const cacheImg = {};
+      function precargar(src) {
+        if (!cacheImg[src]) {
+          cacheImg[src] = new Promise((resolve) => {
+            const im = new Image();
+            im.onload = () => resolve(true);
+            im.onerror = () => { delete cacheImg[src]; resolve(false); };
+            im.src = src;
+          });
+        }
+        return cacheImg[src];
+      }
+
+      function precargarImagenes() {
+        [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES, ...SUSHIS].forEach(precargar);
+      }
+
+      /* ============ CICLO PRINCIPAL ============ */
+      async function ciclo() {
+        let pagina = 0;
+
+        while (true) {
+          await cargarProductos();
+
+          if (!productos.length) {
+            await esperar(5000);
+            continue;
+          }
+
+          const paginas = Math.ceil(productos.length / CONFIG.porPagina);
+          if (pagina >= paginas) pagina = 0;
+
+          // 1) Sandwiches
+          pintarPagina(pagina);
+          mostrarMenu();
+          await esperar(CONFIG.menuMs);
+          pagina = (pagina + 1) % paginas;
+
+          // 2) Publicidad(es)
+          for (let k = 0; k < CONFIG.publiPorTurno; k++) {
+            const ok = await mostrarPubli();
+            if (ok) await esperar(CONFIG.publiMs);
+          }
         }
       }
-    }
 
-    precargarImagenes();
-    ciclo();
-  })();
+      precargarImagenes();
+      ciclo();
+    })();
   </script>
 
   <!-- Mural sincronizado: TV 3 de 4 -->
   <script src="./mural-sync.js" data-col="2" data-fila="0"></script>
 </body>
+
 </html>
