@@ -3,100 +3,73 @@
   <head>
     <title>Other page</title>
     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="styles.css" />
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body  onload="cargarData()" >
-   
-    <main id="pollera"> 
-    <!--  <img id="smokegif" src="/fotos/smoke.gif" alt="">  -->
-      <div class="header" >
+  <body onload="cargarData()">
+
+    <main id="pollera">
+      <div class="header">
         <h1 class="titulos" style="color:white">GALERIA HYPERMARKET</h1>
-        <div class="titulos"  style="color:white">Poller</div>
+        <div class="titulos" style="color:white">Poller</div>
       </div>
-     <section class="listas">
-      <div class="listaProductos">
-<!--
-        <div class="producto pollera">
-          <div class="descripcion">
-            <div class="nombreProducto">POLLO A LA BRASA</div>
-            <div class="subdescripcion">Sin Contornos</div>
-            
-          </div>
-          <div class="nombreProducto"></div>
-          <div class="precioProducto">6.99 Ref</div>
-        </div>
-        <div class="producto pollera">
-          <div class="descripcion">
-            <div class="nombreProducto">POLLO A LA BRASA</div>
-            <div class="subdescripcion">12 arepas, ensalada y guasacaca</div>
-          </div>
-        
-          <div class="precioProducto">8.99 Ref</div>
-        </div>
-        
-       
-        <div class="producto pollera">
-          <div class="descripcion">
-            <div class="nombreProducto">1/2 POLLO A LA BRASA</div>
-            <div class="subdescripcion">8 arepas, ensalada y guasacaca</div>
-          </div>
-          <div class="nombreProducto"></div>
-          <div class="precioProducto">5.99 Ref</div>
-        </div>
-
-      </div>
-
-    -->
-   
-     </section>
-      
-     
-      
+      <section class="listas">
+        <div class="listaProductos"></div>
+      </section>
     </main>
-  
 
-  <script>
-     var contador=4;
-    var contadorPublicidad=1;
-    var cpublicidad=1;
-    var contadorVideo=1;
-    var contadorHojaldre=1;
-    function cargarPublicidad() {
-   if(cpublicidad==1){
-    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/pollera.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==2){
-    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/POLLOBROASTER.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==3){
-    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/ASIATICO.webp')";
-    cpublicidad++;
-  }else if(cpublicidad==4){
-    document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/ASIATICOS.webp')";
-    cpublicidad=cpublicidad-3;
-  }
- 
-     contadorPublicidad++;
-}
+    <script>
+      // ===== LISTA DE PUBLICIDADES =====
+      // Para agregar una foto nueva, solo añade una línea aquí
+      // (la imagen debe estar en ./publicidad/).
+      const PUBLICIDADES = [
+        'TEQUENOS.webp',
+        'pollera.webp',
+        'POLLOBROASTER.webp',
+        'ASIATICO.webp',
+        'ASIATICOS.webp'
+        // 'ANIMACION.gif',   // GIF: se le añade ?t= para que la animación reinicie
+      ];
 
-function cargarData(){
-   let text="";
-   document.getElementById("pollera").style.backgroundImage  = "url('./publicidad/pollera.webp')";
-   
-}
-setInterval( function(){
-   let text="";
-   cargarPublicidad();
-  
-  
- }
-   , 60000);
+      // Cada cuántos milisegundos cambia la foto
+      const INTERVALO = 60000;
 
+      // Índice de la foto que toca mostrar
+      let indicePublicidad = 0;
+
+      // Precarga: evita el fondo en blanco al cambiar de foto
+      (function precargarImagenes() {
+        PUBLICIDADES.forEach(function (img) {
+          if (img.indexOf('.gif') === -1) {
+            new Image().src = './publicidad/' + img;
+          }
+        });
+      })();
+
+      function cargarPublicidad() {
+        const pollera = document.getElementById("pollera");
+        const img = PUBLICIDADES[indicePublicidad];
+        let url = "./publicidad/" + img;
+
+        if (img.indexOf('.gif') !== -1) {
+          url += "?t=" + Date.now();
+        }
+
+        pollera.style.backgroundImage = "url('" + url + "')";
+
+        // avanza a la siguiente; al llegar al final vuelve al inicio
+        indicePublicidad = (indicePublicidad + 1) % PUBLICIDADES.length;
+      }
+
+      function cargarData() {
+        cargarPublicidad();
+      }
+
+      setInterval(cargarPublicidad, INTERVALO);
     </script>
 
-  <!-- Mural sincronizado: TV 4 de 4 -->
-  <script src="./mural-sync.js" data-col="3" data-fila="0"></script>
+    <!-- Mural sincronizado: TV 4 de 4 -->
+    <script src="./mural-sync.js" data-col="3" data-fila="0"></script>
   </body>
 </html>
