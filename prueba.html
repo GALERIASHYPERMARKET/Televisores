@@ -21,9 +21,7 @@
     :root {
       --acento: #ff8a2b;
       --texto: #fff;
-      /* Opacidad del velo oscuro sobre la foto: .20 = foto muy visible, .60 = muy tenue */
       --velo: .30;
-      /* Márgenes de seguridad anti-overscan (súbelos si el TV sigue cortando) */
       --seguro-x: 2.5vw;
       --seguro-y: 3vh;
     }
@@ -46,7 +44,10 @@
 
     #sandwich {
       position: fixed;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -57,7 +58,10 @@
     /* ===== ESCENAS: cambio directo, sin fade ===== */
     .escena {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       z-index: 1;
       opacity: 0;
       visibility: hidden;
@@ -78,21 +82,30 @@
     /* ===== FONDO ===== */
     .fondo {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       z-index: 0;
       background: #000;
     }
 
     .fondo-imagen {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background: url("./fotos/bgsandwichmejor.png") center / cover no-repeat;
       filter: saturate(1.1);
     }
 
     .fondo-velo {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background: linear-gradient(180deg,
           rgba(20, 8, 0, calc(var(--velo) + .20)) 0%,
           rgba(20, 8, 0, var(--velo)) 40%,
@@ -137,13 +150,10 @@
     }
 
     @keyframes pulsoLinea {
-
-      0%,
-      100% {
+      0%, 100% {
         width: 25%;
         opacity: .6;
       }
-
       50% {
         width: 60%;
         opacity: 1;
@@ -162,7 +172,6 @@
       grid-template-rows: repeat(var(--rows, 2), minmax(0, 1fr));
       gap: 3.4vh 2.2vw;
       padding-top: 2.5vh;
-      /* espacio para la etiqueta de precio que sobresale */
     }
 
     .tarjeta {
@@ -185,7 +194,6 @@
       box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
     }
 
-    /* La animación de entrada arranca cada vez que la escena se activa */
     .escena-menu.activa .tarjeta {
       animation: tarjetaEntra .8s cubic-bezier(.2, .8, .2, 1) both;
       animation-delay: calc(var(--i, 0) * 120ms + .4s);
@@ -196,7 +204,6 @@
         opacity: 0;
         transform: translateY(3vh) scale(.95);
       }
-
       to {
         opacity: 1;
         transform: none;
@@ -223,7 +230,10 @@
 
     .foto img {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -233,12 +243,9 @@
     }
 
     @keyframes flota {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0);
       }
-
       50% {
         transform: translateY(-.8vh);
       }
@@ -300,17 +307,18 @@
       margin-top: .18em;
     }
 
-    /* ===== PUBLICIDAD (cambio directo entre imágenes, sin fundido) ===== */
+    /* ===== PUBLICIDAD ===== */
     .escena-publi {
       background: #000;
     }
 
     .capa {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       z-index: 1;
-      /* contain: la imagen se ve completa (sin recortar arriba/abajo).
-         Si prefieres llenar toda la pantalla recortando, cambia contain por cover */
       background: #000 center / contain no-repeat;
       opacity: 0;
     }
@@ -321,7 +329,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       *,
       *::before,
       *::after {
@@ -351,7 +358,7 @@
       <div class="lista" id="lista"></div>
     </section>
 
-    <!-- ESCENA 2: PUBLICIDAD (dos capas para alternar entre imágenes) -->
+    <!-- ESCENA 2: PUBLICIDAD -->
     <section class="escena escena-publi" id="escenaPubli" aria-hidden="true">
       <div class="capa"></div>
       <div class="capa"></div>
@@ -372,7 +379,6 @@
         publiPorTurno: 3,     // publicidades seguidas antes de volver a la lista
       };
 
-      // Para agregar una publicidad nueva, solo añade una línea aquí.
       const PUBLI_ANTES = [
         './publicidad/4ESTACIONES.webp',
         './publicidad/CLUBHOUSE.webp',
@@ -386,7 +392,7 @@
         './publicidad/WAFFLE.webp',
         './publicidad/PAPASFRITAS.webp',
       ];
-      const PERROS = './publicidad/perros.webp';           // solo después de las 3 p. m.
+      const PERROS = './publicidad/perros.webp';
       const PUBLI_DESPUES = [
         './publicidad/CASHEA1.webp',
         './publicidad/CASHEA2.webp',
@@ -411,12 +417,32 @@
 
       const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 
-      /* ============ DATOS ============ */
+      /* ============ DATOS (compatible con HTTP y TV local) ============ */
+      function leerJSON(url) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', url + '?t=' + Date.now(), true);
+          xhr.timeout = 8000;
+          xhr.onload = () => {
+            if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText)) {
+              try {
+                resolve(JSON.parse(xhr.responseText));
+              } catch (e) {
+                reject(e);
+              }
+            } else {
+              reject(new Error('HTTP ' + xhr.status));
+            }
+          };
+          xhr.onerror = () => reject(new Error('Error de red al leer JSON'));
+          xhr.ontimeout = () => reject(new Error('Timeout al leer JSON'));
+          xhr.send();
+        });
+      }
+
       async function cargarProductos() {
         try {
-          const resp = await fetch(CONFIG.json, { cache: 'no-store' });
-          if (!resp.ok) throw new Error('HTTP ' + resp.status);
-          const json = await resp.json();
+          const json = await leerJSON(CONFIG.json);
           const l = json && json.data && json.data.sandwiches;
           if (Array.isArray(l) && l.length) productos = l;
         } catch (err) {
@@ -428,7 +454,7 @@
       function crearPrecio(valor) {
         const el = document.createElement('div');
         el.className = 'precio';
-        const t = String(valor ?? '').trim();
+        const t = String(valor != null ? valor : '').trim();
         const m = t.match(/(\d+)(?:[.,](\d+))?/);
 
         const ref = document.createElement('span');
@@ -499,7 +525,9 @@
         const filas = Math.ceil(items.length / cols);
         lista.style.setProperty('--cols', cols);
         lista.style.setProperty('--rows', filas);
-        lista.replaceChildren(...items.map(crearTarjeta));
+
+        lista.innerHTML = '';
+        items.forEach((p, i) => lista.appendChild(crearTarjeta(p, i)));
       }
 
       /* ============ ESCENAS ============ */
@@ -515,15 +543,17 @@
         window.scrollTo(0, 0);
         const l = listaPublicidad();
 
-        // Busca la próxima imagen que sí cargue; las que fallan se saltan
         let src = null;
         for (let intento = 0; intento < l.length; intento++) {
           const candidata = l[indicePubli % l.length];
           indicePubli = (indicePubli + 1) % l.length;
-          if (await precargar(candidata)) { src = candidata; break; }
+          if (await precargar(candidata)) {
+            src = candidata;
+            break;
+          }
           console.warn('No se pudo cargar la imagen:', candidata);
         }
-        if (!src) return false;   // ninguna cargó: se queda en la escena actual
+        if (!src) return false;
 
         const siguiente = 1 - capaActual;
         capas[siguiente].style.backgroundImage = `url('${src}')`;
@@ -538,15 +568,25 @@
         return true;
       }
 
-      // Precarga una imagen y dice si cargó. Si falla, no se guarda en caché
-      // para que se vuelva a intentar en el próximo ciclo (por si subes el archivo después).
       const cacheImg = {};
       function precargar(src) {
         if (!cacheImg[src]) {
           cacheImg[src] = new Promise((resolve) => {
             const im = new Image();
-            im.onload = () => resolve(true);
-            im.onerror = () => { delete cacheImg[src]; resolve(false); };
+            const timer = setTimeout(() => {
+              delete cacheImg[src];
+              resolve(false);
+            }, 6000);
+
+            im.onload = () => {
+              clearTimeout(timer);
+              resolve(true);
+            };
+            im.onerror = () => {
+              clearTimeout(timer);
+              delete cacheImg[src];
+              resolve(false);
+            };
             im.src = src;
           });
         }
@@ -562,34 +602,35 @@
         let pagina = 0;
 
         while (true) {
-          await cargarProductos();
+          try {
+            await cargarProductos();
 
-          if (!productos.length) {
-            await esperar(5000);
-            continue;
-          }
+            if (!productos.length) {
+              await esperar(5000);
+              continue;
+            }
 
-          const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-          if (pagina >= paginas) pagina = 0;
+            const paginas = Math.ceil(productos.length / CONFIG.porPagina);
+            if (pagina >= paginas) pagina = 0;
 
-          // 1) Sandwiches
-          pintarPagina(pagina);
-          mostrarMenu();
-          await esperar(CONFIG.menuMs);
-          pagina = (pagina + 1) % paginas;
+            // 1) Sandwiches
+            pintarPagina(pagina);
+            mostrarMenu();
+            await esperar(CONFIG.menuMs);
+            pagina = (pagina + 1) % paginas;
 
-          // 2) Publicidad(es)
-          for (let k = 0; k < CONFIG.publiPorTurno; k++) {
-            const ok = await mostrarPubli();
-            if (ok) await esperar(CONFIG.publiMs);
+            // 2) Publicidad(es)
+            for (let k = 0; k < CONFIG.publiPorTurno; k++) {
+              const ok = await mostrarPubli();
+              if (ok) await esperar(CONFIG.publiMs);
+            }
+          } catch (err) {
+            console.error('Error en ciclo:', err);
+            await esperar(3000);
           }
         }
       }
 
-      // En prueba.html, dentro de la IIFE, justo antes de: precargarImagenes();
-      fetch('./publicidad/CARNE.webp')
-        .then(r => { aviso.textContent += '\nCARNE -> HTTP ' + r.status + ' ' + r.headers.get('content-type'); })
-        .catch(e => { aviso.textContent += '\nfetch error: ' + e.message; });
       precargarImagenes();
       ciclo();
     })();
