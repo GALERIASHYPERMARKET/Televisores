@@ -408,13 +408,6 @@
       let productos = [];
       let indicePubli = 0;
       let capaActual = 0;
-      /* DEBUG-INICIO */
-      const fallos = [];
-      const aviso = document.createElement('div');
-      aviso.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:99;font:16px monospace;color:#ff6;background:rgba(0,0,0,.75);padding:6px 10px;max-width:90vw;white-space:pre-wrap';
-      document.body.appendChild(aviso);
-      const mostrarFallos = () => { aviso.textContent = fallos.length ? 'NO CARGAN:\n' + fallos.join('\n') : ''; };
-      /* DEBUG-FIN */
 
       const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -552,8 +545,8 @@
         if (!cacheImg[src]) {
           cacheImg[src] = new Promise((resolve) => {
             const im = new Image();
-            im.onload = () => { const k = fallos.indexOf(src); if (k > -1) fallos.splice(k, 1); mostrarFallos(); resolve(true); };
-            im.onerror = () => { delete cacheImg[src]; if (!fallos.includes(src)) fallos.push(src); mostrarFallos(); resolve(false); };
+            im.onload = () => resolve(true);
+            im.onerror = () => { delete cacheImg[src]; resolve(false); };
             im.src = src;
           });
         }
