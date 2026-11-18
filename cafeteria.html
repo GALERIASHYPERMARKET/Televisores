@@ -14,8 +14,7 @@
 <body class="body">
     <section class="cafes">
         <div class="logoDescripcion">
-             <img id="image" src="./images/bebidasgaleria.png" alt="logoG"  >
-        </div>
+             <img id="image" src="./images/bebidasgaleria.webp" alt="logoG">
         </div>
     </section>
 
@@ -73,5 +72,89 @@ gsap.from(split3.chars, {
     delay:4
   })
     
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============ CONFIGURACIÓN ============ */
+  var CONFIG = {
+    carpeta: './publicidad/',   // carpeta donde están las imágenes
+    cambioMs: 15000         // tiempo que se muestra cada imagen
+  };
+
+  // ===== LISTA DE IMÁGENES (solo .webp) =====
+  // Para agregar una imagen nueva, solo añade una línea aquí
+  // (el archivo debe estar en ./publicidad/).
+  var imagenes = [
+    'bebidasgaleria.webp',
+    // 'otraimagen.webp',
+  ];
+
+  /* ============ ELEMENTOS Y ESTADO ============ */
+  var imgEl = document.getElementById('image');
+  var indice = 0;
+  var actual = null;
+
+  function esperar(ms) {
+    return new Promise(function (r) { setTimeout(r, ms); });
+  }
+
+  /* ============ PRECARGA ============ */
+  // Si una imagen falla no se guarda en caché, para reintentar en el próximo ciclo.
+  var cache = {};
+  function precargar(src) {
+    if (!cache[src]) {
+      cache[src] = new Promise(function (resolve) {
+        var im = new Image();
+        im.onload = function () { resolve(true); };
+        im.onerror = function () { delete cache[src]; resolve(false); };
+        im.src = src;
+      });
+    }
+    return cache[src];
+  }
+
+  // Devuelve la próxima imagen de la lista que sí cargue; las que fallan se saltan.
+  async function siguienteImagen() {
+    for (var i = 0; i < imagenes.length; i++) {
+      var src = CONFIG.carpeta + imagenes[indice];
+      indice = (indice + 1) % imagenes.length;
+      if (await precargar(src)) return src;
+      console.warn('No se pudo cargar la imagen:', src);
+    }
+    return null;
+  }
+
+  function desvanecer(a) {
+    return new Promise(function (resolve) {
+      gsap.to(imgEl, { opacity: a, duration: 0.6, onComplete: resolve });
+    });
+  }
+
+  /* ============ CICLO ============ */
+  async function ciclo() {
+    imagenes.forEach(function (n) { precargar(CONFIG.carpeta + n); });
+
+    var primera = await siguienteImagen();
+    if (primera) { imgEl.src = primera; actual = primera; }
+
+    if (imagenes.length < 2) return;   // con una sola imagen no hay nada que rotar
+
+    while (true) {
+      await esperar(CONFIG.cambioMs);
+      var src = await siguienteImagen();
+      if (!src || src === actual) continue;
+
+      await desvanecer(0);
+      imgEl.src = src;
+      actual = src;
+      await desvanecer(1);
+    }
+  }
+
+  ciclo();
+})();
 </script>
 </html>

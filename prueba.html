@@ -372,14 +372,19 @@
         publiPorTurno: 3,     // publicidades seguidas antes de volver a la lista
       };
 
+      // Para agregar una publicidad nueva, solo añade una línea aquí.
       const PUBLI_ANTES = [
         './publicidad/CLUBHOUSE.webp',
+        './publicidad/ROLLTEMPURA.webp',
         './publicidad/CLUBHOUSE.webp',
         './publicidad/CARNE.webp',
+        './publicidad/FILADELFIAROLL.webp',
         './publicidad/POLLO.webp',
         './publicidad/CRISPY.webp',
+        './publicidad/CALIFORNIAROLL.webp',
         './publicidad/MIXTA.webp',
         './publicidad/CACHAPAS.webp',
+        './publicidad/WAFFLE.webp',
         './publicidad/PAPASFRITAS.webp',
       ];
       const PERROS = './publicidad/perros.webp';           // solo después de las 3 p. m.
@@ -388,31 +393,10 @@
         './publicidad/CASHEA2.webp',
       ];
 
-      /* ============ PROMOCIÓN SUSHIS ============ */
-      // Fotos de sushi que se intercalan entre las demás publicidades.
-      const SUSHIS = [
-        './publicidad/ROLLTEMPURA.webp',
-        './publicidad/FILADELFIAROLL.webp',
-        './publicidad/CALIFORNIAROLL.webp',
-        './publicidad/WAFFLE.webp',
-      ];
-      // Cuántas fotos de sushi salen después de CADA publicidad normal.
-      const SUSHIS_POR_PUBLI = 3;
-
       function listaPublicidad() {
-        const base = [...PUBLI_ANTES];
-        if (new Date().getHours() >= 15) base.push(PERROS);
-        base.push(...PUBLI_DESPUES);
-
-        const l = [];
-        let s = 0;
-        for (const p of base) {
-          l.push(p);
-          for (let k = 0; k < SUSHIS_POR_PUBLI; k++) {
-            l.push(SUSHIS[s % SUSHIS.length]);
-            s++;
-          }
-        }
+        const l = [...PUBLI_ANTES];
+        if (new Date().getHours() >= 15) l.push(PERROS);
+        l.push(...PUBLI_DESPUES);
         return l;
       }
 
@@ -571,7 +555,7 @@
       }
 
       function precargarImagenes() {
-        [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES, ...SUSHIS].forEach(precargar);
+        [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES].forEach(precargar);
       }
 
       /* ============ CICLO PRINCIPAL ============ */
