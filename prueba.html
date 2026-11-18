@@ -586,6 +586,10 @@
         }
       }
 
+      // En prueba.html, dentro de la IIFE, justo antes de: precargarImagenes();
+      fetch('./publicidad/CARNE.webp')
+        .then(r => { aviso.textContent += '\nCARNE -> HTTP ' + r.status + ' ' + r.headers.get('content-type'); })
+        .catch(e => { aviso.textContent += '\nfetch error: ' + e.message; });
       precargarImagenes();
       ciclo();
     })();
