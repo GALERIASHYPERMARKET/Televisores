@@ -5,17 +5,10 @@
   font-display: swap;
 }
 
-/* ============ VARIABLES (paleta morada) ============ */
+/* ============ VARIABLES ============ */
 :root {
-  --morado-oscuro: 74, 10, 61;
-  --morado: 121, 15, 98;
-  --morado-claro: 163, 32, 138;
   --acento: #ffd84d;
   --texto: #ffffff;
-
-  /* Opacidad del velo morado sobre la foto:
-     0.20 = foto muy visible, 0.60 = foto muy tenue */
-  --velo: .30;
 }
 
 /* ============ BASE ============ */
@@ -32,63 +25,35 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   color: var(--texto);
 }
 
-/* ============ ESCENAS (cambio directo, sin fade) ============ */
+/* ============ ESCENAS (cambio directo; la oculta no se renderiza) ============ */
 .escena {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  visibility: hidden;
+  display: none;
 }
-.escena.activa {
-  opacity: 1;
-  visibility: visible;
-}
+.escena.activa { display: block; }
 
-.escena-menu {
+.escena-menu.activa {
   display: flex;
   flex-direction: column;
   padding: 2.2vh 3vw 3vh;
   overflow: hidden;
 }
 
-/* ============ FONDO: FOTO + VELO MORADO LIGERO ============ */
-.fondo { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #000; }
-
-.fondo-imagen {
+/* ============ FONDO: velo morado + foto en UNA sola capa ============
+   Velo precalculado (antes eran calc() con variables). Si quieres la foto
+   mas visible o mas tenue, cambia los 3 valores de alfa (.45 / .30 / .55). */
+.fondo {
   position: absolute;
   inset: 0;
-  background: url("/images/jugos.webp") center / cover no-repeat;
-  filter: saturate(1.1);
-}
-
-.fondo-velo {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(var(--morado-oscuro), calc(var(--velo) + .15)) 0%,
-    rgba(var(--morado), var(--velo)) 45%,
-    rgba(var(--morado-oscuro), calc(var(--velo) + .25)) 100%);
-}
-
-/* ============ BURBUJAS ============ */
-.burbujas { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
-.burbujas span {
-  position: absolute;
-  bottom: -12vh;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.30), rgba(255,255,255,.04));
-  animation: sube linear infinite;
-}
-.burbujas span:nth-child(1) { left: 6%;  width: 5vh;  height: 5vh;  animation-duration: 14s; }
-.burbujas span:nth-child(2) { left: 22%; width: 3vh;  height: 3vh;  animation-duration: 10s; animation-delay: 2s; }
-.burbujas span:nth-child(3) { left: 45%; width: 6vh;  height: 6vh;  animation-duration: 18s; animation-delay: 4s; }
-.burbujas span:nth-child(4) { left: 63%; width: 3.5vh; height: 3.5vh; animation-duration: 12s; animation-delay: 1s; }
-.burbujas span:nth-child(5) { left: 80%; width: 5vh;  height: 5vh;  animation-duration: 16s; animation-delay: 6s; }
-.burbujas span:nth-child(6) { left: 94%; width: 2.5vh; height: 2.5vh; animation-duration: 9s;  animation-delay: 3s; }
-@keyframes sube {
-  from { transform: translateY(0) translateX(0); opacity: 0; }
-  10%  { opacity: .8; }
-  to   { transform: translateY(-100vh) translateX(2vw); opacity: 0; }
+  z-index: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(74, 10, 61, .45) 0%,
+      rgba(121, 15, 98, .30) 45%,
+      rgba(74, 10, 61, .55) 100%),
+    url("/images/jugos.webp") center / cover no-repeat,
+    #000;
 }
 
 /* ============ CABECERA ============ */
@@ -100,7 +65,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   align-items: center;
   margin-bottom: 2.4vh;
 }
-.logo { height: 10vh; width: auto; justify-self: start; filter: drop-shadow(0 3px 6px rgba(0,0,0,.5)); }
+.logo { height: 10vh; width: auto; justify-self: start; }
 .qr   { height: 10vh; width: auto; justify-self: end; border-radius: 8px; background: #fff; padding: 4px; }
 
 .titulo {
@@ -109,7 +74,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   font-size: clamp(36px, 8vh, 120px);
   letter-spacing: .35em;
   padding-left: .35em;
-  text-shadow: 0 3px 14px rgba(0,0,0,.6);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .7);
 }
 .titulo::after {
   content: "";
@@ -119,11 +84,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   width: 40%;
   border-radius: 99px;
   background: linear-gradient(90deg, transparent, var(--acento), transparent);
-  animation: pulsoLinea 3s ease-in-out infinite;
-}
-@keyframes pulsoLinea {
-  0%, 100% { width: 25%; opacity: .6; }
-  50%      { width: 60%; opacity: 1; }
 }
 
 /* ============ LISTA DE PRECIOS (2 columnas x 6 filas) ============ */
@@ -151,24 +111,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   padding: 1.4vh 1.4vw;
   border-radius: 1.8vh;
   border-left: .8vh solid var(--acento);
-  background: rgba(30, 0, 25, .62);
-  border-top: 1px solid rgba(255, 255, 255, .14);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .4);
-  animation: filaEntra .7s cubic-bezier(.2, .8, .2, 1) both;
-  animation-delay: calc(var(--i, 0) * 90ms);
-}
-.columna.sale .fila {
-  animation: filaSale .45s ease-in both;
-  animation-delay: calc(var(--i, 0) * 40ms);
-}
-@keyframes filaEntra {
-  from { opacity: 0; transform: translateY(2.5vh) scale(.96); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes filaSale {
-  from { opacity: 1; transform: none; }
-  to   { opacity: 0; transform: translateY(-2vh) scale(.96); }
+  background: rgba(30, 0, 25, .75);   /* un poco mas opaco para compensar sin blur */
 }
 
 .desc {
@@ -178,7 +121,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: .02em;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, .6);
 }
 .puntos {
   flex: 1 1 1vw;
@@ -188,7 +130,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   border-bottom: .4vh dotted rgba(255, 255, 255, .5);
 }
 
-/* ============ PRECIO ============ */
+/* ============ PRECIO (color plano, sin degradado animado) ============ */
 .precio {
   flex: 0 0 auto;
   display: flex;
@@ -197,26 +139,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   font-family: 'rustic', 'Segoe UI', sans-serif;
   font-size: clamp(20px, min(5.6vh, 3vw), 90px);
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(100deg, var(--acento) 40%, #fff 50%, var(--acento) 60%);
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: var(--acento);
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .55));
-  animation: brillo 6s ease-in-out infinite;
-  animation-delay: calc(var(--i, 0) * 400ms);
 }
 .precio .unidad {
   font-family: 'Segoe UI', system-ui, Arial, sans-serif;
   font-weight: 800;
   font-size: .5em;
   letter-spacing: .02em;
-  text-transform: none;
-}
-@keyframes brillo {
-  0%, 60%  { background-position: 100% 0; }
-  100%     { background-position: -100% 0; }
 }
 
 /* ============ ÍCONO DE FRUTA ============ */
@@ -225,13 +154,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   width: min(8vh, 5vw);
   height: min(8vh, 5vw);
   object-fit: contain;
-  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .45));
-  animation: flota 4s ease-in-out infinite;
-  animation-delay: calc(var(--i, 0) * 300ms);
-}
-@keyframes flota {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50%      { transform: translateY(-.8vh) rotate(3deg); }
 }
 
 /* ============ ESCENA PUBLICIDAD ============ */
@@ -240,9 +162,4 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0415; }
   position: absolute;
   inset: 0;
   background: center / cover no-repeat;
-}
-
-/* ============ ACCESIBILIDAD ============ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
 }

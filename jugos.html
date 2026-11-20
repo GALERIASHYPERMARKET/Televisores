@@ -14,22 +14,12 @@
 
       <!-- ESCENA 1: LISTA DE PRECIOS -->
       <section class="escena escena-menu activa" id="escenaMenu">
-
-        <!-- Fondo: foto + velo morado ligero -->
-        <div class="fondo" aria-hidden="true">
-          <div class="fondo-imagen"></div>
-          <div class="fondo-velo"></div>
-        </div>
-
-        <!-- Burbujas decorativas -->
-        <div class="burbujas" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
+        <div class="fondo" aria-hidden="true"></div>
 
         <header class="cabecera">
-          <img class="logo" src="/logo.png" alt="Logo" />
+          <img class="logo" src="/logo.png" alt="Logo" decoding="async" />
           <h1 class="titulo">BEBIDAS</h1>
-          <img class="qr" src="/images/qr-code.png" alt="Código QR" />
+          <img class="qr" src="/images/qr-code.png" alt="Código QR" decoding="async" />
         </header>
 
         <div class="lista" id="lista">
@@ -53,9 +43,9 @@
       const CONFIG = {
         json: './lib/jugos.json',
         porPagina: 12,        // máximo por pantalla (2 columnas x 6 filas)
-        menuMs: 50000,        // tiempo que se muestra la lista (50 s, como el original)
+        menuMs: 50000,        // tiempo que se muestra la lista
         publiMs: 50000,       // tiempo que se muestra cada publicidad
-        publiPorTurno: 1,     // cuántas publicidades seguidas antes de volver a bebidas
+        publiPorTurno: 1,     // publicidades seguidas antes de volver a bebidas
       };
 
       const PUBLICIDAD = [
@@ -81,6 +71,8 @@
 
       let productos = [];
       let indicePubli = 0;
+      let firmaDatos = '';      // para no repintar si los datos no cambiaron
+      let firmaPintada = '';
 
       const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -89,9 +81,13 @@
         try {
           const resp = await fetch(CONFIG.json, { cache: 'no-store' });
           if (!resp.ok) throw new Error('HTTP ' + resp.status);
-          const json = await resp.json();
+          const texto = await resp.text();
+          const json = JSON.parse(texto);
           const lista = json && json.data && json.data.jugos;
-          if (Array.isArray(lista) && lista.length) productos = lista;
+          if (Array.isArray(lista) && lista.length) {
+            productos = lista;
+            firmaDatos = texto;
+          }
         } catch (err) {
           console.warn('No se pudo actualizar jugos.json:', err.message);
         }
@@ -106,7 +102,7 @@
         const m = texto.match(/^([\d.,]+)\s*(.*)$/);
         const montoTxt = m ? m[1] : texto;
         let unidadTxt = m ? m[2].trim() : '';
-        if (/^r(ef)?\.?$/i.test(unidadTxt)) unidadTxt = 'Ref';   // R / ref / REF -> Ref
+        if (/^r(ef)?\.?$/i.test(unidadTxt)) unidadTxt = 'Ref';
 
         const monto = document.createElement('span');
         monto.className = 'monto';
@@ -122,16 +118,16 @@
         return precio;
       }
 
-      function crearFila(producto, i) {
+      function crearFila(producto) {
         const fila = document.createElement('div');
         fila.className = 'fila';
-        fila.style.setProperty('--i', i);
 
         if (producto.imagen) {
           const fruta = document.createElement('img');
           fruta.className = 'fruta';
           fruta.src = producto.imagen;
           fruta.alt = '';
+          fruta.decoding = 'async';
           fruta.onerror = () => fruta.remove();
           fila.appendChild(fruta);
         }
@@ -153,26 +149,32 @@
       }
 
       function pintarPagina(pagina) {
+        // Si es la misma página con los mismos datos, no se toca el DOM
+        const firma = pagina + '|' + firmaDatos;
+        if (firma === firmaPintada) return;
+        firmaPintada = firma;
+
         const porPag = productosPorPagina();
         const inicio = pagina * porPag;
         const items = productos.slice(inicio, inicio + porPag);
         const porColumna = Math.ceil(porPag / columnas.length);
 
         columnas.forEach((col, c) => {
-          col.classList.remove('sale');
-          col.replaceChildren();
-          items.slice(c * porColumna, (c + 1) * porColumna).forEach((p, i) => {
-            col.appendChild(crearFila(p, c * porColumna + i));
-          });
+          const frag = document.createDocumentFragment();
+          items.slice(c * porColumna, (c + 1) * porColumna)
+               .forEach((p) => frag.appendChild(crearFila(p)));
+          col.replaceChildren(frag);
         });
       }
 
-      /* ============ ESCENAS ============ */
+      /* ============ ESCENAS (cambio directo) ============ */
       function mostrarMenu() {
         escenaPubli.classList.remove('activa');
         escenaPubli.setAttribute('aria-hidden', 'true');
         escenaMenu.classList.add('activa');
         escenaMenu.removeAttribute('aria-hidden');
+        // Libera la imagen de publicidad de la memoria mientras no se ve
+        publiImagen.style.backgroundImage = '';
       }
 
       function mostrarPubli() {
@@ -182,51 +184,56 @@
         escenaMenu.setAttribute('aria-hidden', 'true');
         escenaPubli.classList.add('activa');
         escenaPubli.removeAttribute('aria-hidden');
+        precargarSiguiente();
       }
 
-      function precargarImagenes() {
-        PUBLICIDAD.forEach((src) => { new Image().src = src; });
+      // Solo se precarga la siguiente (no las 12 a la vez) para cuidar la RAM del TV
+      function precargarSiguiente() {
+        if (!PUBLICIDAD.length) return;
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = PUBLICIDAD[indicePubli];
       }
 
       /* ============ CICLO PRINCIPAL ============ */
       async function ciclo() {
         let pagina = 0;
+        precargarSiguiente();
 
         while (true) {
-          await cargarProductos();
+          try {
+            await cargarProductos();
 
-          if (!productos.length) {
-            await esperar(5000);
-            continue;
-          }
+            if (!productos.length) {
+              await esperar(5000);
+              continue;
+            }
 
-          const paginas = Math.ceil(productos.length / CONFIG.porPagina);
-          if (pagina >= paginas) pagina = 0;
+            const paginas = Math.ceil(productos.length / CONFIG.porPagina);
+            if (pagina >= paginas) pagina = 0;
 
-          // 1) Bebidas
-          pintarPagina(pagina);
-          mostrarMenu();
-          await esperar(CONFIG.menuMs);
-          pagina = (pagina + 1) % paginas;
+            // 1) Bebidas
+            pintarPagina(pagina);
+            mostrarMenu();
+            await esperar(CONFIG.menuMs);
+            pagina = (pagina + 1) % paginas;
 
-          // 2) Publicidad(es)
-          if (PUBLICIDAD.length) {
-            for (let k = 0; k < CONFIG.publiPorTurno; k++) {
+            // 2) Publicidad(es)
+            for (let k = 0; k < CONFIG.publiPorTurno && PUBLICIDAD.length; k++) {
               mostrarPubli();
               await esperar(CONFIG.publiMs);
             }
-          } else {
-            columnas.forEach((col) => col.classList.add('sale'));
-            await esperar(900);
+          } catch (err) {
+            console.warn('Error en el ciclo:', err);
+            await esperar(5000);
           }
         }
       }
 
-      precargarImagenes();
       ciclo();
     })();
     </script>
-  
+
   <!-- Mural sincronizado: TV 2 de 4 -->
   <script src="./mural-sync.js" data-col="1" data-fila="0"></script>
 </body>

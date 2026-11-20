@@ -21,7 +21,6 @@
     :root {
       --acento: #ff8a2b;
       --texto: #fff;
-      --velo: .30;
       --seguro-x: 2.5vw;
       --seguro-y: 3vh;
     }
@@ -55,31 +54,28 @@
       color: var(--texto);
     }
 
-    /* ===== ESCENAS: cambio directo, sin fade ===== */
+    /* ===== ESCENAS: cambio directo; la oculta no se renderiza ===== */
     .escena {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 1;
-      opacity: 0;
-      visibility: hidden;
+      display: none;
     }
 
     .escena.activa {
-      z-index: 2;
-      opacity: 1;
-      visibility: visible;
+      display: block;
     }
 
-    .escena-menu {
+    .escena-menu.activa {
       display: flex;
       flex-direction: column;
       padding: calc(var(--seguro-y) + 1vh) calc(var(--seguro-x) + 1vw) var(--seguro-y);
     }
 
-    /* ===== FONDO ===== */
+    /* ===== FONDO: velo + foto en UNA sola capa =====
+       Alfas del velo: .50 / .30 / .55 (sube o baja para ver mas o menos la foto) */
     .fondo {
       position: absolute;
       top: 0;
@@ -87,29 +83,13 @@
       bottom: 0;
       left: 0;
       z-index: 0;
-      background: #000;
-    }
-
-    .fondo-imagen {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: url("./fotos/bgsandwichmejor.png") center / cover no-repeat;
-      filter: saturate(1.1);
-    }
-
-    .fondo-velo {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(180deg,
-          rgba(20, 8, 0, calc(var(--velo) + .20)) 0%,
-          rgba(20, 8, 0, var(--velo)) 40%,
-          rgba(20, 8, 0, calc(var(--velo) + .25)) 100%);
+      background:
+        linear-gradient(180deg,
+          rgba(20, 8, 0, .50) 0%,
+          rgba(20, 8, 0, .30) 40%,
+          rgba(20, 8, 0, .55) 100%),
+        url("./fotos/bgsandwichmejor.png") center / cover no-repeat,
+        #000;
     }
 
     /* ===== CABECERA ===== */
@@ -126,7 +106,6 @@
       height: 9vh;
       width: auto;
       justify-self: start;
-      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .5));
     }
 
     .titulo {
@@ -135,7 +114,7 @@
       font-size: clamp(32px, 7vh, 110px);
       letter-spacing: .35em;
       padding-left: .35em;
-      text-shadow: 0 3px 14px rgba(0, 0, 0, .6);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .7);
     }
 
     .titulo::after {
@@ -146,18 +125,6 @@
       width: 40%;
       border-radius: 99px;
       background: linear-gradient(90deg, transparent, var(--acento), transparent);
-      animation: pulsoLinea 3s ease-in-out infinite;
-    }
-
-    @keyframes pulsoLinea {
-      0%, 100% {
-        width: 25%;
-        opacity: .6;
-      }
-      50% {
-        width: 60%;
-        opacity: 1;
-      }
     }
 
     /* ===== LISTA DE TARJETAS ===== */
@@ -187,27 +154,9 @@
       align-self: center;
       padding: 2.4vh 1.2vw 1.6vh;
       border-radius: 2.4vh;
-      background: rgba(25, 10, 2, .62);
+      background: rgba(25, 10, 2, .78);   /* mas opaco para compensar sin blur */
       border: 1px solid rgba(255, 255, 255, .14);
       border-bottom: .7vh solid var(--acento);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
-    }
-
-    .escena-menu.activa .tarjeta {
-      animation: tarjetaEntra .8s cubic-bezier(.2, .8, .2, 1) both;
-      animation-delay: calc(var(--i, 0) * 120ms + .4s);
-    }
-
-    @keyframes tarjetaEntra {
-      from {
-        opacity: 0;
-        transform: translateY(3vh) scale(.95);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
     }
 
     .foto {
@@ -216,6 +165,7 @@
       min-height: 0;
     }
 
+    /* Halo naranja detras de la foto (estatico, barato) */
     .foto::before {
       content: "";
       position: absolute;
@@ -237,18 +187,6 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 1vh 1.2vh rgba(0, 0, 0, .55));
-      animation: flota 5s ease-in-out infinite;
-      animation-delay: calc(var(--i, 0) * 400ms);
-    }
-
-    @keyframes flota {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-.8vh);
-      }
     }
 
     .nombre {
@@ -264,7 +202,7 @@
       letter-spacing: .05em;
       font-size: clamp(18px, min(4.4vh, 2.4vw), 72px);
       color: var(--acento);
-      text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
     }
 
     .n2 {
@@ -273,10 +211,10 @@
       font-family: 'script', 'Segoe Script', 'Brush Script MT', cursive;
       font-size: clamp(18px, min(4.6vh, 2.5vw), 76px);
       color: #fff;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
     }
 
-    /* ===== ETIQUETA DE PRECIO ===== */
+    /* ===== ETIQUETA DE PRECIO (sin sombras) ===== */
     .precio {
       position: absolute;
       top: -2vh;
@@ -293,7 +231,6 @@
       color: #2a1000;
       font-size: clamp(24px, min(6.6vh, 3.5vw), 104px);
       background: linear-gradient(135deg, #ffc247, #ff8a2b 60%, #eb6123);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .4);
     }
 
     .precio .ref {
@@ -307,7 +244,7 @@
       margin-top: .18em;
     }
 
-    /* ===== PUBLICIDAD ===== */
+    /* ===== PUBLICIDAD (una sola capa, cambio directo) ===== */
     .escena-publi {
       background: #000;
     }
@@ -318,23 +255,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 1;
       background: #000 center / contain no-repeat;
-      opacity: 0;
-    }
-
-    .capa.visible {
-      z-index: 2;
-      opacity: 1;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition-duration: .01ms !important;
-      }
     }
   </style>
 </head>
@@ -344,13 +265,10 @@
 
     <!-- ESCENA 1: LISTA -->
     <section class="escena escena-menu activa" id="escenaMenu">
-      <div class="fondo" aria-hidden="true">
-        <div class="fondo-imagen"></div>
-        <div class="fondo-velo"></div>
-      </div>
+      <div class="fondo" aria-hidden="true"></div>
 
       <header class="cabecera">
-        <img class="logo" src="./logo.png" alt="" onerror="this.style.display='none'" />
+        <img class="logo" src="./logo.png" alt="" decoding="async" onerror="this.style.display='none'" />
         <h1 class="titulo">SANDWICHES</h1>
         <span></span>
       </header>
@@ -360,8 +278,7 @@
 
     <!-- ESCENA 2: PUBLICIDAD -->
     <section class="escena escena-publi" id="escenaPubli" aria-hidden="true">
-      <div class="capa"></div>
-      <div class="capa"></div>
+      <div class="capa" id="capa"></div>
     </section>
 
   </main>
@@ -409,11 +326,10 @@
       const escenaMenu = document.getElementById('escenaMenu');
       const escenaPubli = document.getElementById('escenaPubli');
       const lista = document.getElementById('lista');
-      const capas = Array.from(escenaPubli.querySelectorAll('.capa'));
+      const capa = document.getElementById('capa');
 
       let productos = [];
       let indicePubli = 0;
-      let capaActual = 0;
 
       const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -476,10 +392,9 @@
         return el;
       }
 
-      function crearTarjeta(p, i) {
+      function crearTarjeta(p) {
         const tarjeta = document.createElement('article');
         tarjeta.className = 'tarjeta';
-        tarjeta.style.setProperty('--i', i);
 
         const foto = document.createElement('div');
         foto.className = 'foto';
@@ -487,6 +402,7 @@
           const img = document.createElement('img');
           img.src = p.imagen;
           img.alt = '';
+          img.decoding = 'async';
           img.onerror = () => img.remove();
           foto.appendChild(img);
         }
@@ -526,8 +442,21 @@
         lista.style.setProperty('--cols', cols);
         lista.style.setProperty('--rows', filas);
 
-        lista.innerHTML = '';
-        items.forEach((p, i) => lista.appendChild(crearTarjeta(p, i)));
+        const frag = document.createDocumentFragment();
+        items.forEach((p) => frag.appendChild(crearTarjeta(p)));
+        lista.replaceChildren(frag);
+      }
+
+      /* ============ PRECARGA (solo la siguiente, no todas) ============ */
+      function precargar(src) {
+        return new Promise((resolve) => {
+          const im = new Image();
+          im.decoding = 'async';
+          const timer = setTimeout(() => resolve(false), 6000);
+          im.onload = () => { clearTimeout(timer); resolve(true); };
+          im.onerror = () => { clearTimeout(timer); resolve(false); };
+          im.src = src;
+        });
       }
 
       /* ============ ESCENAS ============ */
@@ -537,6 +466,7 @@
         escenaPubli.setAttribute('aria-hidden', 'true');
         escenaMenu.classList.add('activa');
         escenaMenu.removeAttribute('aria-hidden');
+        capa.style.backgroundImage = '';   // libera la imagen de publicidad
       }
 
       async function mostrarPubli() {
@@ -555,46 +485,16 @@
         }
         if (!src) return false;
 
-        const siguiente = 1 - capaActual;
-        capas[siguiente].style.backgroundImage = `url('${src}')`;
-        capas[siguiente].classList.add('visible');
-        capas[capaActual].classList.remove('visible');
-        capaActual = siguiente;
-
+        capa.style.backgroundImage = `url('${src}')`;
         escenaMenu.classList.remove('activa');
         escenaMenu.setAttribute('aria-hidden', 'true');
         escenaPubli.classList.add('activa');
         escenaPubli.removeAttribute('aria-hidden');
+
+        // deja lista la siguiente mientras esta se muestra
+        const l2 = listaPublicidad();
+        precargar(l2[indicePubli % l2.length]);
         return true;
-      }
-
-      const cacheImg = {};
-      function precargar(src) {
-        if (!cacheImg[src]) {
-          cacheImg[src] = new Promise((resolve) => {
-            const im = new Image();
-            const timer = setTimeout(() => {
-              delete cacheImg[src];
-              resolve(false);
-            }, 6000);
-
-            im.onload = () => {
-              clearTimeout(timer);
-              resolve(true);
-            };
-            im.onerror = () => {
-              clearTimeout(timer);
-              delete cacheImg[src];
-              resolve(false);
-            };
-            im.src = src;
-          });
-        }
-        return cacheImg[src];
-      }
-
-      function precargarImagenes() {
-        [...PUBLI_ANTES, PERROS, ...PUBLI_DESPUES].forEach(precargar);
       }
 
       /* ============ CICLO PRINCIPAL ============ */
@@ -631,7 +531,6 @@
         }
       }
 
-      precargarImagenes();
       ciclo();
     })();
   </script>

@@ -30,7 +30,7 @@
         font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
       }
 
-      /* ===== Logo arriba a la izquierda ===== */
+      /* ===== Logo arriba a la izquierda (sin fade, sin sombra) ===== */
       #logo {
         position: absolute;
         top: 2vh;
@@ -38,11 +38,9 @@
         width: 22vw;
         height: auto;
         z-index: 5;
-        opacity: 0;
-        transition: opacity .6s ease;
-        filter: drop-shadow(0 .4vh .8vh rgba(0, 0, 0, .5));
+        visibility: hidden;
       }
-      #logo.visible { opacity: 1; }
+      #logo.visible { visibility: visible; }
 
       /* ===== Contenedor de las barras ===== */
       /* Se usa !important para ganarle a cualquier regla vieja de styles.css */
@@ -63,12 +61,12 @@
         left: 7.8vw !important;
         right: auto !important;
         bottom: auto !important;
-        width: 84.5vw !important;          /* 100vw - 7.8vw - 7.7vw */
+        width: 84.5vw !important;
         max-width: none !important;
         height: auto !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: stretch !important;   /* cada barra ocupa todo el ancho */
+        align-items: stretch !important;
         justify-content: flex-start !important;
         gap: 2.6vh !important;
         margin: 0 !important;
@@ -76,12 +74,12 @@
         transform: none !important;
       }
 
-      /* ===== Cada barra ===== */
+      /* ===== Cada barra (sin blur ni sombra; fondo un poco mas opaco) ===== */
       #gourmet .listaProductos .producto {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: space-between !important;  /* nombre izquierda, precio derecha */
+        justify-content: space-between !important;
         align-self: stretch !important;
         width: 100% !important;
         height: 9.4vh !important;
@@ -89,10 +87,16 @@
         padding: 0 2.4vw !important;
         box-sizing: border-box !important;
         border-radius: 999px !important;
-        background: linear-gradient(90deg, rgba(25, 25, 25, .78), rgba(55, 55, 55, .62)) !important;
-        -webkit-backdrop-filter: blur(2px);
-        backdrop-filter: blur(2px);
-        box-shadow: 0 .6vh 1.6vh rgba(0, 0, 0, .35) !important;
+        background: linear-gradient(90deg, rgba(25, 25, 25, .85), rgba(55, 55, 55, .75)) !important;
+        box-shadow: none !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        animation: none !important;
+        transition: none !important;
+        /* styles.css probablemente las deja en opacity:0 esperando a GSAP */
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
       }
 
       #gourmet .listaProductos .nombreProducto,
@@ -119,14 +123,14 @@
 
   <body>
     <main id="gourmet">
-      <img id="logo" src="./LogoGalerias-removebg-preview.png" alt="Galería Hipermarket" />
+      <img id="logo" src="./LogoGalerias-removebg-preview.png" alt="Galería Hipermarket" decoding="async" />
 
       <section class="listas">
         <div class="listaProductos"></div>
       </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- GSAP eliminado: ya no hay animaciones -->
 
     <script>
     (function () {
@@ -135,18 +139,17 @@
       /* ============ CONFIGURACIÓN ============ */
       var CONFIG = {
         json: './lib/menu.json',
-        menuMs: 35000,        // tiempo que se muestra el menú
-        publiMs: 35000,       // tiempo que se muestra cada publicidad
-        publiPorTurno: 4,     // publicidades seguidas antes de volver al menú
-        porPantalla: 5,       // productos por pantalla del menú
-        avance: 4             // cuántos productos avanza cada vez (como el original)
+        menuMs: 35000,
+        publiMs: 35000,
+        publiPorTurno: 4,
+        porPantalla: 5,
+        avance: 4
       };
 
       var FONDO_MENU = './otono/MENU.webp';
+      var LOGO = './LogoGalerias-removebg-preview.png';
 
-      // ===== LISTA DE PUBLICIDADES =====
-      // Para agregar una foto nueva, solo añade una línea aquí
-      // (la imagen debe estar en ./publicidad/).
+      // Para agregar una foto nueva, añade una línea aquí (imagen en ./publicidad/).
       // null = papas fritas (antes de las 3pm) o perros (después de las 3pm)
       var publicidades = [
         'SANDWICHPOLLO.webp',
@@ -158,7 +161,7 @@
         //'TEQUENOS.WEBP',
         'COMIDA.webp',
         'WAFFLE.webp',
-        
+
         'PAPASFRITAS.webp',
         null,                       // papas fritas o perros según la hora
         'CALIFORNIAROLL.webp',
@@ -171,36 +174,23 @@
       var listaEl = document.querySelector('.listaProductos');
       var logo = document.getElementById('logo');
 
-      var contador = 0;          // posición actual dentro del menú
-      var cpublicidad = 1;       // posición actual dentro de la lista de publicidades
-      var datosMenu = null;      // último menú cargado correctamente
+      var contador = 0;
+      var cpublicidad = 1;
+      var datosMenu = null;
+      var firmaPintada = '';
 
       function esperar(ms) {
         return new Promise(function (r) { setTimeout(r, ms); });
       }
 
-      /* ============ PRECARGA DE IMÁGENES ============ */
-      var cacheImagenes = {};
-
+      /* ============ PRECARGA (solo lo que viene después) ============ */
       function precargar(src) {
-        if (!cacheImagenes[src]) {
-          cacheImagenes[src] = new Promise(function (resolve) {
-            var im = new Image();
-            im.onload = function () { resolve(true); };
-            im.onerror = function () { resolve(false); };
-            im.src = src;
-          });
-        }
-        return cacheImagenes[src];
-      }
-
-      function precargarTodas() {
-        precargar(FONDO_MENU);
-        precargar('./LogoGalerias-removebg-preview.png');
-        precargar('./publicidad/PAPASFRITAS.webp');
-        precargar('./publicidad/perros.webp');
-        publicidades.forEach(function (img) {
-          if (img) precargar('./publicidad/' + img);
+        return new Promise(function (resolve) {
+          var im = new Image();
+          im.decoding = 'async';
+          im.onload = function () { resolve(true); };
+          im.onerror = function () { resolve(false); };
+          im.src = src;
         });
       }
 
@@ -213,14 +203,6 @@
           console.warn('No se pudo cargar la imagen:', src);
         }
         return ok;
-      }
-
-      /* ============ ANIMACIÓN DE PRODUCTOS ============ */
-      function loadAnimation() {
-        gsap.fromTo(".listaProductos .producto",
-          { opacity: 0 },
-          { opacity: 1, duration: 0.6, stagger: 0.15, overwrite: true }
-        );
       }
 
       /* ============ MENÚ ============ */
@@ -251,14 +233,14 @@
                   "</div><div class='precioProducto'>" + p.precio + "</div></div>";
         });
 
-        // Fondo, logo y productos aparecen juntos
+        // Fondo, logo y productos aparecen juntos, de golpe
         await ponerFondo(FONDO_MENU);
-        await precargar('./LogoGalerias-removebg-preview.png');
-        listaEl.innerHTML = html;
+        if (html !== firmaPintada) {
+          listaEl.innerHTML = html;
+          firmaPintada = html;
+        }
         logo.classList.add('visible');
-        loadAnimation();
 
-        // avanzar para la próxima vez (misma lógica del original)
         if (contador >= menu.length - CONFIG.porPantalla) {
           contador = 0;
         } else {
@@ -268,49 +250,61 @@
       }
 
       /* ============ PUBLICIDAD ============ */
-      function siguientePublicidad() {
-        var img = publicidades[cpublicidad - 1];
+      function srcPublicidad(pos) {
+        var img = publicidades[pos - 1];
         if (img === null) {
           img = new Date().getHours() < 15 ? 'PAPASFRITAS.webp' : 'perros.webp';
         }
-        cpublicidad = (cpublicidad % publicidades.length) + 1;
         return './publicidad/' + img;
       }
 
       async function mostrarPublicidad() {
-        var src = siguientePublicidad();
+        var src = srcPublicidad(cpublicidad);
+        cpublicidad = (cpublicidad % publicidades.length) + 1;
+
         var ok = await ponerFondo(src);
         if (ok) {
-          listaEl.innerHTML = '';             // se limpia la lista solo cuando la foto ya está puesta
-          logo.classList.remove('visible');   // el logo solo se ve con el menú
+          listaEl.innerHTML = '';     // vacía el DOM de la lista mientras se ve la publicidad
+          firmaPintada = '';
+          logo.classList.remove('visible');
         }
         return ok;
       }
 
       /* ============ CICLO PRINCIPAL ============ */
       async function ciclo() {
-        while (true) {
-          // 1) Menú
-          var hayMenu = await mostrarMenu();
-          if (!hayMenu) {
-            await esperar(5000);
-            continue;
-          }
-          await esperar(CONFIG.menuMs);
+        precargar(FONDO_MENU);
+        precargar(LOGO);
 
-          // 2) Varias publicidades seguidas
-          for (var k = 0; k < CONFIG.publiPorTurno; k++) {
-            var ok = await mostrarPublicidad();
-            if (ok) await esperar(CONFIG.publiMs);   // si la imagen no existe, se salta
+        while (true) {
+          try {
+            // 1) Menú
+            var hayMenu = await mostrarMenu();
+            if (!hayMenu) {
+              await esperar(5000);
+              continue;
+            }
+            precargar(srcPublicidad(cpublicidad));   // deja lista la próxima publicidad
+            await esperar(CONFIG.menuMs);
+
+            // 2) Varias publicidades seguidas
+            for (var k = 0; k < CONFIG.publiPorTurno; k++) {
+              var ok = await mostrarPublicidad();
+              // precarga lo siguiente: otra publicidad, o el fondo del menú si es la última
+              precargar(k < CONFIG.publiPorTurno - 1 ? srcPublicidad(cpublicidad) : FONDO_MENU);
+              if (ok) await esperar(CONFIG.publiMs);
+            }
+          } catch (err) {
+            console.warn('Error en el ciclo:', err);
+            await esperar(5000);
           }
         }
       }
 
-      precargarTodas();
       ciclo();
     })();
     </script>
-  
+
   <!-- Mural sincronizado: TV 1 de 4 -->
   <script src="./mural-sync.js" data-col="0" data-fila="0"></script>
 </body>
